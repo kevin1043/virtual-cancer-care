@@ -1,14 +1,17 @@
 <!DOCTYPE html>
+{% load staticfiles %}
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Virtual Cancer</title>
-    <link rel=¨stylesheet¨ type=¨text/css¨ href="css/style.css">
+    <title>Virtual Cancer care</title>
+    <link rel=¨stylesheet¨ type=¨text/css¨ href="{% static "css/style.css" %}"/>
   </head>
   <body>
-    <!-- Navbar -->
+    <!-- tagelement for integrating index.html with django -->
+    {{insert_index}}
+    <!-- Navbar -->    
     <nav>
       <a>
         <h1>Virtual Cancer Care</h1>
@@ -219,6 +222,6 @@
 
 
     <!-- js file integrate -->
-    <script src="js/main.js"></script>
+    <!-- <script src="js/main.js"></script> -->
   </body>
 </html>
