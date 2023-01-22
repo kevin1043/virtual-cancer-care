@@ -1,38 +1,50 @@
 <!DOCTYPE html>
-{% load staticfiles %}
+{% load static %}
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Virtual Cancer care</title>
-    <link rel=¨stylesheet¨ type=¨text/css¨ href="{% static "css/style.css" %}"/>
+    <title>Virtual Cancer Care</title>
+    
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    <script src="{% static 'js/main.js' %}"></script>
+    <!-- bootstrap link CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    
   </head>
   <body>
     <!-- tagelement for integrating index.html with django -->
-    {{insert_index}}
     <!-- Navbar -->    
-    <nav>
-      <a>
-        <h1>Virtual Cancer Care</h1>
-      </a>
-      <div>
-        <div>
-            <a href="" class="">Home</a>
-                <a href="" class="">About</a>
-                <a href="" class="">Service</a>
-                <div class="">
-                    <a href="#" class="" data-bs-toggle="dropdown">Features</a>
-                    <div class="">
-                        <a href="" class="">Lung Cancer Prediction</a>
-                        <a href="" class="">Breast Cancer Prediction</a>
-                        <a href="" class="">Lukemia Prediction</a>
-                    </div>
-                    <a href="" class="">Contact</a>
-                    <a></a> 
+    <nav class="navbar">
+        <div class="nav-container">
+          <div class="nav-header">
+            <div class="logo">
+              <!-- Logo -->
+              <a href="#">Virtual Cancer Care</a>
+            </div>
+          </div>
+          <input type="checkbox" id="menu-toggle">
+          <label for="menu-toggle" class="menu-show"><i class="fa fa-bars"></i></label>
+          <div class="nav">
+            <ul class="nav-links">
+              <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
+              <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+              <li class="nav-item has-dropdown">
+                <a href="#" class="nav-link">Features</a>
+                <ul class="dropdown-menu">
+                  <li class="nav-item"><a class="nav-link" href="#">Lung Cancer Prediction</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#">Breast Cancer Prediction</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#">Lukemia Prediction</a></li>
+                </ul>
+              </li>
+              <li class="nav-item"><a href="#" class="nav-link">News/Blog</a></li>
+              <li class="nav-item"><a href="#" class="nav-link">Contact Us</a></li>
+              <label for="menu-toggle" class="menu-hide"><i class="fa fa-times"></i></label>
+            </ul>
+          </div>
         </div>
-      </div>
-    </nav>
+      </nav>
     <!-- Navbar ends -->
     <!-- Homepage bg -->
     <div>
@@ -220,8 +232,9 @@
     </div>
     <!-- footer ends -->
 
-
-    <!-- js file integrate -->
-    <!-- <script src="js/main.js"></script> -->
-  </body>
+<!-- bootstrap link jquery -->
+<!-- <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script> -->
+<!-- bootstrap link js -->
+<!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script> -->
+</body>
 </html>
