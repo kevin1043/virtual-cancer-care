@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Virtual Cancer Care</title>
+    
+    <link rel="stylesheet" type="text/css" href="{% static "css/styles.css" %}"/>
+    <script src="{% static 'js/main.js' %}"></script>
+    <!-- bootstrap link CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    
+  </head>
+  <body>
+    <!-- tagelement for integrating index.html with django -->
+    <!-- Navbar -->    
+    <nav class="navbar">
+        <div class="nav-container">
+          <div class="nav-header">
+            <div class="logo">
+              <!-- Logo -->
+              <a href="#">Virtual Cancer Care</a>
+            </div>
+          </div>
+          <input type="checkbox" id="menu-toggle">
+          <label for="menu-toggle" class="menu-show"><i class="fa fa-bars"></i></label>
+          <div class="nav">
+            <ul class="nav-links">
+              <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
+              <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+              <li class="nav-item has-dropdown">
+                <a href="#" class="nav-link">Features</a>
+                <ul class="dropdown-menu">
+                  <li class="nav-item"><a class="nav-link" href="#">Lung Cancer Prediction</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#">Breast Cancer Prediction</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#">Lukemia Prediction</a></li>
+                </ul>
+              </li>
+              <li class="nav-item"><a href="#" class="nav-link">News/Blog</a></li>
+              <li class="nav-item"><a href="#" class="nav-link">Contact Us</a></li>
+              <label for="menu-toggle" class="menu-hide"><i class="fa fa-times"></i></label>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    <!-- Navbar ends -->
+    <!-- Homepage bg -->
+    <div>
+        <h1>Why Choose us?</h1>
+        <a>Contact us</a>
+        <a>About us</a>
+    </div>
+    <!-- Homepage bg ends -->
+    <!-- About start -->
+    <div>
+        <img>
+    </div>
+    <div>
+        <h4>About us</h4>
+        <h1>we provide predictions</h1>
+    </div>
+    <div>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+    </div>
+    <!-- About end -->
+    <!-- Features start -->
+        <div> <!-- container !--> 
+            <div> 
+                <h2>Features</h2>
+                <h1>YOU MUST TRY!!</h1>
+            </div>
+            <div>
+                <div>
+                    <div>
+                        <h2>Lung Cancer</h2>
+                        <h3>Prediction</h3>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,</p>
+                        <a href="">Visit once!</a>
+                    </div>
+                    <div>
+                        <h2>Breast Cancer</h2>
+                        <h3>Prediction</h3>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,</p>
+                        <a href="">Visit once!</a>
+                    </div>
+                    <div>
+                        <h3>Lukemia Cancer</h3>
+                        <h3>Prediction</h3>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,</p>
+                        <a href="">Visit once!</a>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- container ends !--> 
+    <!-- Features end -->
+
+    <!-- Feedback -->
+      <div>
+        <div>
+            <div>
+                <h5>
+                    Happy Customers!
+                </h5>
+                <h1>
+                    Reviews about services
+                </h1>
+            </div>
+            <div>
+                <div>
+                    <img>
+                    <div>
+                        <p>
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,
+                        </p>
+                        <h4>
+                            username1
+                        </h4>
+                    </div>
+                </div>
+                <div>
+                    <img>
+                    <div>
+                        <p>
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,
+                        </p>
+                        <h4>
+                            username2
+                        </h4>
+                    </div>
+                </div>
+                <div>
+                    <img>
+                    <div>
+                        <p>
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,
+                        </p>
+                        <h4>
+                            username3
+                        </h4>
+                    </div>
+                </div>
+                <div>
+                    <img>
+                    <div>
+                        <p>
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,
+                        </p>
+                        <h4>
+                            username4
+                        </h4>
+                    </div>
+                </div
+
+            </div>
+        </div>
+      </div>  
+    <!-- Feedback ends -->
+    <!-- Blog starts -->
+    <div>
+        <div>
+            <div>
+                <h5>
+                    BLOG POST
+                </h5>
+                <h1>
+                    Latest Articles From our Blog Post
+                </h1>
+            </div>
+            <div>
+                <img>    
+                    <div>
+                        <h5>       
+                            01
+                        </h5>
+                        <h6>
+                            Jan
+                        </h6>
+                    </div>
+                <div>
+                    <img>
+                    <div>
+                        <h5>
+                            01
+                        </h5>
+                        <h6>
+                            Jan
+                        </h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Blog ends -->
+    <!-- footer -->
+    <div>
+        <div>
+            <div>
+                <div>
+                    <h3>
+                        Quick Links
+                    </h3>
+                </div>
+                <div>
+                        <h3>
+                            About us
+                        </h3>
+                        <p>xyz street,pqr,123455</p>
+                        <p>pqr@gmail.com</p>
+                        <p>087345632</p>
+                </div>
+                <div>
+                    <h3>
+                        Follow us on Socil Media
+                    </h3>
+                    <div>
+                        <a>insta</a>
+                        <a>linedin</a>
+                        <a>twitter</a>
+                    </div>
+                    <div>
+                        <h3>Register now?</h3>
+                        <form>
+                            <input>
+                            <Button>Register</Button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- footer ends -->
+
+<!-- bootstrap link jquery -->
+<!-- <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script> -->
+<!-- bootstrap link js -->
+<!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script> -->
+</body>
+</html>

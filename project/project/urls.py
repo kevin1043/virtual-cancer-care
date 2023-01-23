@@ -17,8 +17,11 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url
 from django.conf.urls import include
-
+from django.conf import settings
+from django.conf.urls.static import static
+from vcc_app import views
 urlpatterns = [
-    path('', include('vcc_app.urls')),
+    path('', views.index, name='index'),
+    path('vcc_app/', include('vcc_app.urls')),
     path('admin/', admin.site.urls),
 ]
