@@ -12,3 +12,16 @@ def index(request):
 def log(request):
     template_name = {'insert_index': ""}
     return render(request, 'vcc_app/login.html', context=template_name)
+
+def bcancer(request):
+    template_name = {'insert_index': ""}
+    return render(request, 'vcc_app/breast_cancer.html', context=template_name)
+
+def lung(request):
+    template_name = {'insert_index': ""}
+    return render(request, 'vcc_app/lung.html', context=template_name)
+
+def leukemia(request):
+    template_name = {'insert_index': ""}
+    return render(request, 'vcc_app/leukemia.html', context=template_name)
+
