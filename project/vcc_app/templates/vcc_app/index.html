@@ -3,238 +3,772 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Webpage Title -->
     <title>Virtual Cancer Care</title>
-    
-    <link rel="stylesheet" type="text/css" href="{% static "css/styles.css" %}"/>
-    <script src="{% static 'js/main.js' %}"></script>
-    <!-- bootstrap link CDN -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    
+
+    <!-- Styles -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/fontawesome-all.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/aos.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/swiper.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="./assets/images/favicon.png" />
   </head>
   <body>
-    <!-- tagelement for integrating index.html with django -->
-    <!-- Navbar -->    
-    <nav class="navbar">
-        <div class="nav-container">
-          <div class="nav-header">
-            <div class="logo">
-              <!-- Logo -->
-              <a href="#">Virtual Cancer Care</a>
+    <!-- Navigation -->
+    <nav
+      id="navbar"
+      class="navbar navbar-expand-lg fixed-top navbar-dark"
+      aria-label="Main navigation"
+    >
+      <div class="container">
+        <!-- Image Logo -->
+        <!-- <a class="navbar-brand logo-image" href="index.html"><img src="images/logo.svg" alt="alternative"></a> -->
+
+        <!-- Text Logo - Use this if you don't have a graphic logo -->
+        <a class="navbar-brand logo-text" href="index.html"
+          >Virtual Cancer Care</a
+        >
+
+        <button
+          class="navbar-toggler p-0 border-0"
+          type="button"
+          id="navbarSideCollapse"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div
+          class="navbar-collapse offcanvas-collapse"
+          id="navbarsExampleDefault"
+        >
+          <ul class="navbar-nav ms-auto navbar-nav-scroll">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#header"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About</a>
+            </li>
+            <!-- <li class="nav-item">
+                        <a class="nav-link" href="#services">Tools</a>
+                    </li> -->
+            <li class="nav-item">
+              <a class="nav-link" href="#Blog/News">Blog/News</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                id="dropdown01"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                href="#"
+                >Tools</a
+              >
+
+              <ul class="dropdown-menu" aria-labelledby="dropdown01">
+                <li>
+                  <a class="dropdown-item" href="leukemia.html"
+                    >Leukemia Cancer Prediction Tool</a
+                  >
+                </li>
+                <li><div class="dropdown-divider"></div></li>
+                <li>
+                  <a class="dropdown-item" href="breast_cancer.html"
+                    >Breast Cancer Prediction Tool</a
+                  >
+                </li>
+                <li><div class="dropdown-divider"></div></li>
+                <li>
+                  <a class="dropdown-item" href="lung.html"
+                    >Lung Cancer Precition Tool</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{% url 'log' %}">Login/Signup</a>
+            </li>
+          </ul>
+          </span>
+        </div>
+        <!-- end of navbar-collapse -->
+      </div>
+      <!-- end of container -->
+    </nav>
+    <!-- end of navbar -->
+    <!-- end of navigation -->
+
+    <!-- Home -->
+    <section class="home py-5 d-flex align-items-center" id="header">
+      <div class="container text-light py-5" data-aos="fade-right">
+        <h1 class="headline">
+          Best <span class="home_text">Prediction</span><br />based product For
+          You
+        </h1>
+        <p class="para para-light py-3">
+          Virtual cancer care is a website that consists of many features which
+          includes a lung cancer prediction tool, a classification tool for
+          leukaemia which concludes whether or not the image of a given cell is
+          malignant and a breast cancer prediction classification tool. Virtual
+          Cancer Care will also contain blog pages, a page dedicated to care for
+          a cancer patient and other amenities.
+        </p>
+
+        <div class="my-3">
+          <a class="btn" href="#Blog/News" style="color: aliceblue;">View Blog/News</a>
+        </div>
+      </div>
+      <!-- end of container -->
+    </section>
+    <!-- end of home -->
+
+    <!-- Information -->
+    <section class="information">
+      <div class="container-fluid">
+        <div class="row text-light">
+          <div
+            class="col-lg-4 text-center p-5"
+            data-aos="zoom-in"
+            onclick="location.href='leukemia.html';"
+          >
+            <i class="fas fa-tachometer-alt fa-3x p-2"></i>
+            <h4 class="py-3">Leukemia Prediction Model</h4>
+            <p class="para-light">
+              The leukmia model, on the other hand, will classify the image of a
+              blood cell as malignant or benign.
+            </p>
+          </div>
+          <div
+            class="col-lg-4 text-center p-5"
+            data-aos="zoom-in"
+            id="tool2"
+            onclick="location.href='leukemia.html';"
+          >
+            <i class="fas fa-clock fa-3x p-2"></i>
+            <h4 class="py-3">Breast Cancer Prediction Model</h4>
+            <p class="para-light">
+              Breast cancer tool will classify the sample tissue as cancerous or
+              non-cancerous.
+            </p>
+          </div>
+          <div
+            class="col-lg-4 text-center p-5 text-light"
+            data-aos="zoom-in"
+            id="tool3"
+            onclick="location.href='leukemia.html';"
+          >
+            <i class="fas fa-headset fa-3x p-2"></i>
+            <h4 class="py-3">Lung Cancer Prediction Model</h4>
+            <p class="para-light">
+              Lung cancer prediction will result in an output of whether the
+              chances of cancer are high, medium or low.
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- end of container -->
+    </section>
+    <!-- end of information -->
+
+    <!-- About -->
+    <section class="about d-flex align-items-center text-light py-5" id="about">
+      <div class="container">
+        <div class="row d-flex align-items-center">
+          <div class="col-lg-7" data-aos="fade-right">
+            <p>ABOUT US</p>
+            <h1>
+              We are top internet <br />
+              service company
+            </h1>
+            <p class="py-2 para-light">
+              This website will contain predictions for lung cancer, breast cancer and leukemia. Lung cancer prediction will result in an output of whether the chances of cancer are high, medium or low. Breast cancer tool will  classify the sample tissue as cancerous or non-cancerous. The leukmia model, on the other hand, will classify the image of a blood cell as malignant or benign.
+            </p>
+            <div class="my-3">
+              <a class="btn" href="#your-link">Learn More</a>
             </div>
           </div>
-          <input type="checkbox" id="menu-toggle">
-          <label for="menu-toggle" class="menu-show"><i class="fa fa-bars"></i></label>
-          <div class="nav">
-            <ul class="nav-links">
-              <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
-              <li class="nav-item"><a href="#" class="nav-link">About</a></li>
-              <li class="nav-item has-dropdown">
-                <a href="#" class="nav-link">Features</a>
-                <ul class="dropdown-menu">
-                  <li class="nav-item"><a class="nav-link" href="#">Lung Cancer Prediction</a></li>
-                  <li class="nav-item"><a class="nav-link" href="#">Breast Cancer Prediction</a></li>
-                  <li class="nav-item"><a class="nav-link" href="#">Lukemia Prediction</a></li>
-                </ul>
-              </li>
-              <li class="nav-item"><a href="#" class="nav-link">News/Blog</a></li>
-              <li class="nav-item"><a href="#" class="nav-link">Contact Us</a></li>
-              <label for="menu-toggle" class="menu-hide"><i class="fa fa-times"></i></label>
-            </ul>
+          <div class="col-lg-5 text-center py-4 py-sm-0" data-aos="fade-down">
+            <img
+              class="img-fluid"
+              src="./assets/images/about.jpg"
+              alt="about"
+            />
           </div>
         </div>
-      </nav>
-    <!-- Navbar ends -->
-    <!-- Homepage bg -->
-    <div>
-        <h1>Why Choose us?</h1>
-        <a>Contact us</a>
-        <a>About us</a>
-    </div>
-    <!-- Homepage bg ends -->
-    <!-- About start -->
-    <div>
-        <img>
-    </div>
-    <div>
-        <h4>About us</h4>
-        <h1>we provide predictions</h1>
-    </div>
-    <div>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-    </div>
-    <!-- About end -->
-    <!-- Features start -->
-        <div> <!-- container !--> 
-            <div> 
-                <h2>Features</h2>
-                <h1>YOU MUST TRY!!</h1>
-            </div>
-            <div>
-                <div>
-                    <div>
-                        <h2>Lung Cancer</h2>
-                        <h3>Prediction</h3>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,</p>
-                        <a href="">Visit once!</a>
-                    </div>
-                    <div>
-                        <h2>Breast Cancer</h2>
-                        <h3>Prediction</h3>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,</p>
-                        <a href="">Visit once!</a>
-                    </div>
-                    <div>
-                        <h3>Lukemia Cancer</h3>
-                        <h3>Prediction</h3>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,</p>
-                        <a href="">Visit once!</a>
-                    </div>
-                </div>
-            </div>
-        </div> <!-- container ends !--> 
-    <!-- Features end -->
+        <!-- end of row -->
+      </div>
+      <!-- end of container -->
+    </section>
+    <!-- end of about -->
 
-    <!-- Feedback -->
-      <div>
-        <div>
-            <div>
-                <h5>
-                    Happy Customers!
-                </h5>
-                <h1>
-                    Reviews about services
-                </h1>
-            </div>
-            <div>
-                <div>
-                    <img>
-                    <div>
-                        <p>
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,
-                        </p>
-                        <h4>
-                            username1
-                        </h4>
-                    </div>
-                </div>
-                <div>
-                    <img>
-                    <div>
-                        <p>
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,
-                        </p>
-                        <h4>
-                            username2
-                        </h4>
-                    </div>
-                </div>
-                <div>
-                    <img>
-                    <div>
-                        <p>
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,
-                        </p>
-                        <h4>
-                            username3
-                        </h4>
-                    </div>
-                </div>
-                <div>
-                    <img>
-                    <div>
-                        <p>
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,
-                        </p>
-                        <h4>
-                            username4
-                        </h4>
-                    </div>
-                </div
+    <!-- Blog/News -->
+    <section class="Blog/News d-flex align-items-center py-5" id="Blog/News">
+      <div class="container text-dark">
+        <div class="text-center pb-4">
+          <p>OUR Blog/News</p>
+          <h2 class="py-2">Explore unlimited possibilities</h2>
+          <p class="para-light">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae
+            asperiores, quia accusantium sunt corporis optio recusandae? Nostrum
+            libero pariatur cumque, ipsa dolores voluptatibus voluptate alias
+            sit fuga. Itaque, ea quo.
+          </p>
+        </div>
+        <div class="row gy-4" data-aos="zoom-in">
+          <div class="col-lg-4">
+            <div class="card bg-transparent px-4">
+              <p class="py-3">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              </p>
+              <div class="block d-flex align-items-center">
+                <p class="pe-2"><i class="far fa-check-circle fa-1x"></i></p>
+                <p>Lorem ipsum dolor sit amet.</p>
+              </div>
+              <div class="block d-flex align-items-center">
+                <p class="pe-2"><i class="far fa-check-circle fa-1x"></i></p>
+                <p>Lorem ipsum dolor sit amet.</p>
+              </div>
+              <div class="block d-flex align-items-center">
+                <p class="pe-2"><i class="far fa-check-circle fa-1x"></i></p>
+                <p>Lorem ipsum dolor sit amet.</p>
+              </div>
+              <div class="block d-flex align-items-center">
+                <p class="pe-2"><i class="far fa-check-circle fa-1x"></i></p>
+                <p>Lorem ipsum dolor sit amet.</p>
+              </div>
 
+              <div class="my-3">
+                <a class="btn" href="#your-link">View Blog/News</a>
+              </div>
             </div>
-        </div>
-      </div>  
-    <!-- Feedback ends -->
-    <!-- Blog starts -->
-    <div>
-        <div>
-            <div>
-                <h5>
-                    BLOG POST
-                </h5>
-                <h1>
-                    Latest Articles From our Blog Post
-                </h1>
-            </div>
-            <div>
-                <img>    
-                    <div>
-                        <h5>       
-                            01
-                        </h5>
-                        <h6>
-                            Jan
-                        </h6>
-                    </div>
-                <div>
-                    <img>
-                    <div>
-                        <h5>
-                            01
-                        </h5>
-                        <h6>
-                            Jan
-                        </h6>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Blog ends -->
-    <!-- footer -->
-    <div>
-        <div>
-            <div>
-                <div>
-                    <h3>
-                        Quick Links
-                    </h3>
-                </div>
-                <div>
-                        <h3>
-                            About us
-                        </h3>
-                        <p>xyz street,pqr,123455</p>
-                        <p>pqr@gmail.com</p>
-                        <p>087345632</p>
-                </div>
-                <div>
-                    <h3>
-                        Follow us on Socil Media
-                    </h3>
-                    <div>
-                        <a>insta</a>
-                        <a>linedin</a>
-                        <a>twitter</a>
-                    </div>
-                    <div>
-                        <h3>Register now?</h3>
-                        <form>
-                            <input>
-                            <Button>Register</Button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- footer ends -->
+          </div>
 
-<!-- bootstrap link jquery -->
-<!-- <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script> -->
-<!-- bootstrap link js -->
-<!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script> -->
-</body>
+          <div class="col-lg-4">
+            <div class="card bg-transparent px-4">
+              <p class="py-3">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              </p>
+              <div class="block d-flex align-items-center">
+                <p class="pe-2"><i class="far fa-check-circle fa-1x"></i></p>
+                <p>Lorem ipsum dolor sit amet.</p>
+              </div>
+              <div class="block d-flex align-items-center">
+                <p class="pe-2"><i class="far fa-check-circle fa-1x"></i></p>
+                <p>Lorem ipsum dolor sit amet.</p>
+              </div>
+              <div class="block d-flex align-items-center">
+                <p class="pe-2"><i class="far fa-check-circle fa-1x"></i></p>
+                <p>Lorem ipsum dolor sit amet.</p>
+              </div>
+              <div class="block d-flex align-items-center">
+                <p class="pe-2"><i class="far fa-check-circle fa-1x"></i></p>
+                <p>Lorem ipsum dolor sit amet.</p>
+              </div>
+
+              <div class="my-3">
+                <a class="btn" href="#your-link">View Blog/News</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4">
+            <div class="card bg-transparent px-4">
+              <p class="py-3">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              </p>
+              <div class="block d-flex align-items-center">
+                <p class="pe-2"><i class="far fa-check-circle fa-1x"></i></p>
+                <p>Lorem ipsum dolor sit amet.</p>
+              </div>
+              <div class="block d-flex align-items-center">
+                <p class="pe-2"><i class="far fa-check-circle fa-1x"></i></p>
+                <p>Lorem ipsum dolor sit amet.</p>
+              </div>
+              <div class="block d-flex align-items-center">
+                <p class="pe-2"><i class="far fa-check-circle fa-1x"></i></p>
+                <p>Lorem ipsum dolor sit amet.</p>
+              </div>
+              <div class="block d-flex align-items-center">
+                <p class="pe-2"><i class="far fa-check-circle fa-1x"></i></p>
+                <p>Lorem ipsum dolor sit amet.</p>
+              </div>
+
+              <div class="my-3">
+                <a class="btn" href="#your-link">View Blog/News</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- end of row -->
+      </div>
+      <!-- end of container -->
+    </section>
+    <!-- end of Blog/News -->
+    <!-- Testimonials -->
+    <div class="slider-1 testimonial text-light d-flex align-items-center">
+      <div class="container">
+        <div class="row">
+          <div class="text-center w-lg-75 m-auto pb-4">
+            <p>TESTIMONIALS</p>
+            <h2 class="py-2">What Our Clients Says</h2>
+            <p class="para-light">
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Adipisci
+              esse facilis vel, neque ipsa mollitia impedit, commodi ab illo
+              dignissimos, voluptatum quae amet sed tenetur dolores
+              reprehenderit laudantium quo sint.
+            </p>
+          </div>
+        </div>
+        <!-- end of row -->
+        <div class="row p-2" data-aos="zoom-in">
+          <div class="col-lg-12">
+            <!-- Card Slider -->
+            <div class="slider-container">
+              <div class="swiper-container card-slider">
+                <div class="swiper-wrapper">
+                  <!-- Slide -->
+                  <div class="swiper-slide">
+                    <div class="testimonial-card p-4">
+                      <p>
+                        Lorem ipsum dolor, sit amet consectetur adipisicing
+                        elit. Laboriosam commodi officia laborum qui iste
+                        quidem!
+                      </p>
+
+                      <div class="d-flex pt-4">
+                        <div>
+                          <img
+                            class="avatar"
+                            src="./assets/images/testimonial-1.jpg"
+                            alt="testimonial"
+                          />
+                        </div>
+                        <div class="ms-3 pt-2">
+                          <h6>Marlene Visconte</h6>
+                          <p>General Manager - Scouter</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- end of swiper-slide -->
+                  <!-- end of slide -->
+
+                  <!-- Slide -->
+                  <div class="swiper-slide">
+                    <div class="testimonial-card p-4">
+                      <p>
+                        Lorem ipsum dolor, sit amet consectetur adipisicing
+                        elit. Laboriosam commodi officia laborum qui iste
+                        quidem!
+                      </p>
+                      <div class="d-flex pt-4">
+                        <div>
+                          <img
+                            class="avatar"
+                            src="./assets/images/testimonial-2.jpg"
+                            alt="testimonial"
+                          />
+                        </div>
+                        <div class="ms-3 pt-2">
+                          <h6>John Spiker</h6>
+                          <p>Team Leader - Vanquish</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- end of swiper-slide -->
+                  <!-- end of slide -->
+
+                  <!-- Slide -->
+                  <div class="swiper-slide">
+                    <div class="testimonial-card p-4">
+                      <p>
+                        Lorem ipsum dolor, sit amet consectetur adipisicing
+                        elit. Laboriosam commodi officia laborum qui iste
+                        quidem!
+                      </p>
+                      <div class="d-flex pt-4">
+                        <div>
+                          <img
+                            class="avatar"
+                            src="./assets/images/testimonial-3.jpg"
+                            alt="testimonial"
+                          />
+                        </div>
+                        <div class="ms-3 pt-2">
+                          <h6>Stella Virtuoso</h6>
+                          <p>Design Chief - Upscale</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- end of swiper-slide -->
+                  <!-- end of slide -->
+
+                  <!-- Slide -->
+                  <div class="swiper-slide">
+                    <div class="testimonial-card p-4">
+                      <p>
+                        Lorem ipsum dolor, sit amet consectetur adipisicing
+                        elit. Laboriosam commodi officia laborum qui iste
+                        quidem!
+                      </p>
+                      <div class="d-flex pt-4">
+                        <div>
+                          <img
+                            class="avatar"
+                            src="./assets/images/testimonial-4.jpg"
+                            alt="testimonial"
+                          />
+                        </div>
+                        <div class="ms-3 pt-2">
+                          <p>Mike tim</p>
+                          <p>Investor - TechGroww</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- end of swiper-slide -->
+                  <!-- end of slide -->
+                </div>
+                <!-- end of swiper-wrapper -->
+
+                <!-- Add Arrows -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <!-- end of add arrows -->
+              </div>
+              <!-- end of swiper-container -->
+            </div>
+            <!-- end of slider-container -->
+            <!-- end of card slider -->
+          </div>
+          <!-- end of col -->
+        </div>
+        <!-- end of row -->
+      </div>
+      <!-- end of container -->
+    </div>
+    <!-- end of testimonials -->
+
+    <!-- Newsletter -->
+    <!-- <section class="newsletter text-light py-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 text-center text-lg-start" data-aos="fade-right">
+            <h4 class="py-1">Subscribe to our Newsletter</h4>
+            <p class="para-light">
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolor
+              deleniti nobis amet accusamus debitis facilis quibusdam officia
+              laborum nesciunt. Nihil.
+            </p>
+          </div>
+          <div class="col-lg-6 d-flex align-items-center" data-aos="fade-down">
+            <div class="input-group my-3">
+              <input
+                type="text"
+                class="form-control p-2"
+                placeholder="Enter your email address"
+                aria-label="Recipient's email"
+              />
+              <button class="btn-secondary text-light" type="button">
+                Subscribe
+              </button>
+            </div>
+          </div>
+        </div> -->
+    <!-- end of row -->
+    <!-- </div> -->
+    <!-- end of container -->
+    <!-- </section> -->
+    <!-- end of newsletter -->
+
+    <!-- Contact -->
+    <section class="contact d-flex align-items-center py-5" id="contact">
+      <div class="container-fluid text-light">
+        <div class="row">
+          <div
+            class="col-lg-6 d-flex justify-content-center justify-content-lg-end align-items-center px-lg-5"
+            data-aos="fade-right"
+          >
+            <div style="width: 90%">
+              <div class="text-center text-lg-start py-4 pt-lg-0">
+                <p>CONTACT</p>
+                <h2 class="py-2">Send your query</h2>
+                <p class="para-light">
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                  Dignissimos dicta mollitia totam explicabo obcaecati quia
+                  laudantium repudiandae.
+                </p>
+              </div>
+              <div>
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="form-group py-2">
+                      <input
+                        type="text"
+                        class="form-control form-control-input"
+                        id="exampleFormControlInput1"
+                        placeholder="Enter name"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="form-group py-2">
+                      <input
+                        type="email"
+                        class="form-control form-control-input"
+                        id="exampleFormControlInput2"
+                        placeholder="Enter phone number"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group py-1">
+                  <input
+                    type="email"
+                    class="form-control form-control-input"
+                    id="exampleFormControlInput3"
+                    placeholder="Enter email"
+                  />
+                </div>
+                <div class="form-group py-2">
+                  <textarea
+                    class="form-control form-control-input"
+                    id="exampleFormControlTextarea1"
+                    rows="6"
+                    placeholder="Message"
+                  ></textarea>
+                </div>
+              </div>
+              <div class="my-3">
+                <a class="btn form-control-submit-button" href="#your-link"
+                  >Submit</a
+                >
+              </div>
+            </div>
+            <!-- end of div -->
+          </div>
+          <!-- end of col -->
+          <div class="col-lg-6 d-flex align-items-center" data-aos="fade-down">
+            <img
+              class="img-fluid d-none d-lg-block"
+              src="./assets/images/contact.jpg"
+              alt="contact"
+            />
+          </div>
+          <!-- end of col -->
+        </div>
+        <!-- end of row -->
+      </div>
+      <!-- end of container -->
+    </section>
+    <!-- end of contact -->
+
+    <!-- Location -->
+    <section class="location text-light py-5">
+      <div class="container" data-aos="zoom-in">
+        <div class="row">
+          <div class="col-lg-3 d-flex align-items-center">
+            <div class="p-2"><i class="far fa-map fa-3x"></i></div>
+            <div class="ms-2">
+              <h6>ADDRESS</h6>
+              <p>Teuku Umar ST. 1919</p>
+            </div>
+          </div>
+          <div class="col-lg-3 d-flex align-items-center">
+            <div class="p-2"><i class="fas fa-mobile-alt fa-3x"></i></div>
+            <div class="ms-2">
+              <h6>CALL FOR QUERY</h6>
+              <p>(800) 265 216 2020</p>
+            </div>
+          </div>
+          <div class="col-lg-3 d-flex align-items-center">
+            <div class="p-2"><i class="far fa-envelope fa-3x"></i></div>
+            <div class="ms-2">
+              <h6>SEND US MESSAGE</h6>
+              <p>infodemofile@example.com</p>
+            </div>
+          </div>
+          <div class="col-lg-3 d-flex align-items-center">
+            <div class="p-2"><i class="far fa-clock fa-3x"></i></div>
+            <div class="ms-2">
+              <h6>OPENING HOURS</h6>
+              <p>09:00 AM - 18:00 PM</p>
+            </div>
+          </div>
+        </div>
+        <!-- end of row -->
+      </div>
+      <!-- end of container -->
+    </section>
+    <!-- end of location -->
+
+    <!-- Footer -->
+    <section class="footer text-light">
+      <div class="container">
+        <div class="row" data-aos="fade-right">
+          <div class="col-lg-3 py-4 py-md-5">
+            <div class="d-flex align-items-center">
+              <h4 class="">Mirko</h4>
+            </div>
+            <p class="py-3 para-light">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus
+              animi repudiandae explicabo esse maxime, impedit rem voluptatibus
+              amet error quas.
+            </p>
+            <div class="d-flex">
+              <div class="me-3">
+                <a href="#your-link">
+                  <i class="fab fa-facebook-f fa-2x py-2"></i>
+                </a>
+              </div>
+              <div class="me-3">
+                <a href="#your-link">
+                  <i class="fab fa-twitter fa-2x py-2"></i>
+                </a>
+              </div>
+              <div class="me-3">
+                <a href="#your-link">
+                  <i class="fab fa-instagram fa-2x py-2"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- end of col -->
+
+          <div class="col-lg-3 py-4 py-md-5">
+            <div>
+              <h4 class="py-2">Quick Links</h4>
+              <div class="d-flex align-items-center py-2">
+                <i class="fas fa-caret-right"></i>
+                <a href="#about"><p class="ms-3">About</p></a>
+              </div>
+              <div class="d-flex align-items-center py-2">
+                <i class="fas fa-caret-right"></i>
+                <a href="#"><p class="ms-3">Services</p></a>
+              </div>
+              <div class="d-flex align-items-center py-2">
+                <i class="fas fa-caret-right"></i>
+                <a href="#"><p class="ms-3">Blog/News</p></a>
+              </div>
+              <div class="d-flex align-items-center py-2">
+                <i class="fas fa-caret-right"></i>
+                <a href="#"><p class="ms-3">Contact</p></a>
+              </div>
+            </div>
+          </div>
+          <!-- end of col -->
+
+          <div class="col-lg-3 py-4 py-md-5">
+            <div>
+              <h4 class="py-2">Useful Links</h4>
+              <div class="d-flex align-items-center py-2">
+                <i class="fas fa-caret-right"></i>
+                <a href="lung.html"><p class="ms-3">Privacy</p></a>
+              </div>
+              <div class="d-flex align-items-center py-2">
+                <i class="fas fa-caret-right"></i>
+                <a href="breast_cancer.html"><p class="ms-3">Terms</p></a>
+              </div>
+              <div class="d-flex align-items-center py-2">
+                <i class="fas fa-caret-right"></i>
+                <a href="#your-link"><p class="ms-3">Disclaimer</p></a>
+              </div>
+              <div class="d-flex align-items-center py-2">
+                <i class="fas fa-caret-right"></i>
+                <a href="#your-link"><p class="ms-3">FAQ</p></a>
+              </div>
+            </div>
+          </div>
+          <!-- end of col -->
+
+          <div class="col-lg-3 py-4 py-md-5">
+            <div class="d-flex align-items-center">
+              <h4>Newsletter</h4>
+            </div>
+            <p class="py-3 para-light">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              Laboriosam, ab.
+            </p>
+            <div class="d-flex align-items-center">
+              <div class="input-group mb-3">
+                <input
+                  type="text"
+                  class="form-control p-2"
+                  placeholder="Enter Email"
+                  aria-label="Recipient's email"
+                />
+                <button class="btn-secondary text-light">
+                  <i class="fas fa-envelope fa-lg"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- end of col -->
+        </div>
+        <!-- end of row -->
+      </div>
+      <!-- end of container -->
+    </section>
+    <!-- end of footer -->
+
+    <!-- Bottom -->
+    <div class="bottom py-2 text-light">
+      <div class="container d-flex justify-content-between">
+        <div>
+          <p>Copyright © Your name</p>
+          <br />
+          <p>
+            Distributed by: <a href="https://themewagon.com/">Themewagon</a>
+          </p>
+        </div>
+        <div>
+          <i class="fab fa-cc-visa fa-lg p-1"></i>
+          <i class="fab fa-cc-mastercard fa-lg p-1"></i>
+          <i class="fab fa-cc-paypal fa-lg p-1"></i>
+          <i class="fab fa-cc-amazon-pay fa-lg p-1"></i>
+        </div>
+      </div>
+      <!-- end of container -->
+    </div>
+    <!-- end of bottom -->
+
+    <!-- Back To Top Button -->
+    <button onclick="topFunction()" id="myBtn">
+      <img src="assets/images/up-arrow.png" alt="alternative" />
+    </button>
+    <!-- end of back to top button -->
+
+    <!-- Scripts -->
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <!-- Bootstrap framework -->
+    <script src="{% static 'js/purecounter.min.js' %}"></script>
+    <!-- Purecounter counter for statistics numbers -->
+    <script src="{% static 'js/swiper.min.js' %}"></script>
+    <!-- Swiper for image and text sliders -->
+    <script src="{% static 'js/aos.js' %}"></script>
+    <!-- AOS on Animation Scroll -->
+    <script src="{% static 'js/script.js' %}"></script>
+    <!-- Custom scripts -->
+  </body>
 </html>
