@@ -36,7 +36,7 @@ h6 {
 }
 
 h1 {
-	font-size: 60px;
+	font-size: 45px;
 	font-weight: 500;
 }
 
@@ -527,8 +527,8 @@ li {
 /*     Extra Pages     */
 /***********************/
 .ex-header {
-	padding-top: 8.5rem;
-	padding-bottom: 4rem;
+	padding-top: 5.0rem;
+	padding-bottom: 1rem;
 	background-color: var(--primary);
 }
 

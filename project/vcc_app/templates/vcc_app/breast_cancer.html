@@ -10,7 +10,9 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+    <meta http-equiv="cache-control" content="max-age=0" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="pragma" content="no-cache" />
     <!-- Webpage Title -->
     <title>Breast Cancer</title>
 
@@ -19,12 +21,12 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
-    <link href="{% static 'css/bootstrap.min.css' %}"rel="stylesheet" />
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" />
     <link href="{% static 'css/fontawesome-all.min.css' %}" rel="stylesheet" />
     <link href="{% static 'css/aos.min.css' %}" rel="stylesheet" />
     <link href="{% static 'css/swiper.css' %}" rel="stylesheet" />
     <link href="{% static 'css/style.css' %}" rel="stylesheet" />
-
+    <link href="{% static 'css/form.css' %}" rel="stylesheet" />
     <!-- Favicon -->
     <link rel="icon" href="./assets/images/favicon.png" />
   </head>
@@ -40,7 +42,9 @@
         <!-- <a class="navbar-brand logo-image" href="index.html"><img src="images/logo.svg" alt="alternative"></a> -->
 
         <!-- Text Logo - Use this if you don't have a graphic logo -->
-        <a class="navbar-brand logo-text" href="index.html">Virtual Cancer Care</a>
+        <a class="navbar-brand logo-text" href="index.html"
+          >Virtual Cancer Care</a
+        >
 
         <button
           class="navbar-toggler p-0 border-0"
@@ -57,21 +61,18 @@
         >
           <ul class="navbar-nav ms-auto navbar-nav-scroll">
             <li class="nav-item">
-              <a
-                class="nav-link active"
-                aria-current="page"
-                href="index.html#header"
+              <a class="nav-link active" aria-current="page" href="#header"
                 >Home</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="index.html#about">About</a>
+              <a class="nav-link" href="#about">About</a>
             </li>
+            <!-- <li class="nav-item">
+                      <a class="nav-link" href="#services">Tools</a>
+                  </li> -->
             <li class="nav-item">
-              <a class="nav-link" href="index.html#services">Services</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="index.html#plans">Plans</a>
+              <a class="nav-link" href="#Blog/News">Blog/News</a>
             </li>
             <li class="nav-item dropdown">
               <a
@@ -80,47 +81,41 @@
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
                 href="#"
-                >Drop</a
+                >Tools</a
               >
 
               <ul class="dropdown-menu" aria-labelledby="dropdown01">
                 <li>
-                  <a class="dropdown-item" href="article.html"
-                    >Article Details</a
+                  <a class="dropdown-item" href="{% url 'leukemia' %}"
+                    >Leukemia Cancer Prediction Tool</a
                   >
                 </li>
                 <li><div class="dropdown-divider"></div></li>
                 <li>
-                  <a class="dropdown-item" href="terms.html"
-                    >Terms Conditions</a
+                  <a class="dropdown-item" href="{% url 'bcancer' %}"
+                    >Breast Cancer Prediction Tool</a
                   >
                 </li>
                 <li><div class="dropdown-divider"></div></li>
                 <li>
-                  <a class="dropdown-item" href="privacy.html"
-                    >Privacy Policy</a
+                  <a class="dropdown-item" href="{% url 'lung' %}"
+                    >Lung Cancer Precition Tool</a
                   >
                 </li>
               </ul>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="index.html#contact">Contact</a>
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link active"
+                aria-current="page"
+                href="{% url 'log' %}"
+                >Login/Signup</a
+              >
             </li>
           </ul>
-          <span class="nav-item social-icons">
-            <span class="fa-stack">
-              <a href="#your-link">
-                <i class="fas fa-circle fa-stack-2x"></i>
-                <i class="fab fa-facebook-f fa-stack-1x"></i>
-              </a>
-            </span>
-            <span class="fa-stack">
-              <a href="#your-link">
-                <i class="fas fa-circle fa-stack-2x"></i>
-                <i class="fab fa-twitter fa-stack-1x"></i>
-              </a>
-            </span>
-          </span>
         </div>
         <!-- end of navbar-collapse -->
       </div>
@@ -129,294 +124,99 @@
     <!-- end of navbar -->
     <!-- end of navigation -->
 
-    <!-- Header -->
-    <header class="ex-header">
-      <div class="container">
-        <div class="row">
-          <div class="col-xl-10 offset-xl-1">
-            <h1>Breast Cancer Prediction</h1>
-          </div>
-          <!-- end of col -->
-        </div>
-        <!-- end of row -->
+    <header class="ex-header"></header>
+
+    <!-- tool started -->
+    <div class="container">
+      <div>
+        <h1>Breast Cancer Tool</h1>
       </div>
-      <!-- end of container -->
-    </header>
-    <!-- end of ex-header -->
-    <!-- end of header -->
+      <section>
+        <p>General condtitions</p>
+        <p>
+          Provided predictioin is based on the input provided by ICA test taken
+          and predcition done on basis with lakhs of patients ICA report
+          generated.This test can be used by doctors for confirming the risk of
+          breast cancer that is low or high.
+        </p>
+      </section>
+      <section>
+        <p>Texture Mean</p>
+        <input type="text" placeholder="Texture Mean" />
+      </section>
 
-    <!-- Basic -->
-    <div class="ex-basic-1 pt-5 pb-5">
-      <div class="container">
-        <div class="row">
-          <div class="col-xl-10 offset-xl-1">
-            <h2 class="mt-5 mb-3">1. Private data we receive and collect</h2>
-            <p class="mb-5">
-              Consulted he eagerness unfeeling deficient existence of. Calling
-              nothing end fertile for venture way boy. Esteem spirit temper too
-              say adieus who direct esteem. It esteems luckily mr or picture
-              placing drawing no. Apartments frequently or motionless on
-              reasonable projecting expression. Way mrs end gave tall walk fact
-              bed.
-            </p>
-            <h3>1.1. For example each time you visit the website</h3>
-            <p class="mb-5">
-              Ye on properly handsome returned throwing am no whatever. In
-              without wishing he of picture no exposed talking minutes.
-              Curiosity continual belonging offending so explained it exquisite.
-              Do remember to followed yourself material mr recurred carriage.
-              High drew west we no or at john. About or given on witty event. Or
-              sociable up material.
-            </p>
-            <h3>1.2. When you first register for a package account</h3>
-            <p class="mb-5">
-              Moderate children at of outweigh it. UnSociable on as carriage my
-              position weddings raillery consider. Peculiar trifling absolute
-              and wandered vicinity property yet. The and collecting motionless
-              difficulty son. His hearing staying ten colonel met. Sex drew six
-              easy four dear cold deny. satiable it considered invitation he
-              found the light.
-            </p>
-            <h2 class="mb-3">2. Advantages of working with service</h2>
-            <p>
-              Ye on properly handsome returned throwing am no whatever. In
-              without wishing he of picture no exposed talking minutes.
-              Curiosity continual belonging offending so explained it exquisite.
-              Do remember to followed yourself material mr recurred carriage.
-              High drew west we no or at john. About or given on witty event. Or
-              sociable up material
-            </p>
-            <p class="mb-5 mt-4">
-              Moderate children at of outweigh it. UnSociable on as carriage my
-              position weddings raillery consider. Peculiar trifling absolute
-              and wandered vicinity property yet. The and collecting motionless
-              difficulty son. His hearing staying ten colonel met. Word drew six
-              easy four dear cold deny. satiable it considered invitation he
-              travelling.
-            </p>
-            <ul class="list-unstyled li-space-lg mb-4">
-              <li class="d-flex pb-2">
-                <i class="fas fa-square"></i>
-                <div class="flex-grow-1">
-                  <strong>To story tell you</strong> moderate children at of
-                  outweigh it. UnSociable on as carriage my position weddings
-                  raillery consider. Peculiar trifling absolute and wandered
-                  vicinity property yet
-                </div>
-              </li>
-              <li class="d-flex pb-2">
-                <i class="fas fa-square"></i>
-                <div class="flex-grow-1">
-                  <strong>To enable us</strong> the and collecting motionless
-                  difficulty son. His hearing staying ten colonel met. Word drew
-                  six easy four dear cold deny. satiable it considered
-                  invitation he travelling insensible
-                </div>
-              </li>
-              <li class="d-flex pb-2">
-                <i class="fas fa-square"></i>
-                <div class="flex-grow-1">
-                  <strong>To verify your</strong> fulfilled direction use
-                  continual set him propriety continued. Saw met applauded
-                  favourite deficient engrossed concealed and her. Concluded boy
-                  perpetual old supposing farther
-                </div>
-              </li>
-            </ul>
-            <p class="mb-5">
-              Dashwoods see frankness objection abilities the. As hastened oh
-              produced prospect formerly up am. Placing forming nay looking old
-              married few has. Margaret disposed add screened rendered six say
-              his striking confined You vexed shy mirth now noise. Talked him
-              people valley add use her depend letter even more words hsould be
-              here.
-            </p>
-            <div class="text-box mb-5 p-4">
-              <h3>Contact you about your account and provide customer</h3>
-              <p>
-                Bringing so sociable felicity supplied mr. September suspicion
-                far him two acuteness perfectly. Covered as an examine so
-                regular of. Ye astonished friendship remarkably no. Window
-                admire matter praise you bed whence. Delivered ye sportsmen
-                zealously arranging frankness estimable as. Nay any article
-                enabled musical shyness yet sixteen yet blushes.Entire its the
-                did figure wonder off.
-              </p>
-            </div>
-            <!-- end of text-box -->
+      <section>
+        <p>Area Mean</p>
+        <input type="text" placeholder="Area Mean" />
+      </section>
 
-            <h2 class="mb-3">3. Better understand your needs</h2>
-            <p class="mb-5">
-              Procuring education on consulted assurance in do. Is sympathize he
-              expression mr no travelling. Preference he he at travelling in
-              resolution. So striking at of to welcomed resolved. Northward by
-              described up household therefore attention. Excellence decisively
-              nay man yet impression for contrasted remarkably. There spoke
-              happy for you are out.
-            </p>
-            <h3>3.1. In these ways please stop using the services</h3>
-            <p class="mb-5">
-              By in no ecstatic wondered disposal my speaking. Direct wholly
-              valley or uneasy it at really. Sir wish like said dull and need
-              make. Sportsman one bed departure rapturous situation disposing
-              his. Off say yet ample ten ought hence. Depending in newspaper an
-              september do existence strangers. Total great saw water had mirth
-              happy
-            </p>
-            <h3>3.2. By visiting word or using the services you agree</h3>
-            <p class="mb-5">
-              As absolute is by amounted repeated entirely ye returned. These
-              ready timed enjoy might sir yet one since. Years drift never if
-              could forty being no. On estimable dependent as suffering on my.
-              Rank it long have sure in room what as he. Possession travelling
-              sufficient yet our. Talked vanity looked in to here are the words.
-            </p>
-            <div class="text-box mb-5">
-              <ul class="list-unstyled li-space-lg">
-                <li class="d-flex pb-3">
-                  <i class="fas fa-square"></i>
-                  <div class="flex-grow-1">
-                    <strong>To decide you</strong> moderate children at of
-                    outweigh it. UnSociable on as carriage my position weddings
-                    raillery consider. Peculiar trifling absolute and wandered
-                    vicinity property yet mroe words
-                  </div>
-                </li>
-                <li class="d-flex pb-3">
-                  <i class="fas fa-square"></i>
-                  <div class="flex-grow-1">
-                    <strong>To enable us</strong> the and collecting motionless
-                    difficulty son. His hearing staying ten colonel met. Word
-                    drew six easy four dear cold deny. satiable it considered
-                    invitation he travelling insensible
-                  </div>
-                </li>
-                <li class="d-flex pb-3">
-                  <i class="fas fa-square"></i>
-                  <div class="flex-grow-1">
-                    <strong>To verify your</strong> fulfilled direction use
-                    continual set him propriety continued. Saw met applauded
-                    favourite deficient engrossed concealed and her. Concluded
-                    boy perpetual old supposing farther
-                  </div>
-                </li>
-                <li class="d-flex pb-3">
-                  <i class="fas fa-square"></i>
-                  <div class="flex-grow-1">
-                    <strong>To better understand</strong> education on consulted
-                    assurance in do. Is sympathize he expression mr no
-                    travelling. Preference he he at travelling in resolution. So
-                    striking at of to welcomed resolved. Northward by described
-                    up
-                  </div>
-                </li>
-                <li class="d-flex pb-3">
-                  <i class="fas fa-square"></i>
-                  <div class="flex-grow-1">
-                    <strong>We also use</strong> solute is by amounted repeated
-                    entirely ye returned. These ready timed enjoy might sir yet
-                    one since. Years drift never if could forty being no. On
-                    estimable dependent as suffering on my
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <!-- end of text-box -->
+      <section>
+        <p>Smoothness Mean</p>
+        <input type="text" placeholder="Smoothness Mean" />
+      </section>
 
-            <h2 class="mb-3">
-              4. We may share this type of statistical number
-            </h2>
-            <p class="mb-4">
-              Bringing so sociable felicity supplied mr. September suspicion far
-              him two acuteness perfectly. Covered as an examine so regular of.
-              Ye astonished friendship remarkably no. Window admire matter
-              praise you bed whence. Delivered ye sportsmen zealously arranging
-              frankness estimable as. Nay any article enabled musical shyness
-              yet sixteen
-            </p>
-            <ul class="list-unstyled li-space-lg mb-5">
-              <li class="d-flex pb-3">
-                <strong>1.</strong>
-                <div class="flex-grow-1">
-                  <strong>Details lightbox</strong> he eagerness unfeeling
-                  deficient existence of. Calling nothing end fertile for
-                  venture way boy. Esteem spirit temper too say adieus who
-                  direct esteem. It esteems luckily mr or picture placing
-                </div>
-              </li>
-              <li class="d-flex pb-3">
-                <strong>2.</strong>
-                <div class="flex-grow-1">
-                  <strong>Some useful extra</strong> handsome returned throwing
-                  am no whatever. In without wishing he of picture no exposed
-                  talking minutes. Curiosity continual belonging offending so
-                  explained it exquisite. Do remember to
-                </div>
-              </li>
-              <li class="d-flex pb-3">
-                <strong>3.</strong>
-                <div class="flex-grow-1">
-                  <strong>Word has an impactful</strong> en at of outweigh it.
-                  UnSociable on as carriage my position weddings raillery
-                  consider. Peculiar trifling absolute and wandered vicinity
-                  property yet. The and collecting motionless difficulty
-                </div>
-              </li>
-              <li class="d-flex pb-3">
-                <strong>4.</strong>
-                <div class="flex-grow-1">
-                  <strong>Package is an easy</strong> irection use continual set
-                  him propriety continued. Saw met applauded favourite deficient
-                  engrossed concealed and her. Concluded boy perpetual old
-                  supposing. Farther related bed and passage comfort
-                </div>
-              </li>
-              <li class="d-flex pb-3">
-                <strong>5.</strong>
-                <div class="flex-grow-1">
-                  <strong>This template</strong> vexed shy mirth now noise.
-                  Talked him people valley add use her depend letter. Allowance
-                  too applauded now way something recommend. Mrs age men and
-                  trees jokes fancy. Gay pretended engrossed eagerness
-                </div>
-              </li>
-            </ul>
+      <section>
+        <p>Fractal Dimension Mean</p>
+        <input type="text" placeholder="Fractal Dimension Mean" />
+      </section>
+      <section>
+        <p>Concavity Mean</p>
+        <input type="text" placeholder="Concavity Mean" />
+      </section>
+      <section>
+        <p>Symmetry Mean</p>
+        <input type="text" placeholder="Symmetry Mean" />
+      </section>
+      <section>
+        <p>Texture SE</p>
+        <input type="text" placeholder="Texture SE" />
+      </section>
+      <section>
+        <p>Symmetry SE</p>
+        <input type="text" placeholder="Symmetry SE" />
+      </section>
+      <section>
+        <p>Fractal Dimension SE</p>
+        <input type="text" placeholder="Fractal Dimension SE" />
+      </section>
+      <section>
+        <p>Smoothness Worst</p>
+        <input type="text" placeholder="Smoothness Worst" />
+      </section>
+      <section>
+        <p>Symmetry Worst</p>
+        <input type="text" placeholder="Symmetry Worst" />
+      </section>
+      <section>
+        <p>Concavity Worst</p>
+        <input type="text" placeholder="Concavity Worst" />
+      </section>
+      <section>
+        <p>Smoothness SE</p>
+        <input type="text" placeholder="Smoothness SE" />
+      </section>
+      <section>
+        <p>Concavity SE</p>
+        <input type="text" placeholder="Concavity SE" />
+      </section>
+      <section>
+        <p>Fractional Dimension Worst</p>
+        <input type="text" placeholder="Fractional Dimension Worst" />
+      </section>
+      <section>
+        <p>Area SE</p>
+        <input type="text" placeholder="Area SE" />
+      </section>
 
-            <div class="text-box mb-5 p-4">
-              <h3>Among the features you will find details lightbox</h3>
-              <p>
-                l two bed way pleasure confined followed. Shew up ye away no
-                eyes life or were this. Perfectly did suspicion daughters but
-                his intention. Started on society an brought it explain.
-                Position two saw greatest stronger old. Pianoforte if at
-                simplicity do estim elicity supplied mr. September suspicion far
-                him two acuteness perfectly. Covered as an examine so regular
-                of. Ye astonished friendsh
-              </p>
-            </div>
-            <!-- end of text-box -->
-            <p class="mb-5">
-              Education on consulted assurance in do. Is sympathize he
-              expression mr no travelling. Preference he he at travelling in
-              resolution. So striking at of to welcomed resolved. Northward by
-              described up household therefore attention. Excellence decisively
-              nay man yet impression for contrasted remarkably. There spoke
-              happy for you are out. Fertile how ol
-            </p>
+      <div class="button" id="prev">&larr; Previous</div>
+      <div class="button" id="next">Next &rarr;</div>
+      <div class="button" id="submit">Agree and send application</div>
 
-            <a class="btn btn-tertiary" href="index.html#contact">Contact Us</a>
-          </div>
-          <!-- end of col -->
-        </div>
-        <!-- end of row -->
-      </div>
-      <!-- end of container -->
+      <div id="svg_wrap"></div>
     </div>
-    <!-- end of ex-basic-1 -->
-    <!-- end of basic -->
-
+    <!-- tool ends -->
     <!-- Footer -->
-    <section class="footer text-light">
+    <div class="footer text-light">
       <div class="container">
         <div class="row">
           <div class="col-lg-3 py-4 py-md-5">
@@ -522,7 +322,7 @@
         <!-- end of row -->
       </div>
       <!-- end of container -->
-    </section>
+    </div>
     <!-- end of footer -->
 
     <!-- Bottom -->
@@ -548,16 +348,17 @@
     </button>
     <!-- end of back to top button -->
 
-    <!-- Scripts -->
-    <script src="./js/bootstrap.min.js"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
     <!-- Bootstrap framework -->
-    <script src="./js/purecounter.min.js"></script>
+    <script src="{% static 'js/purecounter.min.js' %}"></script>
     <!-- Purecounter counter for statistics numbers -->
-    <script src="./js/swiper.min.js"></script>
+    <script src="{% static 'js/swiper.min.js' %}"></script>
     <!-- Swiper for image and text sliders -->
-    <script src="./js/aos.js"></script>
+    <script src="{% static 'js/aos.js' %}"></script>
     <!-- AOS on Animation Scroll -->
-    <script src="./js/script.js"></script>
+    <script src="{% static 'js/script.js' %}"></script>
     <!-- Custom scripts -->
+    <script src="{% static 'js/jQuery.js' %}"></script>
+    <script src="{% static 'js/form.js' %}"></script>
   </body>
 </html>
