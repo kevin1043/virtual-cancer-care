@@ -8,7 +8,7 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 
-@login_requireds
+@login_required
 def index(request):
     my_dict = {'insert_index': ""}
     return render(request, 'vcc_app/index.html', context=my_dict)
