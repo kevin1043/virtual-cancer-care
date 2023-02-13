@@ -12,4 +12,6 @@ urlpatterns = [
     path('breastcancer/', bcancer, name='bcancer'),
     path('leukemia/', leukemia, name='leukemia'),
     path('lungcancer/', lung, name='lung'),
+    path('activate-user/<uidb64>/<token>',
+         views.activate_user, name='activate'),
 ]

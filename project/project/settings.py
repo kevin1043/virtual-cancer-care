@@ -79,8 +79,12 @@ WSGI_APPLICATION = 'project.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'vcc_app',
+        'USER': 'kev',
+        'PASSWORD': 'kev',
+        'HOST': 'localhost',
+        'PORT': '5433',
     }
 }
 
@@ -103,6 +107,8 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTH_USER_MODEL = 'vcc_app.User'
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
@@ -116,6 +122,16 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+# EMAIL CONFIG
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_FROM_USER = 'ranpurakevin23@gmail.com'  # Your email address
+EMAIL_HOST = 'smtp.gmail.com'  # Change this to your email provider's SMTP host
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'ranpurakevin23@gmail.com'  # Your email address
+EMAIL_HOST_PASSWORD = 'kgreyyhcwocqmjam'  # Your email password
 
 
 # Static files (CSS, JavaScript, Images)
