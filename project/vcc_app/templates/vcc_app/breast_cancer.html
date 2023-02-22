@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-{% load staticfiles %}
+{% load static %}
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -61,7 +61,7 @@
         >
           <ul class="navbar-nav ms-auto navbar-nav-scroll">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#header"
+              <a class="nav-link active" aria-current="page" href="{% url 'bcancer' %}"
                 >Home</a
               >
             </li>
@@ -140,78 +140,89 @@
           breast cancer that is low or high.
         </p>
       </section>
-      <section>
-        <p>Texture Mean</p>
-        <input type="text" placeholder="Texture Mean" />
-      </section>
+      <form action="{% url 'bresult' %}" method="post">
+        {% csrf_token %}
+        <section>
+          <p>Radius Mean</p>
+          <input type="text" class= "radius_mean" name="radius_mean" placeholder="Radius Mean" />
+        </section>
 
-      <section>
-        <p>Area Mean</p>
-        <input type="text" placeholder="Area Mean" />
-      </section>
+        <section>
+          <p>Perimeter Mean</p>
+          <input type="text" class= "perimeter_mean" name="perimeter_mean" placeholder="Perimeter Mean" />
+        </section>
 
-      <section>
-        <p>Smoothness Mean</p>
-        <input type="text" placeholder="Smoothness Mean" />
-      </section>
+        <section>
+          <p>Area Mean</p>
+          <input type="text" class= "area_mean" name="area_mean" placeholder="Area Mean" />
+        </section>
 
-      <section>
-        <p>Fractal Dimension Mean</p>
-        <input type="text" placeholder="Fractal Dimension Mean" />
-      </section>
-      <section>
-        <p>Concavity Mean</p>
-        <input type="text" placeholder="Concavity Mean" />
-      </section>
-      <section>
-        <p>Symmetry Mean</p>
-        <input type="text" placeholder="Symmetry Mean" />
-      </section>
-      <section>
-        <p>Texture SE</p>
-        <input type="text" placeholder="Texture SE" />
-      </section>
-      <section>
-        <p>Symmetry SE</p>
-        <input type="text" placeholder="Symmetry SE" />
-      </section>
-      <section>
-        <p>Fractal Dimension SE</p>
-        <input type="text" placeholder="Fractal Dimension SE" />
-      </section>
-      <section>
-        <p>Smoothness Worst</p>
-        <input type="text" placeholder="Smoothness Worst" />
-      </section>
-      <section>
-        <p>Symmetry Worst</p>
-        <input type="text" placeholder="Symmetry Worst" />
-      </section>
-      <section>
-        <p>Concavity Worst</p>
-        <input type="text" placeholder="Concavity Worst" />
-      </section>
-      <section>
-        <p>Smoothness SE</p>
-        <input type="text" placeholder="Smoothness SE" />
-      </section>
-      <section>
-        <p>Concavity SE</p>
-        <input type="text" placeholder="Concavity SE" />
-      </section>
-      <section>
-        <p>Fractional Dimension Worst</p>
-        <input type="text" placeholder="Fractional Dimension Worst" />
-      </section>
-      <section>
-        <p>Area SE</p>
-        <input type="text" placeholder="Area SE" />
-      </section>
 
-      <div class="button" id="prev">&larr; Previous</div>
-      <div class="button" id="next">Next &rarr;</div>
-      <div class="button" id="submit">Agree and send application</div>
+        <section>
+          <p>Compactness Mean</p>
+          <input type="text" class= "compactness_mean" name="compactness_mean" placeholder="Compactness Mean" />
+        </section>
 
+        <section>
+          <p>Concavity Mean</p>
+          <input type="text" class= "concavity_mean" name="concavity_mean" placeholder="Concavity Mean" />
+        </section>
+
+        <section>
+          <p>Concave Points Mean</p>
+          <input type="text" class="concave points_mean" name="concave points_mean" placeholder="Concave Points Mean" />
+        </section>
+
+        <section>
+          <p>Radius SE</p>
+          <input type="text" class= "radius_se" name="radius_se" placeholder="Radius SE" />
+        </section>
+
+        <section>
+          <p>Perimeter SE</p>
+          <input type="text" class= "perimeter_se" name="perimeter_se" placeholder="Perimeter SE" />
+        </section>
+        <section>
+          <p>Area SE</p>
+          <input type="text" class="area_se"
+          name="area_se" placeholder="Area SE" />
+        </section>
+
+
+        <section>
+          <p>Radius Worst</p>
+          <input type="text" class="radius_worst"
+          name="radius_worst" placeholder="Radius Worst" />
+        </section>
+        <section>
+          <p>Perimeter Worst</p>
+          <input type="text" class="perimeter_worst" name="perimeter_worst" placeholder="Perimeter Worst" />
+        </section>
+
+        <section>
+          <p>Area Worst</p>
+          <input type="text" class="area_worst" name="area_worst" placeholder="Area Worst" />
+        </section>
+
+        <section>
+          <p>Compactness Worst</p>
+          <input type="text" class="compactness_worst" name="compactness_worst" placeholder="Compactness Worst" />
+        </section>
+        <section>
+          <p>Concavity Worst</p>
+          <input type="text" class="concavity_worst" name="concavity_worst" placeholder="Concavity Worst" />
+        </section>
+        <section>
+          <p>Concave Points Worst</p>
+          <input type="text" class="concave points_worst" name="concave points_worst" placeholder="Concave Points Worst" />
+        </section>
+        
+        
+
+        <div class="button" id="prev">&larr; Previous</div>
+        <div class="button" id="next">Next &rarr;</div>
+        <input class="button" type="submit" id="submit" ></input>
+      </form>
       <div id="svg_wrap"></div>
     </div>
     <!-- tool ends -->
@@ -221,12 +232,10 @@
         <div class="row">
           <div class="col-lg-3 py-4 py-md-5">
             <div class="d-flex align-items-center">
-              <h4 class="">Mirko</h4>
+              <h4 class="">Virtual Cancer Care</h4>
             </div>
             <p class="py-3 para-light">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus
-              animi repudiandae explicabo esse maxime, impedit rem voluptatibus
-              amet error quas.
+              Follow Us!
             </p>
             <div class="d-flex">
               <div class="me-3">
