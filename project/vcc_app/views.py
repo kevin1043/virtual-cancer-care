@@ -17,11 +17,15 @@ from .models import User
 from django.utils import timezone
 from pickle import load
 import pickle
+import math
 
 
 with open('breast_cancer.pkl', 'rb') as f:
-    model = pickle.load(f)
-#model = load('./breast_cancer.pkl')
+    breast_model = pickle.load(f)
+
+with open('lung_cancer.pkl', 'rb') as l:
+    lung_model = pickle.load(l)
+
 
 
 def index(request):
@@ -109,7 +113,7 @@ def bcancer_result(request):
         cw = request.POST['compactness_worst']
         cow = request.POST['concavity_worst']
         cpw = request.POST['concave points_worst']
-        y_pred = model.predict(
+        y_pred = breast_model.predict(
             [[rm, pm, am, cm, com, cpm, rs, ps, As, rw, pw, aw, cw, cow, cpw]])
         
 
@@ -130,39 +134,151 @@ def lung(request):
     return render(request, 'vcc_app/lung.html', context=template_name)
 
 def lcancer_result(request):
+
+    
+    #air pollution
     a = request.POST['air_pollution']
     print(a)
     if a is not None:
         try:
             a = int(a)
             if a in range(0, 25):
-                answer = 1
+                input1 = 1
             elif a >= 25 and a < 50:
-                answer = 2
+                input1 = 2
             elif a >=50 and a < 75:
-                answer = 3
+                input1 = 3
             elif a >=75 and a < 100:
-                answer = 4
+                input1 = 4
             elif a >=100 and a < 125:
-                answer = 5
+                input1 = 5
             elif a >= 125 and a < 150:
-                answer = 6
+                input1 = 6
             elif a >=150 and a < 175:
-                answer = 7
+                input1 = 7
             elif a >=175 and a < 200:
-                answer = 8
+                input1 = 8
             elif a >=200 and a < 300:
-                answer = 9
+                input1 = 9
             elif a >=300:
-                answer = 10
+                input1 = 10
             else:
-                answer = 0
+                input1 = 0
         except ValueError:
-            answer = 0
+            input1 = 0
     else:
-        answer = 0
+        input1 = 0
+    
+    #alcohol use
+    b = request.POST['alcohol_use']
+    b = int(b)
+    input2 = b
 
-    return render(request, "vcc_app/lung_result.html", {'key': answer})
+    #dust allergy
+    c = request.POST['chk[]']
+    c = int(c)
+
+    d = request.POST['dust_allergy']
+    if d is not None:
+        try:
+            d = int(d)
+           
+        except ValueError:
+            d = "error"
+    else:
+        d = "error"
+
+    x = (c+d)/2
+    input3 = math.floor(x)
+
+    #occupational hazard
+    e = request.POST['hazard1']
+    e = int(e)
+    f = request.POST['hazard2']
+    f = int(f)
+    y = (e+f)/2
+    input4 = math.floor(y)
+
+    #genetic risk
+    g = request.POST['genetic_risk']
+    g = int(g)
+    input5 = g
+
+    #chronic lung disease
+    h = request.POST['chronic_disease']
+    h = int(h)
+    input6 = h
+
+    #balanced diet
+    s = request.POST['diet']
+    s = int(s)
+    input7 = s
+
+
+    #obesity
+    k = request.POST['obesity']
+    if k is not None:
+        try:
+            k = float(k)
+            if k >= 0 and k < 18.5:
+                input8 = 1
+            elif k >= 18.5 and k < 25:
+                input8 = 2
+            elif k >=25 and k < 30:
+                input8 = 4
+            elif k >=30 and k < 35:
+                input8 = 5
+            elif k >=35 and k < 40:
+                input8 = 7
+            elif k >=40 and k < 42.5:
+                input8 = 8
+            elif a >=42.5:
+                input1 = 10
+            else:
+                input8 = 0
+        except ValueError:
+            input8 = 0
+    else:
+        input8 = 0
+
+    #passive smoker
+    l = request.POST['passive_smoker']
+    l = int(l)
+    input9 = l
+
+    #chest pain
+    m = request.POST['chest_pain1']
+    m = int(m)
+    n = request.POST['chest_pain2']
+    n = int(n)
+    o = (m+n)/2
+    input10 = math.floor(o)
+
+    #coughing blood
+    p = request.POST['blood']
+    p = int(p)
+    input11 = p
+
+    #fatigue
+    q = request.POST['fatigue']
+    q = int(q)
+    input12 = q
+    
+
+    result_list = [input1, input2, input3, input4, input5, input6, input7, input8, input9, input10, input11, input12]
+
+    prediction = lung_model.predict([result_list])
+        
+    if prediction[0] == "Low":
+        prediction = 'low chances'
+
+    elif prediction[0] == "High":
+        prediction = 'possibility of lung cancer'
+
+    else:
+        prediction = 'error in input'
+
+    return render(request, "vcc_app/lung_result.html", {'key': prediction})
 
 def leukemia(request):
     template_name = {'insert_index': ""}

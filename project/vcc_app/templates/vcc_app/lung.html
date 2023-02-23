@@ -139,42 +139,164 @@
           </section>
           <form action="{% url 'lresult' %}" method="POST" name="form">
             {% csrf_token %}
-            <section>
-             <p>In what range does the Air Quality Index (AQI) of the city of your residence lie in?</p>
-            
-              <input type="text" placeholder="air_pollution" class="air_pollution" id="air_pollution"/>
-              <!--<br><br>
-              <input type="checkbox" name="chk[]" value="2">25-49
-              <br><br>
-              <input type="checkbox" name="chk[]" value="3">50-74
-              <br><br>
-              <input type="checkbox" name="chk[]" value="6">75-100
-              <br><br>
-              <input type="checkbox" name="chk[]" value="8">
-              <br><br>
-              <input type="checkbox" name="chk[]" value="10">more than above
-              <br><br>-->
-              
-            </section>
 
             <section>
+             <p>What is the Air Quality Index (AQI) of the city of your residence?</p>
+             <input type="text" name="air_pollution" class="air_pollution" id="air_pollution"/>
+            </section>
+
+             <section>
               <p>How often do you consume alcohol?</p>
              
-               <input type="checkbox" name="chk[]" value="1">never
+               <input type="checkbox" name="alcohol_use" value="1">never
                <br><br>
-               <input type="checkbox" name="chk[]" value="2">1-2 drinks per month
+               <input type="checkbox" name="alcohol_use" value="2">1-2 drinks per month
                <br><br>
-               <input type="checkbox" name="chk[]" value="3">1-2 drinks per week
+               <input type="checkbox" name="alcohol_use" value="3">1-2 drinks per week
                <br><br>
-               <input type="checkbox" name="chk[]" value="6">1-2 drinks per day
+               <input type="checkbox" name="alcohol_use" value="6">1-2 drinks per day
                <br><br>
-               <input type="checkbox" name="chk[]" value="8">8-12 drinks per week
+               <input type="checkbox" name="alcohol_use" value="8">8-12 drinks per week
                <br><br>
-               <input type="checkbox" name="chk[]" value="10">more than above
+               <input type="checkbox" name="alcohol_use" value="10">more than above
                <br><br>
                
              </section>
+             
+              <section>
+                <p>How many dust-related sneezing/coughing attacks do you experience in a month?</p>
+              
+                <input type="checkbox" name="chk[]" value="2">1-2
+                <br><br>
+                <input type="checkbox" name="chk[]" value="5">weekly
+                <br><br>
+                <input type="checkbox" name="chk[]" value="9">more than 5 times a month
+                <br><br>
+                <input type="checkbox" name="chk[]" value="1">none
+                <br><br>
+                
+              
+                <p>What would you rate the intensity of your symptoms on a scale of 1 to 10? (0 if not applicable)</p>
+                <input type="text" name="dust_allergy" class="dust_allergy" id="dust_allergy"/>
+              </section>
 
+              <section>
+                <p>1. Are you exposed to the following agents during a typical workday? Asbestos, Arsenic, Aluminum, beryllium and beryllium oxide, cadmium, and Paint.</p>
+              
+                <input type="checkbox" name="hazard1" value="10">yes
+                <br><br>
+                <input type="checkbox" name="hazard1" value="5">sometimes
+                <br><br>
+                <input type="checkbox" name="hazard1" value="1">no
+                <br><br>
+              
+                <p>2. What are the durations of your exposure?</p>
+              
+                <input type="checkbox" name="hazard2" value="10">high
+                <br><br>
+                <input type="checkbox" name="hazard2" value="6">moderate
+                <br><br>
+                <input type="checkbox" name="hazard2" value="4">low
+                <br><br>
+                <input type="checkbox" name="hazard2" value="1">none
+                <br><br>
+              </section>
+
+              <section>
+                <p>Who in your family has/had Lung Cancer?</p>
+              
+                <input type="checkbox" name="genetic_risk" value="4">Parent
+                <br><br>
+                <input type="checkbox" name="genetic_risk" value="3">Grandparent
+                <br><br>
+                <input type="checkbox" name="genetic_risk" value="3">other blood relative
+                <br><br>
+                <input type="checkbox" name="genetic_risk" value="1">no one
+                <br><br>
+                
+              </section>
+
+              <section>
+                <p>Do you have a chronic lung disease such as asthma, chronic obstructive pulmonary disease (COPD), pulmonary fibrosis, asbestosis, or pneumonitis?</p>
+              
+                <input type="checkbox" name="chronic_disease" value="10">yes
+                <br><br>
+                <input type="checkbox" name="chronic_disease" value="1">no
+                <br><br>
+                
+              </section>
+
+              <section>
+                <p>What is your balanced diet?</p>
+                <input type="text" name="diet" class="diet" id="diet"/>
+                
+              </section>
+
+              <section>
+                <p>What is your BMI?</p>
+                <input type="text" name="obesity" class="obesity" id="obesity"/>
+                
+              </section>
+
+              <section>
+                <p>
+                  Does anyone in your family or work environment smoke, causing you to inhale second-hand smoke?</p>
+              
+                <input type="checkbox" name="passive_smoker" value="10">yes and frequently
+                <br><br>
+                <input type="checkbox" name="passive_smoker" value="7">yes but not frequently
+                <br><br>
+                <input type="checkbox" name="passive_smoker" value="5">sometimes
+                <br><br>
+                <input type="checkbox" name="passive_smoker" value="2">rarely
+                <br><br>
+                <input type="checkbox" name="passive_smoker" value="1">no
+                <br><br>
+                
+              </section>
+
+              <section>
+                <p>1. Do you experience chest pain?</p>
+              
+                <input type="checkbox" name="chest_pain1" value="10">yes
+                <br><br>
+                <input type="checkbox" name="chest_pain1" value="1">no
+                <br><br>
+                
+              
+                <p>2. What would you rate the intensity of your pain on a scale of 1 to 10?</p>
+                <input type="text" name="chest_pain2" class="chest_pain2" id="chest_pain2"/>
+                
+              </section>
+
+              <section>
+                <p>Have you suddenly started coughing blood?</p>
+              
+                <input type="checkbox" name="blood" value="9">frequently
+                <br><br>
+                <input type="checkbox" name="blood" value="6">has happened a few times
+                <br><br>
+                <input type="checkbox" name="blood" value="1">no
+                <br><br>
+                
+              </section>
+
+              <section>
+                <p>Do you often feel tired for no particular reason? You might feel sleepy throughout the day even after getting a 6-8 hour sleep or might feel groggy or irritated due to tiredness?</p>
+              
+                <input type="checkbox" name="fatigue" value="10">yes, frequently
+                <br><br>
+                <input type="checkbox" name="fatigue" value="8">often
+                <br><br>
+                <input type="checkbox" name="fatigue" value="6">sometimes
+                <br><br>
+                <input type="checkbox" name="fatigue" value="3">rarely
+                <br><br>
+                <input type="checkbox" name="fatigue" value="1">never
+                <br><br>
+                
+              </section>
+            
             <div class="button" id="prev">&larr; Previous</div>
             <div class="button" id="next">Next &rarr;</div>
             <input class="button" type="submit" id="submit" ></input>
