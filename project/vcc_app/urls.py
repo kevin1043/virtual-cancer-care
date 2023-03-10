@@ -5,6 +5,7 @@ from .views import bcancer_result, lcancer_result, loginpage
 from .views import bcancer
 from .views import leukemia
 from .views import lung
+from .views import logoutpage
 
 urlpatterns = [
     path('', views.index, name='index'),
@@ -14,6 +15,5 @@ urlpatterns = [
     path('lung_result/', lcancer_result, name='lresult'),
     path('leukemia/', leukemia, name='leukemia'),
     path('lungcancer/', lung, name='lung'),
-    path('activate-user/<uidb64>/<token>',
-         views.activate_user, name='activate'),
+    path('logout/', logoutpage, name='logout'),
 ]

@@ -80,14 +80,13 @@ WSGI_APPLICATION = 'project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'demo_db',
-        'USER': 'postgres',
-        'PASSWORD': 'sanjana',
+        'NAME': 'vcc_app',
+        'USER': 'kev',
+        'PASSWORD': 'kev',
         'HOST': 'localhost',
-        'PORT': '5432',
+        'PORT': '5433',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators

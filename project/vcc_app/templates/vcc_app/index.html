@@ -119,9 +119,24 @@
             <li class="nav-item">
               <a class="nav-link" href="#contact">Contact</a>
             </li>
-            <li class="nav-item">
+
+            {% if user.is_authenticated %}
+              <li>
+              <a class="nav-link active" aria-current="page" href="#">{{ username }}</a>
+              </li>
+              <li>
+                
+                  {% csrf_token %}
+                  <a class="nav-link active" type="submit" href="{% url 'logout' %}">Logout</a>
+                
+              </li>
+              {% else %}
+              <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="{% url 'log' %}">Login/Signup</a>
-            </li>
+              </li>
+              {% endif %}
+            
+
           </ul>
           </span>
         </div>

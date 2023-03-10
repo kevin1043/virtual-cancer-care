@@ -1,23 +1,19 @@
 from django.shortcuts import render, redirect
 from django.urls import reverse
-from django.http.response import HttpResponse
-from django.views.generic import TemplateView
 from django.contrib import messages
-from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-from django.contrib.sites.shortcuts import get_current_site
-from django.template.loader import render_to_string
-from django.utils.html import strip_tags
+from django.contrib.auth import authenticate, login, logout
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.utils.encoding import force_bytes, force_str, force_text, DjangoUnicodeDecodeError
-from django.core.mail import EmailMessage, EmailMultiAlternatives
-from django.conf import settings
 from .utils import generate_token
 from .models import User
-from django.utils import timezone
-from pickle import load
 import pickle
 import math
+from django.contrib.auth import authenticate, login
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib import messages
+from django.shortcuts import render, redirect
+from .forms import CustomUserChangeForm, CustomUserCreationForm
 
 
 with open('breast_cancer.pkl', 'rb') as f:
@@ -27,29 +23,22 @@ with open('lung_cancer.pkl', 'rb') as l:
     lung_model = pickle.load(l)
 
 
-
 def index(request):
-    my_dict = {'insert_index': ""}
+    if request.user.is_authenticated:
+        username = request.user.username
+        logged_in = True
+    else:
+        username = ""
+        logged_in = False
+    my_dict = {'insert_index': "",
+               'username': username, 'logged_in': logged_in}
     return render(request, 'vcc_app/index.html', context=my_dict)
 
 
-def send_action_email(user, request):
-    current_site = get_current_site(request)
-    email_subject = 'Activate your account'
-    context = {
-        'user': user,
-        'domain': current_site,
-        'uid': urlsafe_base64_encode(force_bytes(user.pk)),
-        'token': generate_token.make_token(user)
-    }
-    html_email = render_to_string('vcc_app/activate.html', context)
-    plain_text_email = strip_tags(html_email)
-    email = EmailMultiAlternatives(subject=email_subject, body=plain_text_email,
-                                   from_email=settings.EMAIL_FROM_USER,
-                                   to=[user.email],
-                                   reply_to=[settings.EMAIL_FROM_USER])
-    email.attach_alternative(html_email, 'text/html')
-    email.send()
+@login_required(login_url='log')
+def logoutpage(request):
+    logout(request)
+    return redirect(reverse('index'))
 
 
 def loginpage(request):
@@ -59,36 +48,36 @@ def loginpage(request):
             username = request.POST.get('username')
             email = request.POST.get('email')
             password = request.POST.get('password')
-            user = User.objects.create(username=username)
+            user = User.objects.create(username=username, email=email)
             user.set_password(password)
-            user.is_email_verified = False
             user.save()
-            send_action_email(user, request)
             messages.success(
-                request, 'Account created successfully. Please check your email to verify your account.')
+                request, 'Account created successfully.')
             return redirect('log')
 
         if request.POST.get('submit') == 'login':
             context = {'data': request.POST}
             name = request.POST.get('username')
             password = request.POST.get('password')
-            user = authenticate(request, username=name, password=password)
-            if user and not user.is_email_verified:
-                messages.error(
-                    request, 'Email is not verified, please check your email inbox')
-                return render(request, 'vcc_app/login.html', context)
-
-            if not user:
+            try:
+                user = User.objects.get(username=name)
+                if user.check_password(password):
+                    login(request, user)
+                    return redirect(reverse('index'))
+                else:
+                    messages.error(
+                        request, 'Invalid credentials, please try again.')
+                    return render(request, 'vcc_app/login.html', context, status=401)
+            except User.DoesNotExist:
                 messages.error(
                     request, 'Invalid credentials, please try again.')
                 return render(request, 'vcc_app/login.html', context, status=401)
-            login(request, user)
-            return redirect(reverse('index'))
 
     template_name = {'insert_index': ""}
     return render(request, 'vcc_app/login.html', context=template_name)
 
 
+@login_required(login_url='log')
 def bcancer(request):
     template_name = {'insert_index': ""}
     return render(request, 'vcc_app/breast_cancer.html', context=template_name)
@@ -115,7 +104,6 @@ def bcancer_result(request):
         cpw = request.POST['concave points_worst']
         y_pred = breast_model.predict(
             [[rm, pm, am, cm, com, cpm, rs, ps, As, rw, pw, aw, cw, cow, cpw]])
-        
 
         if y_pred[0] == 'B':
             y_pred = 'low chances'
@@ -125,18 +113,19 @@ def bcancer_result(request):
 
         else:
             y_pred = 'error in input'
-    
+
     return render(request, 'vcc_app/result.html', {'result': y_pred})
 
 
+@login_required(login_url='log')
 def lung(request):
     template_name = {'insert_index': ""}
     return render(request, 'vcc_app/lung.html', context=template_name)
 
+
 def lcancer_result(request):
 
-    
-    #air pollution
+    # air pollution
     a = request.POST['air_pollution']
     print(a)
     if a is not None:
@@ -146,21 +135,21 @@ def lcancer_result(request):
                 input1 = 1
             elif a >= 25 and a < 50:
                 input1 = 2
-            elif a >=50 and a < 75:
+            elif a >= 50 and a < 75:
                 input1 = 3
-            elif a >=75 and a < 100:
+            elif a >= 75 and a < 100:
                 input1 = 4
-            elif a >=100 and a < 125:
+            elif a >= 100 and a < 125:
                 input1 = 5
             elif a >= 125 and a < 150:
                 input1 = 6
-            elif a >=150 and a < 175:
+            elif a >= 150 and a < 175:
                 input1 = 7
-            elif a >=175 and a < 200:
+            elif a >= 175 and a < 200:
                 input1 = 8
-            elif a >=200 and a < 300:
+            elif a >= 200 and a < 300:
                 input1 = 9
-            elif a >=300:
+            elif a >= 300:
                 input1 = 10
             else:
                 input1 = 0
@@ -168,13 +157,13 @@ def lcancer_result(request):
             input1 = 0
     else:
         input1 = 0
-    
-    #alcohol use
+
+    # alcohol use
     b = request.POST['alcohol_use']
     b = int(b)
     input2 = b
 
-    #dust allergy
+    # dust allergy
     c = request.POST['chk[]']
     c = int(c)
 
@@ -182,7 +171,7 @@ def lcancer_result(request):
     if d is not None:
         try:
             d = int(d)
-           
+
         except ValueError:
             d = "error"
     else:
@@ -191,7 +180,7 @@ def lcancer_result(request):
     x = (c+d)/2
     input3 = math.floor(x)
 
-    #occupational hazard
+    # occupational hazard
     e = request.POST['hazard1']
     e = int(e)
     f = request.POST['hazard2']
@@ -199,23 +188,22 @@ def lcancer_result(request):
     y = (e+f)/2
     input4 = math.floor(y)
 
-    #genetic risk
+    # genetic risk
     g = request.POST['genetic_risk']
     g = int(g)
     input5 = g
 
-    #chronic lung disease
+    # chronic lung disease
     h = request.POST['chronic_disease']
     h = int(h)
     input6 = h
 
-    #balanced diet
+    # balanced diet
     s = request.POST['diet']
     s = int(s)
     input7 = s
 
-
-    #obesity
+    # obesity
     k = request.POST['obesity']
     if k is not None:
         try:
@@ -224,15 +212,15 @@ def lcancer_result(request):
                 input8 = 1
             elif k >= 18.5 and k < 25:
                 input8 = 2
-            elif k >=25 and k < 30:
+            elif k >= 25 and k < 30:
                 input8 = 4
-            elif k >=30 and k < 35:
+            elif k >= 30 and k < 35:
                 input8 = 5
-            elif k >=35 and k < 40:
+            elif k >= 35 and k < 40:
                 input8 = 7
-            elif k >=40 and k < 42.5:
+            elif k >= 40 and k < 42.5:
                 input8 = 8
-            elif a >=42.5:
+            elif a >= 42.5:
                 input1 = 10
             else:
                 input8 = 0
@@ -241,12 +229,12 @@ def lcancer_result(request):
     else:
         input8 = 0
 
-    #passive smoker
+    # passive smoker
     l = request.POST['passive_smoker']
     l = int(l)
     input9 = l
 
-    #chest pain
+    # chest pain
     m = request.POST['chest_pain1']
     m = int(m)
     n = request.POST['chest_pain2']
@@ -254,21 +242,21 @@ def lcancer_result(request):
     o = (m+n)/2
     input10 = math.floor(o)
 
-    #coughing blood
+    # coughing blood
     p = request.POST['blood']
     p = int(p)
     input11 = p
 
-    #fatigue
+    # fatigue
     q = request.POST['fatigue']
     q = int(q)
     input12 = q
-    
 
-    result_list = [input1, input2, input3, input4, input5, input6, input7, input8, input9, input10, input11, input12]
+    result_list = [input1, input2, input3, input4, input5,
+                   input6, input7, input8, input9, input10, input11, input12]
 
     prediction = lung_model.predict([result_list])
-        
+
     if prediction[0] == "Low":
         prediction = 'low chances'
 
@@ -280,6 +268,8 @@ def lcancer_result(request):
 
     return render(request, "vcc_app/lung_result.html", {'key': prediction})
 
+
+@login_required(login_url='log')
 def leukemia(request):
     template_name = {'insert_index': ""}
     return render(request, 'vcc_app/leukemia.html', context=template_name)
