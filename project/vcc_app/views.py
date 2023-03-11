@@ -101,12 +101,12 @@ def bcancer_result(request):
         rm = request.POST['radius_mean']
         pm = request.POST['perimeter_mean']
         am = request.POST['area_mean']
-        cm = request.POST['compactness_mean']
+        #cm = request.POST['compactness_mean']
         com = request.POST['concavity_mean']
         cpm = request.POST['concave points_mean']
-        rs = request.POST['radius_se']
-        ps = request.POST['perimeter_se']
-        As = request.POST['area_se']
+        #rs = request.POST['radius_se']
+        #ps = request.POST['perimeter_se']
+        #As = request.POST['area_se']
         rw = request.POST['radius_worst']
         pw = request.POST['perimeter_worst']
         aw = request.POST['area_worst']
@@ -114,7 +114,7 @@ def bcancer_result(request):
         cow = request.POST['concavity_worst']
         cpw = request.POST['concave points_worst']
         y_pred = breast_model.predict(
-            [[rm, pm, am, cm, com, cpm, rs, ps, As, rw, pw, aw, cw, cow, cpw]])
+            [[rm, pm, am, com, cpm, rw, pw, aw, cw, cow, cpw]])
         
 
         if y_pred[0] == 'B':
