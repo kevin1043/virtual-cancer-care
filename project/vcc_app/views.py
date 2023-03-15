@@ -15,7 +15,6 @@ from django.contrib import messages
 from django.shortcuts import render, redirect
 from .forms import CustomUserChangeForm, CustomUserCreationForm
 
-
 with open('breast_cancer.pkl', 'rb') as f:
     breast_model = pickle.load(f)
 
