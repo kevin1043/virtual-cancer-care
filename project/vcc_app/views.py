@@ -6,7 +6,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.utils.encoding import force_bytes, force_str, force_text, DjangoUnicodeDecodeError
 from .utils import generate_token
-from .models import User
+from .models import User, BreastCancerResult
 import pickle
 import math
 from django.contrib.auth import authenticate, login
@@ -83,8 +83,6 @@ def bcancer(request):
 
 
 def bcancer_result(request):
-    y_pred = ''
-    #template_name = {'result' : y_pred}
     if request.method == 'POST':
         rm = request.POST['radius_mean']
         pm = request.POST['perimeter_mean']
@@ -100,20 +98,54 @@ def bcancer_result(request):
         aw = request.POST['area_worst']
         cw = request.POST['compactness_worst']
         cow = request.POST['concavity_worst']
-        cpw = request.POST['concave points_worst']
+        cpw = request.POST['concave_points_worst']
+
+        # create a dictionary with key-value pairs of entered values
+        inputs = {'radius_mean': rm, 'perimeter_mean': pm, 'area_mean': am,
+                  'compactness_mean': cm, 'concavity_mean': com,
+                  'concave points_mean': cpm, 'radius_se': rs,
+                  'perimeter_se': ps, 'area_se': As, 'radius_worst': rw,
+                  'perimeter_worst': pw, 'area_worst': aw,
+                  'compactness_worst': cw, 'concavity_worst': cow,
+                  'concave_points_worst': cpw}
+
         y_pred = breast_model.predict(
             [[rm, pm, am, cm, com, cpm, rs, ps, As, rw, pw, aw, cw, cow, cpw]])
 
         if y_pred[0] == 'B':
             y_pred = 'low chances'
-
         elif y_pred[0] == 'M':
             y_pred = 'high chances'
-
         else:
             y_pred = 'error in input'
 
-    return render(request, 'vcc_app/result.html', {'result': y_pred})
+        # add the inputs dictionary to the context dictionary
+        context = {'result': y_pred, 'inputs': inputs}
+
+        # store the result in the database for the logged-in user
+        temp = BreastCancerResult(
+            user=request.user,
+            radius_mean=rm,
+            perimeter_mean=pm,
+            area_mean=am,
+            compactness_mean=cm,
+            concavity_mean=com,
+            concave_points_mean=cpm,
+            radius_se=rs,
+            perimeter_se=ps,
+            area_se=As,
+            radius_worst=rw,
+            perimeter_worst=pw,
+            area_worst=aw,
+            compactness_worst=cw,
+            concavity_worst=cow,
+            concave_points_worst=cpw,
+        )
+        temp.save()
+
+        return render(request, 'vcc_app/result.html', context=context)
+    else:
+        return render(request, 'vcc_app/')
 
 
 @login_required(login_url='log')
@@ -265,6 +297,33 @@ def lcancer_result(request):
     else:
         prediction = 'error in input'
 
+    air_pollution = request.POST.get('air_pollution')
+    alcohol_use = request.POST.get('alcohol_use')
+    dust_sneezing_attacks = ','.join(request.POST.getlist('chk[]'))
+    dust_allergy_intensity = request.POST.get('dust_allergy')
+    hazard1_exposure = request.POST.get('hazard1')
+    hazard2_duration = request.POST.get('hazard2')
+    genetic_risk = request.POST.get('genetic_risk')
+    chronic_disease = request.POST.get('chronic_disease')
+    diet = request.POST.get('diet')
+    obesity_bmi = request.POST.get('obesity')
+    passive_smoker_exposure = request.POST.get('passive_smoker')
+
+    health_info = HealthInformation(
+        air_pollution=air_pollution,
+        alcohol_use=alcohol_use,
+        dust_sneezing_attacks=dust_sneezing_attacks,
+        dust_allergy_intensity=dust_allergy_intensity,
+        hazard1_exposure=hazard1_exposure,
+        hazard2_duration=hazard2_duration,
+        genetic_risk=genetic_risk,
+        chronic_disease=chronic_disease,
+        diet=diet,
+        obesity_bmi=obesity_bmi,
+        passive_smoker_exposure=passive_smoker_exposure
+    )
+
+    health_info.save()
     return render(request, "vcc_app/lung_result.html", {'key': prediction})
 
 

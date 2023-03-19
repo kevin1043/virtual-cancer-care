@@ -10,7 +10,6 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
-import pyrebase
 import pymongo
 from pymongo import MongoClient
 import os
@@ -109,7 +108,7 @@ DATABASES = {
         }
     }
 }
-# mongodb+srv: // pqr: pqr@abc.0dnoijs.mongodb.net/test
+# amongodb+srv: // pqr: pqr@abc.0dnoijs.mongodb.net/test
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators

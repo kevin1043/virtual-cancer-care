@@ -2,6 +2,33 @@ from djongo import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin, Group, Permission
 from django.utils import timezone
 
+from django.conf import settings
+
+
+class BreastCancerResult(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL,
+                             on_delete=models.CASCADE)
+    radius_mean = models.FloatField()
+    perimeter_mean = models.FloatField()
+    area_mean = models.FloatField()
+    compactness_mean = models.FloatField()
+    concavity_mean = models.FloatField()
+    concave_points_mean = models.FloatField()
+    radius_se = models.FloatField()
+    perimeter_se = models.FloatField()
+    area_se = models.FloatField()
+    radius_worst = models.FloatField()
+    perimeter_worst = models.FloatField()
+    area_worst = models.FloatField()
+    compactness_worst = models.FloatField()
+    concavity_worst = models.FloatField()
+    concave_points_worst = models.FloatField()
+    predicted_result = models.CharField(max_length=50)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.user.username}'s Breast Cancer Result"
+
 
 class UserManager(BaseUserManager):
     def create_user(self, email, username, password=None, **extra_fields):
