@@ -14,6 +14,16 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import messages
 from django.shortcuts import render, redirect
 from .forms import CustomUserChangeForm, CustomUserCreationForm
+import os
+from keras.models import load_model
+#from PIL import Image
+import numpy as np
+from django.http import JsonResponse
+import tensorflow as tf
+
+# Load the trained model
+#model = tf.keras.models.load_model('path/to/your/model.h5')
+
 
 
 with open('breast_cancer.pkl', 'rb') as f:
@@ -85,7 +95,7 @@ def bcancer(request):
 
 def bcancer_result(request):
     y_pred = ''
-    #template_name = {'result' : y_pred}
+    
     if request.method == 'POST':
         rm = request.POST['radius_mean']
         pm = request.POST['perimeter_mean']
@@ -93,17 +103,14 @@ def bcancer_result(request):
         #cm = request.POST['compactness_mean']
         com = request.POST['concavity_mean']
         cpm = request.POST['concave points_mean']
-        #rs = request.POST['radius_se']
-        #ps = request.POST['perimeter_se']
-        #As = request.POST['area_se']
         rw = request.POST['radius_worst']
         pw = request.POST['perimeter_worst']
         aw = request.POST['area_worst']
-        cw = request.POST['compactness_worst']
+        #cw = request.POST['compactness_worst']
         cow = request.POST['concavity_worst']
         cpw = request.POST['concave points_worst']
         y_pred = breast_model.predict(
-            [[rm, pm, am, com, cpm, rw, pw, aw, cw, cow, cpw]])
+            [[rm, pm, am, com, cpm, rw, pw, aw, cow, cpw]])
 
 
         if y_pred[0] == 'B':
@@ -116,6 +123,31 @@ def bcancer_result(request):
             y_pred = 'error in input'
 
     return render(request, 'vcc_app/result.html', {'result': y_pred})
+
+
+@login_required(login_url='log')
+def leukemia(request):
+    template_name = {'insert_index': ""}
+    return render(request, 'vcc_app/leukemia.html', context=template_name)
+
+
+def leukemia_result(request):
+    all_model = tf.keras.models.load_model('efficientnetb3-ml-93.25.h5')
+    if request.method == 'POST':
+        # Get the uploaded image file
+        image_file = request.FILES.get('image')
+
+        # Do some preprocessing on the image file if necessary
+        # ...
+
+        # Make a prediction using the CNN model
+        prediction = all_model.predict(image_file)
+
+        # Convert the prediction to a JSON response and return it
+        response_data = {'prediction': prediction.tolist()}
+        return JsonResponse(response_data)
+
+    return render(request, 'vcc_app/leukemia_result.html', {'all_result': response_data})
 
 
 @login_required(login_url='log')

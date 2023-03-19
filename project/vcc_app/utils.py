@@ -1,3 +1,4 @@
+from pymongo import MongoClient
 from django.contrib.auth.tokens import PasswordResetTokenGenerator
 
 import six

@@ -1,5 +1,5 @@
+from djongo import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin, Group, Permission
-from django.db import models
 from django.utils import timezone
 
 
@@ -78,6 +78,4 @@ class User(AbstractBaseUser, PermissionsMixin):
     class Meta:
         verbose_name = ('user')
         verbose_name_plural = ('users')
-
-    class Meta:
         db_table = 'vcc_app_user'

@@ -10,6 +10,9 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
+
+import pymongo
+from pymongo import MongoClient
 import os
 from pathlib import Path
 
@@ -40,7 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'vcc_app'
+    'vcc_app',
 ]
 
 MIDDLEWARE = [
@@ -77,16 +80,36 @@ WSGI_APPLICATION = 'project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'vcc_app',
+#         'USER': 'kev',
+#         'PASSWORD': 'kev',
+#         'HOST': 'localhost',
+#         'PORT': '5433',
+#     }
+# }
+
+# ...
+
+# Database
+# https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'demo_db',
-        'USER': 'postgres',
-        'PASSWORD': 'sanjana',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'ENGINE': 'djongo',
+        'NAME': 'vccapp',
+        'ENFORCE_SCHEMA': False,
+        'CLIENT': {
+            'host': 'mongodb+srv://pqr:pqr@abc.0dnoijs.mongodb.net/?retryWrites=true&w=majority',
+            'port': 27017,
+            'username': 'pqr',
+            'password': 'pqr',
+            'authMechanism': 'SCRAM-SHA-1',
+        }
     }
 }
+# mongodb+srv: // pqr: pqr@abc.0dnoijs.mongodb.net/test
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
