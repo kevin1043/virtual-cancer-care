@@ -1,3 +1,15 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    data is: {{key}}
+</body>
+</html> -->
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
@@ -14,19 +26,20 @@
     <meta http-equiv="cache-control" content="no-cache" />
     <meta http-equiv="pragma" content="no-cache" />
     <!-- Webpage Title -->
-    <title>Breast Cancer</title>
+    <title>Leukemia Result</title>
 
     <!-- Styles -->
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
-    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/bootstrap.min.css' %}"rel="stylesheet" />
     <link href="{% static 'css/fontawesome-all.min.css' %}" rel="stylesheet" />
     <link href="{% static 'css/aos.min.css' %}" rel="stylesheet" />
     <link href="{% static 'css/swiper.css' %}" rel="stylesheet" />
     <link href="{% static 'css/style.css' %}" rel="stylesheet" />
     <link href="{% static 'css/form.css' %}" rel="stylesheet" />
+
     <!-- Favicon -->
     <link rel="icon" href="./assets/images/favicon.png" />
   </head>
@@ -42,9 +55,7 @@
         <!-- <a class="navbar-brand logo-image" href="index.html"><img src="images/logo.svg" alt="alternative"></a> -->
 
         <!-- Text Logo - Use this if you don't have a graphic logo -->
-        <a class="navbar-brand logo-text" href="index.html"
-          >Virtual Cancer Care</a
-        >
+        <a class="navbar-brand logo-text" href="index.html">Virtual Cancer Care</a>
 
         <button
           class="navbar-toggler p-0 border-0"
@@ -61,19 +72,21 @@
         >
           <ul class="navbar-nav ms-auto navbar-nav-scroll">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="{% url 'bcancer' %}"
+              <a
+                class="nav-link active"
+                aria-current="page"
+                href="index.html#header"
                 >Home</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#about">About</a>
+              <a class="nav-link" href="index.html#about">About</a>
             </li>
-            <!-- <li class="nav-item">
-                      <a class="nav-link" href="#services">Tools</a>
-                  </li> -->
+            
             <li class="nav-item">
-              <a class="nav-link" href="#Blog/News">Blog/News</a>
+              <a class="nav-link" href="index.html#plans">Plans</a>
             </li>
+
             <li class="nav-item dropdown">
               <a
                 class="nav-link dropdown-toggle"
@@ -105,17 +118,17 @@
               </ul>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#contact">Contact</a>
-            </li>
-            <li class="nav-item">
-              <a
-                class="nav-link active"
-                aria-current="page"
-                href="{% url 'log' %}"
-                >Login/Signup</a
-              >
+              <a class="nav-link" href="index.html#contact">Contact</a>
             </li>
           </ul>
+          <li class="nav-item">
+            <a
+              class="nav-link active"
+              aria-current="page"
+              href="{% url 'log' %}"
+              >Login/Signup</a
+            >
+          </li>
         </div>
         <!-- end of navbar-collapse -->
       </div>
@@ -123,106 +136,12 @@
     </nav>
     <!-- end of navbar -->
     <!-- end of navigation -->
-
-    <header class="ex-header"></header>
-
-    <!-- tool started -->
-    <div class="container">
-      <div>
-        <h1>Breast Cancer Tool</h1>
+    <header class="">
+      <div style="color: white; padding: 274px; font-size: xx-large;">
+        data is: {{all_result}}
       </div>
-      <section>
-        <p>General condtitions</p>
-        <p>
-          Provided predictioin is based on the input provided by ICA test taken
-          and predcition done on basis with lakhs of patients ICA report
-          generated.This test can be used by doctors for confirming the risk of
-          breast cancer that is low or high.
-        </p>
-      </section>
-      <form action="{% url 'bresult' %}" method="post">
-        {% csrf_token %}
-        <section>
-          <p>Radius Mean</p>
-          <input type="text" class= "radius_mean" name="radius_mean" placeholder="Radius Mean" />
-        </section>
-
-        <section>
-          <p>Perimeter Mean</p>
-          <input type="text" class= "perimeter_mean" name="perimeter_mean" placeholder="Perimeter Mean" />
-        </section>
-
-        <section>
-          <p>Area Mean</p>
-          <input type="text" class= "area_mean" name="area_mean" placeholder="Area Mean" />
-        </section>
-
-        <!---
-        <section>
-          <p>Compactness Mean</p>
-          <input type="text" class= "compactness_mean" name="compactness_mean" placeholder="Compactness Mean" />
-        </section>
-      -->
-        <section>
-          <p>Concavity Mean</p>
-          <input type="text" class= "concavity_mean" name="concavity_mean" placeholder="Concavity Mean" />
-        </section>
-
-        <section>
-          <p>Concave Points Mean</p>
-          <input type="text" class="concave points_mean" name="concave points_mean" placeholder="Concave Points Mean" />
-        </section>
-        <!--
-        <section>
-          <p>Radius SE</p>
-          <input type="text" class= "radius_se" name="radius_se" placeholder="Radius SE" />
-        </section>
-      
-        <section>
-          <p>Perimeter SE</p>
-          <input type="text" class= "perimeter_se" name="perimeter_se" placeholder="Perimeter SE" />
-        </section>
-        <section>
-          <p>Area SE</p>
-          <input type="text" class="area_se"
-          name="area_se" placeholder="Area SE" />
-        </section>
-
-      -->
-        <section>
-          <p>Radius Worst</p>
-          <input type="text" class="radius_worst"
-          name="radius_worst" placeholder="Radius Worst" />
-        </section>
-        <section>
-          <p>Perimeter Worst</p>
-          <input type="text" class="perimeter_worst" name="perimeter_worst" placeholder="Perimeter Worst" />
-        </section>
-
-        <section>
-          <p>Area Worst</p>
-          <input type="text" class="area_worst" name="area_worst" placeholder="Area Worst" />
-        </section>
-
-        
-        <section>
-          <p>Concavity Worst</p>
-          <input type="text" class="concavity_worst" name="concavity_worst" placeholder="Concavity Worst" />
-        </section>
-        <section>
-          <p>Concave Points Worst</p>
-          <input type="text" class="concave_points_worst" name="concave_points_worst" placeholder="Concave Points Worst" />
-        </section>
-        
-        
-
-        <div class="button" id="prev">&larr; Previous</div>
-        <div class="button" id="next">Next &rarr;</div>
-        <input class="button" type="submit" id="submit" ></input>
-      </form>
-      <div id="svg_wrap"></div>
-    </div>
-    <!-- tool ends -->
+    </header>
+    
     <!-- Footer -->
     <div class="footer text-light">
       <div class="container">
@@ -354,17 +273,20 @@
     </button>
     <!-- end of back to top button -->
 
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <!-- Scripts -->
+    <script src="./js/bootstrap.min.js"></script>
     <!-- Bootstrap framework -->
-    <script src="{% static 'js/purecounter.min.js' %}"></script>
+    <script src="./js/purecounter.min.js"></script>
     <!-- Purecounter counter for statistics numbers -->
-    <script src="{% static 'js/swiper.min.js' %}"></script>
+    <script src="./js/swiper.min.js"></script>
     <!-- Swiper for image and text sliders -->
-    <script src="{% static 'js/aos.js' %}"></script>
+    <script src="./js/aos.js"></script>
     <!-- AOS on Animation Scroll -->
-    <script src="{% static 'js/script.js' %}"></script>
+    <script src="./js/script.js"></script>
     <!-- Custom scripts -->
     <script src="{% static 'js/jQuery.js' %}"></script>
     <script src="{% static 'js/form.js' %}"></script>
   </body>
 </html>
+
+

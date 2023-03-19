@@ -14,6 +14,16 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import messages
 from django.shortcuts import render, redirect
 from .forms import CustomUserChangeForm, CustomUserCreationForm
+import os
+from keras.models import load_model
+#from PIL import Image
+import numpy as np
+from django.http import JsonResponse
+import tensorflow as tf
+
+# Load the trained model
+#model = tf.keras.models.load_model('path/to/your/model.h5')
+
 
 with open('breast_cancer.pkl', 'rb') as f:
     breast_model = pickle.load(f)
@@ -83,20 +93,19 @@ def bcancer(request):
 
 
 def bcancer_result(request):
+    y_pred = ''
+
     if request.method == 'POST':
         rm = request.POST['radius_mean']
         pm = request.POST['perimeter_mean']
         am = request.POST['area_mean']
-        cm = request.POST['compactness_mean']
+        #cm = request.POST['compactness_mean']
         com = request.POST['concavity_mean']
         cpm = request.POST['concave points_mean']
-        rs = request.POST['radius_se']
-        ps = request.POST['perimeter_se']
-        As = request.POST['area_se']
         rw = request.POST['radius_worst']
         pw = request.POST['perimeter_worst']
         aw = request.POST['area_worst']
-        cw = request.POST['compactness_worst']
+        #cw = request.POST['compactness_worst']
         cow = request.POST['concavity_worst']
         cpw = request.POST['concave_points_worst']
 
@@ -110,7 +119,7 @@ def bcancer_result(request):
                   'concave_points_worst': cpw}
 
         y_pred = breast_model.predict(
-            [[rm, pm, am, cm, com, cpm, rs, ps, As, rw, pw, aw, cw, cow, cpw]])
+            [[rm, pm, am, com, cpm, rw, pw, aw, cow, cpw]])
 
         if y_pred[0] == 'B':
             y_pred = 'low chances'
@@ -118,7 +127,6 @@ def bcancer_result(request):
             y_pred = 'high chances'
         else:
             y_pred = 'error in input'
-
         # add the inputs dictionary to the context dictionary
         context = {'result': y_pred, 'inputs': inputs}
 
