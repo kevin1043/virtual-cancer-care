@@ -300,33 +300,9 @@ def lcancer_result(request):
     else:
         prediction = 'error in input'
 
-    air_pollution = request.POST.get('air_pollution')
-    alcohol_use = request.POST.get('alcohol_use')
-    dust_sneezing_attacks = ','.join(request.POST.getlist('chk[]'))
-    dust_allergy_intensity = request.POST.get('dust_allergy')
-    hazard1_exposure = request.POST.get('hazard1')
-    hazard2_duration = request.POST.get('hazard2')
-    genetic_risk = request.POST.get('genetic_risk')
-    chronic_disease = request.POST.get('chronic_disease')
-    diet = request.POST.get('diet')
-    obesity_bmi = request.POST.get('obesity')
-    passive_smoker_exposure = request.POST.get('passive_smoker')
+    
 
-    health_info = HealthInformation(
-        air_pollution=air_pollution,
-        alcohol_use=alcohol_use,
-        dust_sneezing_attacks=dust_sneezing_attacks,
-        dust_allergy_intensity=dust_allergy_intensity,
-        hazard1_exposure=hazard1_exposure,
-        hazard2_duration=hazard2_duration,
-        genetic_risk=genetic_risk,
-        chronic_disease=chronic_disease,
-        diet=diet,
-        obesity_bmi=obesity_bmi,
-        passive_smoker_exposure=passive_smoker_exposure
-    )
-
-    health_info.save()
+    
     return render(request, "vcc_app/lung_result.html", {'key': prediction})
 
 
