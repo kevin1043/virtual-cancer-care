@@ -1,7 +1,7 @@
 from django.urls import path
 from vcc_app import views
 from django.conf.urls import url
-from .views import bcancer_result, lcancer_result, leukemia_result, loginpage
+from .views import bcancer_result, lcancer_result, loginpage
 from .views import bcancer
 from .views import leukemia
 from .views import lung
@@ -14,7 +14,6 @@ urlpatterns = [
     path('result/', bcancer_result, name='bresult'),
     path('lung_result/', lcancer_result, name='lresult'),
     path('leukemia/', leukemia, name='leukemia'),
-    path('leukemia_result/', leukemia_result, name='all_leukemia'),
     path('lungcancer/', lung, name='lung'),
     path('logout/', logoutpage, name='logout'),
 ]

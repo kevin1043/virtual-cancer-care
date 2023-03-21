@@ -111,11 +111,11 @@ def bcancer_result(request):
 
         # create a dictionary with key-value pairs of entered values
         inputs = {'radius_mean': rm, 'perimeter_mean': pm, 'area_mean': am,
-                  'compactness_mean': cm, 'concavity_mean': com,
-                  'concave points_mean': cpm, 'radius_se': rs,
-                  'perimeter_se': ps, 'area_se': As, 'radius_worst': rw,
+                  'concavity_mean': com,
+                  'concave points_mean': cpm,
+                  'radius_worst': rw,
                   'perimeter_worst': pw, 'area_worst': aw,
-                  'compactness_worst': cw, 'concavity_worst': cow,
+                  'concavity_worst': cow,
                   'concave_points_worst': cpw}
 
         y_pred = breast_model.predict(
@@ -136,16 +136,11 @@ def bcancer_result(request):
             radius_mean=rm,
             perimeter_mean=pm,
             area_mean=am,
-            compactness_mean=cm,
             concavity_mean=com,
             concave_points_mean=cpm,
-            radius_se=rs,
-            perimeter_se=ps,
-            area_se=As,
             radius_worst=rw,
             perimeter_worst=pw,
             area_worst=aw,
-            compactness_worst=cw,
             concavity_worst=cow,
             concave_points_worst=cpw,
         )
