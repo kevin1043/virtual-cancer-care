@@ -125,13 +125,17 @@
 
 
       {% if result == "healthy cell" %}
-      <h2> Preds: {{preds}}</h2>
-      <h2> Prediction: {{prediction}}</h2>
-      <p>The result is a healthy cell.</p>
+      <h2> Result: {{prediction}}</h2>
+      <p>This image corresponds to a healthy cell. You have low chances of developing ALL. But as they say, prevention
+        is better than cure. Talk to a family doctor or a specialist about your family history and ways you can prevent
+        cancer for yourself and loved ones.</p>
       {% else %}
-      <h2> Preds: {{preds}}</h2>
-      <h2> Prediction: {{prediction}}</h2>
-      <p>The result is a cancerous cell.</p>
+
+      <h2> Result: {{prediction}}</h2>
+      <p>This image corresponds to a cancerous cell. There are high changes of being diagnosed with leukaemia. It is the
+        most common type of cancer affecting children. And acute lymphoblastic leukaemia (ALL) is the most common type
+        of leukaemia diagnosed in children. Treatment for childhood ALL is divided into different phases. The main
+        treatment is chemotherapy. Please refer to a specialist for treatment.</p>
       {% endif %}
 
     </div>
