@@ -1,370 +1,629 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="cache-control" content="max-age=0" />
-    <meta http-equiv="cache-control" content="no-cache" />
-    <meta http-equiv="pragma" content="no-cache" />
-    <!-- Webpage Title -->
-    <title>Breast Cancer</title>
 
-    <!-- Styles -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap"
-      rel="stylesheet"
-    />
-    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" />
-    <link href="{% static 'css/fontawesome-all.min.css' %}" rel="stylesheet" />
-    <link href="{% static 'css/aos.min.css' %}" rel="stylesheet" />
-    <link href="{% static 'css/swiper.css' %}" rel="stylesheet" />
-    <link href="{% static 'css/style.css' %}" rel="stylesheet" />
-    <link href="{% static 'css/form.css' %}" rel="stylesheet" />
-    <!-- Favicon -->
-    <link rel="icon" href="./assets/images/favicon.png" />
-  </head>
-  <body>
-    <!-- Navigation -->
-    <nav
-      id="navbar"
-      class="navbar navbar-expand-lg fixed-top navbar-dark"
-      aria-label="Main navigation"
-    >
-      <div class="container">
-        <!-- Image Logo -->
-        <!-- <a class="navbar-brand logo-image" href="index.html"><img src="images/logo.svg" alt="alternative"></a> -->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="cache-control" content="max-age=0" />
+  <meta http-equiv="cache-control" content="no-cache" />
+  <meta http-equiv="pragma" content="no-cache" />
+  <!-- Webpage Title -->
+  <title>Breast Cancer</title>
 
-        <!-- Text Logo - Use this if you don't have a graphic logo -->
-        <a class="navbar-brand logo-text" href="index.html"
-          >Virtual Cancer Care</a
-        >
+  <!-- Styles -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/fontawesome-all.min.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/aos.min.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/swiper.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/bcancerstyle.css' %}" rel="stylesheet" />
+  <!-- Favicon -->
+  <link rel="icon" href="../assets/images/favicon.png" />
+  <style>
+    :root {
+      --primary: #1c262f;
+      --primary-light: #212d37;
+      --secondary: #d2d2d2;
+      --tertiary: #00dabf;
+      --gradient: linear-gradient(to right, #0ee951, #00dabf);
+      --light: #fff;
+    }
 
-        <button
-          class="navbar-toggler p-0 border-0"
-          type="button"
-          id="navbarSideCollapse"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
+    .body {
+      background-color: var(--primary-light);
+    }
 
-        <div
-          class="navbar-collapse offcanvas-collapse"
-          id="navbarsExampleDefault"
-        >
-          <ul class="navbar-nav ms-auto navbar-nav-scroll">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="{% url 'bcancer' %}"
-                >Home</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#about">About</a>
-            </li>
-            <!-- <li class="nav-item">
-                      <a class="nav-link" href="#services">Tools</a>
-                  </li> -->
-            <li class="nav-item">
-              <a class="nav-link" href="#Blog/News">Blog/News</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                id="dropdown01"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-                href="#"
-                >Tools</a
-              >
+    h1 {
+      font-family: Arial, sans-serif;
+      font-weight: 50;
+      font-size: 1.1em;
+      text-align: center;
+      padding: 20px;
+      border: 1px solid #ffffff;
+      border-radius: 5px;
+      margin-top: -1%;
+      margin-bottom: 2%;
+      /* margin: 20px auto; */
+    }
 
-              <ul class="dropdown-menu" aria-labelledby="dropdown01">
-                <li>
-                  <a class="dropdown-item" href="{% url 'leukemia' %}"
-                    >Leukemia Cancer Prediction Tool</a
-                  >
-                </li>
-                <li><div class="dropdown-divider"></div></li>
-                <li>
-                  <a class="dropdown-item" href="{% url 'bcancer' %}"
-                    >Breast Cancer Prediction Tool</a
-                  >
-                </li>
-                <li><div class="dropdown-divider"></div></li>
-                <li>
-                  <a class="dropdown-item" href="{% url 'lung' %}"
-                    >Lung Cancer Precition Tool</a
-                  >
-                </li>
-              </ul>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#contact">Contact</a>
-            </li>
-            <li class="nav-item">
-              <a
-                class="nav-link active"
-                aria-current="page"
-                href="{% url 'log' %}"
-                >Login/Signup</a
-              >
-            </li>
-          </ul>
-        </div>
-        <!-- end of navbar-collapse -->
-      </div>
-      <!-- end of container -->
-    </nav>
-    <!-- end of navbar -->
-    <!-- end of navigation -->
+    #h1-fp {
+      font-family: Arial, sans-serif;
+      font-weight: 50;
+      font-size: 1.1em;
+      text-align: center;
+      padding: 20px;
+      border: 1px solid #ffffff;
+      border-radius: 5px;
+      margin-top: -4%;
+      margin-bottom: 2%;
+      /* margin: 20px auto; */
+    }
 
-    <header class="ex-header"></header>
+    #about-info {
+      height: 27vh;
+      position: relative;
+      margin-top: -2%;
+      border-color: white;
+    }
 
-    <!-- tool started -->
+    #para {
+      margin-top: -1%;
+    }
+
+    #about-nude {
+      height: 500vh;
+      position: relative;
+      margin-top: -2%;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav id="navbar" class="navbar navbar-expand-lg fixed-top navbar-dark" aria-label="Main navigation">
     <div class="container">
-      <div>
-        <h1>Breast Cancer Tool</h1>
+      <a class="navbar-brand logo-text" href="index.html">Virtual Cancer Care</a>
+
+      <button class="navbar-toggler p-0 border-0" type="button" id="navbarSideCollapse" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav ms-auto navbar-nav-scroll">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#about">About</a>
+          </li>
+          <!-- <li class="nav-item">
+                        <a class="nav-link" href="#services">Tools</a>
+                    </li> -->
+          <li class="nav-item">
+            <a class="nav-link" href="#Blog/News">Blog/News</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="false"
+              href="#">Tools</a>
+
+            <ul class="dropdown-menu" aria-labelledby="dropdown01">
+              <li>
+                <a class="dropdown-item" href="{% url 'leukemia' %}">Leukemia Cancer Prediction Tool</a>
+              </li>
+              <li>
+                <div class="dropdown-divider"></div>
+              </li>
+              <li>
+                <a class="dropdown-item" href="{% url 'bcancer' %}">Breast Cancer Prediction Tool</a>
+              </li>
+              <li>
+                <div class="dropdown-divider"></div>
+              </li>
+              <li>
+                <a class="dropdown-item" href="{% url 'lung' %}">Lung Cancer Precition Tool</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Contact</a>
+          </li>
+
+          {% if user.is_authenticated %}
+          <li>
+            <a class="nav-link active" aria-current="page" href="#">{{ username }}</a>
+          </li>
+          <li>
+
+            {% csrf_token %}
+            <a class="nav-link active" type="submit" href="{% url 'logout' %}">Logout</a>
+
+          </li>
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'log' %}">Login/Signup</a>
+          </li>
+          {% endif %}
+
+
+        </ul>
+        </span>
       </div>
-      <section>
-        <p>General condtitions</p>
-        <p>
-          Provided predictioin is based on the input provided by ICA test taken
-          and predcition done on basis with lakhs of patients ICA report
-          generated.This test can be used by doctors for confirming the risk of
-          breast cancer that is low or high.
-        </p>
+      <!-- end of navbar-collapse -->
+    </div>
+    <!-- end of container -->
+  </nav>
+  <!-- end of navbar -->
+  <!-- end of navigation -->
+
+  <header class="ex-header"></header>
+  <div class="container">
+    <form action="{% url 'bresult' %}" method="post">
+      {% csrf_token %}
+      <section style="max-height: 325px;">
+        <section class="about d-flexalign-items-center text-light py-5" id="about-nude">
+          <div class="container">
+            <div class="row d-flex align-items-center">
+              <div class="col-lg-15" data-aos="fade-right">
+
+                <h1 id="h1-fp">
+
+                  Breast Cancer Prediction <br />
+                </h1>
+                <p class="py-6 para-light" style="font-size:smaller;" id="para">
+                  Breast cancer is the most common malignancy among women, accounting for nearly 1 in 3 cancers
+                  diagnosed among women, and it is the second leading cause of cancer death among women. Breast Cancer
+                  occurs as a results of abnormal growth of cells in the breast tissue, commonly referred to as a Tumor.
+                  A tumour can be benign (not cancerous), or malignant (cancerous). Tests such as MRI, mammogram,
+                  ultrasound and biopsy are commonly used to diagnose breast cancer.
+                  The FNA (Fine Needle Aspiration) which removes some fluid or cells from a breast lesion or cyst with a
+                  fine needle similar to a blood sample needle and an easy-to-use graphical computer program called Xcyt
+                  are used to calculate the following inputs.
+                </p>
+              </div>
+
+            </div>
+            <!-- end of row -->
+          </div>
+          <!-- end of container -->
+        </section>
       </section>
-      <form action="{% url 'bresult' %}" method="post">
-        {% csrf_token %}
-        <section>
-          <p>Radius Mean</p>
-          <input type="text" class= "radius_mean" name="radius_mean" placeholder="Radius Mean" />
-        </section>
 
-        <section>
-          <p>Perimeter Mean</p>
-          <input type="text" class= "perimeter_mean" name="perimeter_mean" placeholder="Perimeter Mean" />
-        </section>
 
-        <section>
-          <p>Area Mean</p>
-          <input type="text" class= "area_mean" name="area_mean" placeholder="Area Mean" />
+      <section>
+        <!-- <p>Radius Mean</p>
+          <input type="text" class= "radius_mean" name="radius_mean" placeholder="Radius Mean" /> -->
+        <section class="about d-flex align-items-center text-light py-5" id="about-info">
+          <div class="container">
+            <div class="row d-flex align-items-center">
+              <div class="col-lg-5" data-aos="fade-right">
+                <p>ABOUT: </p>
+                <p class="py-2 para-light">
+                  The mean radius is computed by measuring the distance from the center of each mass to its periphery
+                  and then taking the average across all masses identified in the image.</p>
+              </div>
+              <div class="col-lg-7 text-center py-4 py-sm-0" data-aos="fade-down">
+                <h1>
+                  Radius Mean <br />
+                </h1>
+                <input type="text" class="radius_mean" name="radius_mean" placeholder="Radius Mean" />
+              </div>
+            </div>
+            <!-- end of row -->
+          </div>
+          <!-- end of container -->
         </section>
+        <!-- end of about -->
 
-        <!---
-        <section>
-          <p>Compactness Mean</p>
-          <input type="text" class= "compactness_mean" name="compactness_mean" placeholder="Compactness Mean" />
+
+      </section>
+
+      <section>
+        <!-- <p></p>
+           -->
+        <section class="about d-flex align-items-center text-light py-5" id="about-info">
+          <div class="container">
+            <div class="row d-flex align-items-center">
+              <div class="col-lg-5" data-aos="fade-right">
+                <p>ABOUT: </p>
+                <p class="py-2 para-light">
+                  To calculate the perimeter of a detected mass, the boundary of the mass is traced, and the total
+                  length of the boundary is measured. The mean of all perimeters is calculated and used as Perimeter
+                  Mean.</p>
+              </div>
+              <div class="col-lg-7 text-center py-4 py-sm-0" data-aos="fade-down">
+                <h1>
+                  Perimeter Mean <br />
+                </h1>
+                <input type="text" class="perimeter_mean" name="perimeter_mean" placeholder="Perimeter Mean" />
+              </div>
+            </div>
+            <!-- end of row -->
+          </div>
+          <!-- end of container -->
         </section>
-      -->
-        <section>
-          <p>Concavity Mean</p>
+        <!-- end of about -->
+
+      </section>
+
+      <section>
+        <!-- <p>Area Mean</p>
+          <input type="text" class= "area_mean" name="area_mean" placeholder="Area Mean" /> -->
+        <section class="about d-flex align-items-center text-light py-5" id="about-info">
+          <div class="container">
+            <div class="row d-flex align-items-center">
+              <div class="col-lg-5" data-aos="fade-right">
+                <p>ABOUT: </p>
+                <p class="py-2 para-light">
+                  In mammography, the mean area refers to the average size of regions of interest (ROI) within the
+                  breast image that are indicative of potential cancerous lesions.</p>
+              </div>
+              <div class="col-lg-7 text-center py-4 py-sm-0" data-aos="fade-down">
+                <h1>
+                  Area Mean <br />
+                </h1>
+                <input type="text" class="area_mean" name="area_mean" placeholder="Area Mean" />
+              </div>
+            </div>
+            <!-- end of row -->
+          </div>
+          <!-- end of container -->
+        </section>
+        <!-- end of about -->
+      </section>
+      <section>
+        <!-- <p>Concavity Mean</p>
           <input type="text" class= "concavity_mean" name="concavity_mean" placeholder="Concavity Mean" />
+         -->
+        <section class="about d-flex align-items-center text-light py-5" id="about-info">
+          <div class="container">
+            <div class="row d-flex align-items-center">
+              <div class="col-lg-5" data-aos="fade-right">
+                <p>ABOUT: </p>
+                <p class="py-2 para-light">
+                  concavity can be measured as the difference in depth between the lowest point of the lesion contour
+                  and a line drawn between the highest points on either side of the lesion.
+              </div>
+              <div class="col-lg-7 text-center py-4 py-sm-0" data-aos="fade-down">
+                <h1>
+                  Concavity Mean <br />
+                </h1>
+                <input type="text" class="concavity_mean" name="concavity_mean" placeholder="Concavity Mean" />
+              </div>
+            </div>
+            <!-- end of row -->
+          </div>
+          <!-- end of container -->
         </section>
 
-        <section>
-          <p>Concave Points Mean</p>
+      </section>
+
+      <section>
+        <!-- <p>Concave Points Mean</p>
           <input type="text" class="concave points_mean" name="concave points_mean" placeholder="Concave Points Mean" />
+         -->
+        <section class="about d-flex align-items-center text-light py-5" id="about-info">
+          <div class="container">
+            <div class="row d-flex align-items-center">
+              <div class="col-lg-5" data-aos="fade-right">
+                <p>ABOUT: </p>
+                <p class="py-2 para-light">
+                  Concave points mean
+                  concavity points can be measured by identifying the points on the lesion contour where the curvature
+                  changes sign (from convex to concave or vice versa).
+              </div>
+              <div class="col-lg-7 text-center py-4 py-sm-0" data-aos="fade-down">
+                <h1>
+                  Concave Points Mean <br />
+                </h1>
+                <input type="text" class="concave points_mean" name="concave points_mean"
+                  placeholder="Concave Points Mean" />
+              </div>
+            </div>
+            <!-- end of row -->
+          </div>
+          <!-- end of container -->
         </section>
-        <!--
-        <section>
-          <p>Radius SE</p>
-          <input type="text" class= "radius_se" name="radius_se" placeholder="Radius SE" />
-        </section>
-      
-        <section>
-          <p>Perimeter SE</p>
-          <input type="text" class= "perimeter_se" name="perimeter_se" placeholder="Perimeter SE" />
-        </section>
-        <section>
-          <p>Area SE</p>
-          <input type="text" class="area_se"
-          name="area_se" placeholder="Area SE" />
-        </section>
+      </section>
 
-      -->
-        <section>
-          <p>Radius Worst</p>
+      <section>
+        <!-- <p>Radius Worst</p>
           <input type="text" class="radius_worst"
-          name="radius_worst" placeholder="Radius Worst" />
+          name="radius_worst" placeholder="Radius Worst" /> -->
+        <section class="about d-flex align-items-center text-light py-5" id="about-info">
+          <div class="container">
+            <div class="row d-flex align-items-center">
+              <div class="col-lg-5" data-aos="fade-right">
+                <p>ABOUT: </p>
+                <p class="py-2 para-light">
+                  radius worst measures the size of the largest tumor dimension, and it can be an important feature in
+                  predicting the likelihood of breast cancer.
+              </div>
+              <div class="col-lg-7 text-center py-4 py-sm-0" data-aos="fade-down">
+                <h1>
+                  Radius Worst <br />
+                </h1>
+                <input type="text" class="radius_worst" name="radius_worst" placeholder="Radius Worst" />
+              </div>
+            </div>
+            <!-- end of row -->
+          </div>
+          <!-- end of container -->
         </section>
-        <section>
-          <p>Perimeter Worst</p>
+
+      </section>
+      <section>
+        <!-- <p>Perimeter Worst</p>
           <input type="text" class="perimeter_worst" name="perimeter_worst" placeholder="Perimeter Worst" />
-        </section>
-
-        <section>
-          <p>Area Worst</p>
-          <input type="text" class="area_worst" name="area_worst" placeholder="Area Worst" />
-        </section>
-
-        
-        <section>
-          <p>Concavity Worst</p>
-          <input type="text" class="concavity_worst" name="concavity_worst" placeholder="Concavity Worst" />
-        </section>
-        <section>
-          <p>Concave Points Worst</p>
-          <input type="text" class="concave_points_worst" name="concave_points_worst" placeholder="Concave Points Worst" />
-        </section>
-        
-        
-
-        <div class="button" id="prev">&larr; Previous</div>
-        <div class="button" id="next">Next &rarr;</div>
-        <input class="button" type="submit" id="submit" ></input>
-      </form>
-      <div id="svg_wrap"></div>
-    </div>
-    <!-- tool ends -->
-    <!-- Footer -->
-    <div class="footer text-light">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-3 py-4 py-md-5">
-            <div class="d-flex align-items-center">
-              <h4 class="">Virtual Cancer Care</h4>
+         -->
+        <section class="about d-flex align-items-center text-light py-5" id="about-info">
+          <div class="container">
+            <div class="row d-flex align-items-center">
+              <div class="col-lg-5" data-aos="fade-right">
+                <p>ABOUT: </p>
+                <p class="py-2 para-light">
+                  The perimeter refers to the distance around the edge of a breast tumor, and the "worst perimeter" is
+                  the largest measurement of the perimeter among all of the tumors found in a patient's breast.
+              </div>
+              <div class="col-lg-7 text-center py-4 py-sm-0" data-aos="fade-down">
+                <h1>
+                  Perimeter Worst <br />
+                </h1>
+                <input type="text" class="perimeter_worst" name="perimeter_worst" placeholder="Perimeter Worst" />
+              </div>
             </div>
-            <p class="py-3 para-light">
-              Follow Us!
-            </p>
-            <div class="d-flex">
-              <div class="me-3">
-                <a href="#your-link">
-                  <i class="fab fa-facebook-f fa-2x py-2"></i>
-                </a>
+            <!-- end of row -->
+          </div>
+          <!-- end of container -->
+        </section>
+      </section>
+
+      <section>
+        <!-- <p>Area Worst</p>
+          <input type="text" class="area_worst" name="area_worst" placeholder="Area Worst" /> -->
+        <section class="about d-flex align-items-center text-light py-5" id="about-info">
+          <div class="container">
+            <div class="row d-flex align-items-center">
+              <div class="col-lg-5" data-aos="fade-right">
+                <p>ABOUT: </p>
+                <p class="py-2 para-light">
+                  In mammography, the worst area refers to the largest size of region of interest (ROI) within the
+                  breast image that is indicative of potential cancerous lesions.
               </div>
-              <div class="me-3">
-                <a href="#your-link">
-                  <i class="fab fa-twitter fa-2x py-2"></i>
-                </a>
+              <div class="col-lg-7 text-center py-4 py-sm-0" data-aos="fade-down">
+                <h1>
+                  Area Worst <br />
+                </h1>
+                <input type="text" class="area_worst" name="area_worst" placeholder="Area Worst" />
               </div>
-              <div class="me-3">
-                <a href="#your-link">
-                  <i class="fab fa-instagram fa-2x py-2"></i>
-                </a>
+            </div>
+            <!-- end of row -->
+          </div>
+          <!-- end of container -->
+        </section>
+      </section>
+
+
+      <section>
+        <!-- <p>Concavity Worst</p>
+          <input type="text" class="concavity_worst" name="concavity_worst" placeholder="Concavity Worst" /> -->
+
+        <section class="about d-flex align-items-center text-light py-5" id="about-info">
+          <div class="container">
+            <div class="row d-flex align-items-center">
+              <div class="col-lg-5" data-aos="fade-right">
+                <p>ABOUT: </p>
+                <p class="py-2 para-light">
+                  It can be measured as the largest difference in depth between the lowest point of the lesion contour
+                  and a line drawn between the highest points on either side of the lesion.
               </div>
+              <div class="col-lg-7 text-center py-4 py-sm-0" data-aos="fade-down">
+                <h1>
+                  Concavity Worst <br />
+                </h1>
+                <input type="text" class="concavity_worst" name="concavity_worst" placeholder="Concavity Worst" />
+
+              </div>
+            </div>
+            <!-- end of row -->
+          </div>
+          <!-- end of container -->
+        </section>
+      </section>
+      <section>
+        <!-- <p>Concave Points Worst</p>
+         <input type="text" class="concave_points_worst" name="concave_points_worst" placeholder="Concave Points Worst" /> -->
+        <section class="about d-flex align-items-center text-light py-5" id="about-info">
+          <div class="container">
+            <div class="row d-flex align-items-center">
+              <div class="col-lg-5" data-aos="fade-right">
+                <p>ABOUT: </p>
+                <p class="py-2 para-light">
+                  Concave points worst can be measured by identifying the points on the lesion contour where the
+                  curvature changes sign the most (from convex to concave or vice versa).
+              </div>
+
+              <div class="col-lg-7 text-center py-4 py-sm-0" data-aos="fade-down">
+                <h1>
+                  Concave Points Worst <br />
+                </h1>
+                <input type="text" class="concave_points_worst" name="concave_points_worst"
+                  placeholder="Concave Points Worst" />
+              </div>
+            </div>
+            <!-- end of row -->
+          </div>
+          <!-- end of container -->
+        </section>
+      </section>
+
+
+
+      <div class="button" id="prev">&larr; Previous</div>
+      <div class="button" id="next">Next &rarr;</div>
+      <input class="button" type="submit" id="submit"></input>
+    </form>
+    <div id="svg_wrap"></div>
+  </div>
+  <!-- tool ends -->
+  <!-- Footer -->
+  <div class="footer text-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3 py-4 py-md-5">
+          <div class="d-flex align-items-center">
+            <h4 class="">Virtual Cancer Care</h4>
+          </div>
+          <p class="py-3 para-light">
+            Follow Us!
+          </p>
+          <div class="d-flex">
+            <div class="me-3">
+              <a href="#your-link">
+                <i class="fab fa-facebook-f fa-2x py-2"></i>
+              </a>
+            </div>
+            <div class="me-3">
+              <a href="#your-link">
+                <i class="fab fa-twitter fa-2x py-2"></i>
+              </a>
+            </div>
+            <div class="me-3">
+              <a href="#your-link">
+                <i class="fab fa-instagram fa-2x py-2"></i>
+              </a>
             </div>
           </div>
-          <!-- end of col -->
-
-          <div class="col-lg-3 py-4 py-md-5">
-            <div>
-              <h4 class="py-2">Quick Links</h4>
-              <div class="d-flex align-items-center py-2">
-                <i class="fas fa-caret-right"></i>
-                <a href="index.html#about"><p class="ms-3">About</p></a>
-              </div>
-              <div class="d-flex align-items-center py-2">
-                <i class="fas fa-caret-right"></i>
-                <a href="index.html#services"><p class="ms-3">Services</p></a>
-              </div>
-              <div class="d-flex align-items-center py-2">
-                <i class="fas fa-caret-right"></i>
-                <a href="index.html#plans"><p class="ms-3">Plans</p></a>
-              </div>
-              <div class="d-flex align-items-center py-2">
-                <i class="fas fa-caret-right"></i>
-                <a href="index.html#contact"><p class="ms-3">Contact</p></a>
-              </div>
-            </div>
-          </div>
-          <!-- end of col -->
-
-          <div class="col-lg-3 py-4 py-md-5">
-            <div>
-              <h4 class="py-2">Useful Links</h4>
-              <div class="d-flex align-items-center py-2">
-                <i class="fas fa-caret-right"></i>
-                <a href="privacy.html"><p class="ms-3">Privacy</p></a>
-              </div>
-              <div class="d-flex align-items-center py-2">
-                <i class="fas fa-caret-right"></i>
-                <a href="terms.html"><p class="ms-3">Terms</p></a>
-              </div>
-              <div class="d-flex align-items-center py-2">
-                <i class="fas fa-caret-right"></i>
-                <a href="#your-link"><p class="ms-3">Disclaimer</p></a>
-              </div>
-              <div class="d-flex align-items-center py-2">
-                <i class="fas fa-caret-right"></i>
-                <a href="#your-link"><p class="ms-3">FAQ</p></a>
-              </div>
-            </div>
-          </div>
-          <!-- end of col -->
-
-          <div class="col-lg-3 py-4 py-md-5">
-            <div class="d-flex align-items-center">
-              <h4>Newsletter</h4>
-            </div>
-            <p class="py-3 para-light">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Laboriosam, ab.
-            </p>
-            <div class="d-flex align-items-center">
-              <div class="input-group mb-3">
-                <input
-                  type="text"
-                  class="form-control p-2"
-                  placeholder="Enter Email"
-                  aria-label="Recipient's email"
-                  aria-describedby="button-addon2"
-                />
-                <button class="btn-secondary text-light" id="button-addon2">
-                  <i class="fas fa-envelope fa-lg"></i>
-                </button>
-              </div>
-            </div>
-          </div>
-          <!-- end of col -->
         </div>
-        <!-- end of row -->
+        <!-- end of col -->
+
+        <div class="col-lg-3 py-4 py-md-5">
+          <div>
+            <h4 class="py-2">Quick Links</h4>
+            <div class="d-flex align-items-center py-2">
+              <i class="fas fa-caret-right"></i>
+              <a href="index.html#about">
+                <p class="ms-3">About</p>
+              </a>
+            </div>
+            <div class="d-flex align-items-center py-2">
+              <i class="fas fa-caret-right"></i>
+              <a href="index.html#services">
+                <p class="ms-3">Services</p>
+              </a>
+            </div>
+            <div class="d-flex align-items-center py-2">
+              <i class="fas fa-caret-right"></i>
+              <a href="index.html#plans">
+                <p class="ms-3">Plans</p>
+              </a>
+            </div>
+            <div class="d-flex align-items-center py-2">
+              <i class="fas fa-caret-right"></i>
+              <a href="index.html#contact">
+                <p class="ms-3">Contact</p>
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- end of col -->
+
+        <div class="col-lg-3 py-4 py-md-5">
+          <div>
+            <h4 class="py-2">Useful Links</h4>
+            <div class="d-flex align-items-center py-2">
+              <i class="fas fa-caret-right"></i>
+              <a href="privacy.html">
+                <p class="ms-3">Privacy</p>
+              </a>
+            </div>
+            <div class="d-flex align-items-center py-2">
+              <i class="fas fa-caret-right"></i>
+              <a href="terms.html">
+                <p class="ms-3">Terms</p>
+              </a>
+            </div>
+            <div class="d-flex align-items-center py-2">
+              <i class="fas fa-caret-right"></i>
+              <a href="#your-link">
+                <p class="ms-3">Disclaimer</p>
+              </a>
+            </div>
+            <div class="d-flex align-items-center py-2">
+              <i class="fas fa-caret-right"></i>
+              <a href="#your-link">
+                <p class="ms-3">FAQ</p>
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- end of col -->
+
+        <div class="col-lg-3 py-4 py-md-5">
+          <div class="d-flex align-items-center">
+            <h4>Newsletter</h4>
+          </div>
+          <p class="py-3 para-light">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            Laboriosam, ab.
+          </p>
+          <div class="d-flex align-items-center">
+            <div class="input-group mb-3">
+              <input type="text" class="form-control p-2" placeholder="Enter Email" aria-label="Recipient's email"
+                aria-describedby="button-addon2" />
+              <button class="btn-secondary text-light" id="button-addon2">
+                <i class="fas fa-envelope fa-lg"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- end of col -->
       </div>
-      <!-- end of container -->
+      <!-- end of row -->
     </div>
-    <!-- end of footer -->
+    <!-- end of container -->
+  </div>
+  <!-- end of footer -->
 
-    <!-- Bottom -->
-    <div class="bottom py-2 text-light">
-      <div class="container d-flex justify-content-between">
-        <div>
-          <p>Copyright © Your name</p>
-        </div>
-        <div>
-          <i class="fab fa-cc-visa fa-lg p-1"></i>
-          <i class="fab fa-cc-mastercard fa-lg p-1"></i>
-          <i class="fab fa-cc-paypal fa-lg p-1"></i>
-          <i class="fab fa-cc-amazon-pay fa-lg p-1"></i>
-        </div>
+  <!-- Bottom -->
+  <div class="bottom py-2 text-light">
+    <div class="container d-flex justify-content-between">
+      <div>
+        <p>Copyright © Your name</p>
       </div>
-      <!-- end of container -->
+      <div>
+        <i class="fab fa-cc-visa fa-lg p-1"></i>
+        <i class="fab fa-cc-mastercard fa-lg p-1"></i>
+        <i class="fab fa-cc-paypal fa-lg p-1"></i>
+        <i class="fab fa-cc-amazon-pay fa-lg p-1"></i>
+      </div>
     </div>
-    <!-- end of bottom -->
+    <!-- end of container -->
+  </div>
+  <!-- end of bottom -->
 
-    <!-- Back To Top Button -->
-    <button onclick="topFunction()" id="myBtn">
-      <img src="assets/images/up-arrow.png" alt="alternative" />
-    </button>
-    <!-- end of back to top button -->
+  <!-- Back To Top Button -->
+  <button onclick="topFunction()" id="myBtn">
+    <img src="assets/images/up-arrow.png" alt="alternative" />
+  </button>
+  <!-- end of back to top button -->
 
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
-    <!-- Bootstrap framework -->
-    <script src="{% static 'js/purecounter.min.js' %}"></script>
-    <!-- Purecounter counter for statistics numbers -->
-    <script src="{% static 'js/swiper.min.js' %}"></script>
-    <!-- Swiper for image and text sliders -->
-    <script src="{% static 'js/aos.js' %}"></script>
-    <!-- AOS on Animation Scroll -->
-    <script src="{% static 'js/script.js' %}"></script>
-    <!-- Custom scripts -->
-    <script src="{% static 'js/jQuery.js' %}"></script>
-    <script src="{% static 'js/form.js' %}"></script>
-  </body>
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  <!-- Bootstrap framework -->
+  <script src="{% static 'js/purecounter.min.js' %}"></script>
+  <!-- Purecounter counter for statistics numbers -->
+  <script src="{% static 'js/swiper.min.js' %}"></script>
+  <!-- Swiper for image and text sliders -->
+  <script src="{% static 'js/aos.js' %}"></script>
+  <!-- AOS on Animation Scroll -->
+  <script src="{% static 'js/script.js' %}"></script>
+  <!-- Custom scripts -->
+  <script src="{% static 'js/jQuery.js' %}"></script>
+  <script src="{% static 'js/bcancerform.js' %}"></script>
+</body>
+
 </html>

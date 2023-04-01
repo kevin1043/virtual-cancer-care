@@ -13,280 +13,382 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="cache-control" content="max-age=0" />
-    <meta http-equiv="cache-control" content="no-cache" />
-    <meta http-equiv="pragma" content="no-cache" />
-    <!-- Webpage Title -->
-    <title>Lung Cancer Result</title>
 
-    <!-- Styles -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap"
-      rel="stylesheet"
-    />
-    <link href="{% static 'css/bootstrap.min.css' %}"rel="stylesheet" />
-    <link href="{% static 'css/fontawesome-all.min.css' %}" rel="stylesheet" />
-    <link href="{% static 'css/aos.min.css' %}" rel="stylesheet" />
-    <link href="{% static 'css/swiper.css' %}" rel="stylesheet" />
-    <link href="{% static 'css/style.css' %}" rel="stylesheet" />
-    <link href="{% static 'css/form.css' %}" rel="stylesheet" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="cache-control" content="max-age=0" />
+  <meta http-equiv="cache-control" content="no-cache" />
+  <meta http-equiv="pragma" content="no-cache" />
+  <!-- Webpage Title -->
+  <title>Lung Cancer Result</title>
 
-    <!-- Favicon -->
-    <link rel="icon" href="./assets/images/favicon.png" />
-  </head>
-  <body>
-    <!-- Navigation -->
-    <nav
-      id="navbar"
-      class="navbar navbar-expand-lg fixed-top navbar-dark"
-      aria-label="Main navigation"
-    >
-      <div class="container">
-        <!-- Image Logo -->
-        <!-- <a class="navbar-brand logo-image" href="index.html"><img src="images/logo.svg" alt="alternative"></a> -->
+  <!-- Styles -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/fontawesome-all.min.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/aos.min.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/swiper.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/form.css' %}" rel="stylesheet" />
 
-        <!-- Text Logo - Use this if you don't have a graphic logo -->
-        <a class="navbar-brand logo-text" href="index.html">Virtual Cancer Care</a>
+  <!-- Favicon -->
+  <link rel="icon" href="./assets/images/favicon.png" />
+  <style>
+    .rcontainer {
+      margin-top: 8%;
+      margin-left: 12%;
+      margin-right: 12%;
+      margin-bottom: 2%;
+      padding: 20px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 20px;
+      color: white;
+    }
 
-        <button
-          class="navbar-toggler p-0 border-0"
-          type="button"
-          id="navbarSideCollapse"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
+    .row:last-child {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
 
-        <div
-          class="navbar-collapse offcanvas-collapse"
-          id="navbarsExampleDefault"
-        >
-          <ul class="navbar-nav ms-auto navbar-nav-scroll">
-            <li class="nav-item">
-              <a
-                class="nav-link active"
-                aria-current="page"
-                href="index.html#header"
-                >Home</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="index.html#about">About</a>
-            </li>
-            
-            <li class="nav-item">
-              <a class="nav-link" href="index.html#plans">Plans</a>
-            </li>
+    .row label {
+      display: block;
+      font-weight: bold;
+    }
 
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                id="dropdown01"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-                href="#"
-                >Tools</a
-              >
+    .row span {
+      margin-left: 10px;
+    }
 
-              <ul class="dropdown-menu" aria-labelledby="dropdown01">
-                <li>
-                  <a class="dropdown-item" href="{% url 'leukemia' %}"
-                    >Leukemia Cancer Prediction Tool</a
-                  >
-                </li>
-                <li><div class="dropdown-divider"></div></li>
-                <li>
-                  <a class="dropdown-item" href="{% url 'bcancer' %}"
-                    >Breast Cancer Prediction Tool</a
-                  >
-                </li>
-                <li><div class="dropdown-divider"></div></li>
-                <li>
-                  <a class="dropdown-item" href="{% url 'lung' %}"
-                    >Lung Cancer Precition Tool</a
-                  >
-                </li>
-              </ul>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="index.html#contact">Contact</a>
-            </li>
-          </ul>
+    .row input {
+      margin-left: 10px;
+    }
+
+    .btn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav id="navbar" class="navbar navbar-expand-lg fixed-top navbar-dark" aria-label="Main navigation">
+    <div class="container">
+      <!-- Image Logo -->
+      <!-- <a class="navbar-brand logo-image" href="index.html"><img src="images/logo.svg" alt="alternative"></a> -->
+
+      <!-- Text Logo - Use this if you don't have a graphic logo -->
+      <a class="navbar-brand logo-text" href="index.html">Virtual Cancer Care</a>
+
+      <button class="navbar-toggler p-0 border-0" type="button" id="navbarSideCollapse" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav ms-auto navbar-nav-scroll">
           <li class="nav-item">
-            <a
-              class="nav-link active"
-              aria-current="page"
-              href="{% url 'log' %}"
-              >Login/Signup</a
-            >
+            <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Home</a>
           </li>
-        </div>
-        <!-- end of navbar-collapse -->
-      </div>
-      <!-- end of container -->
-    </nav>
-    <!-- end of navbar -->
-    <!-- end of navigation -->
-    <header class="">
-      <div style="color: white; padding: 274px; font-size: xx-large;">
-        data is: {{key}}
-      </div>
-    </header>
-    
-    <!-- Footer -->
-    <div class="footer text-light">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-3 py-4 py-md-5">
-            <div class="d-flex align-items-center">
-              <h4 class="">Virtual Cancer Care</h4>
-            </div>
-            <p class="py-3 para-light">
-              Follow Us!
-            </p>
-            <div class="d-flex">
-              <div class="me-3">
-                <a href="#your-link">
-                  <i class="fab fa-facebook-f fa-2x py-2"></i>
-                </a>
-              </div>
-              <div class="me-3">
-                <a href="#your-link">
-                  <i class="fab fa-twitter fa-2x py-2"></i>
-                </a>
-              </div>
-              <div class="me-3">
-                <a href="#your-link">
-                  <i class="fab fa-instagram fa-2x py-2"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-          <!-- end of col -->
+          <li class="nav-item">
+            <a class="nav-link" href="#about">About</a>
+          </li>
+          <!-- <li class="nav-item">
+                        <a class="nav-link" href="#services">Tools</a>
+                    </li> -->
+          <li class="nav-item">
+            <a class="nav-link" href="#Blog/News">Blog/News</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="false"
+              href="#">Tools</a>
 
-          <div class="col-lg-3 py-4 py-md-5">
-            <div>
-              <h4 class="py-2">Quick Links</h4>
-              <div class="d-flex align-items-center py-2">
-                <i class="fas fa-caret-right"></i>
-                <a href="index.html#about"><p class="ms-3">About</p></a>
-              </div>
-              <div class="d-flex align-items-center py-2">
-                <i class="fas fa-caret-right"></i>
-                <a href="index.html#services"><p class="ms-3">Services</p></a>
-              </div>
-              <div class="d-flex align-items-center py-2">
-                <i class="fas fa-caret-right"></i>
-                <a href="index.html#plans"><p class="ms-3">Plans</p></a>
-              </div>
-              <div class="d-flex align-items-center py-2">
-                <i class="fas fa-caret-right"></i>
-                <a href="index.html#contact"><p class="ms-3">Contact</p></a>
-              </div>
-            </div>
-          </div>
-          <!-- end of col -->
+            <ul class="dropdown-menu" aria-labelledby="dropdown01">
+              <li>
+                <a class="dropdown-item" href="{% url 'leukemia' %}">Leukemia Cancer Prediction Tool</a>
+              </li>
+              <li>
+                <div class="dropdown-divider"></div>
+              </li>
+              <li>
+                <a class="dropdown-item" href="{% url 'bcancer' %}">Breast Cancer Prediction Tool</a>
+              </li>
+              <li>
+                <div class="dropdown-divider"></div>
+              </li>
+              <li>
+                <a class="dropdown-item" href="{% url 'lung' %}">Lung Cancer Precition Tool</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Contact</a>
+          </li>
 
-          <div class="col-lg-3 py-4 py-md-5">
-            <div>
-              <h4 class="py-2">Useful Links</h4>
-              <div class="d-flex align-items-center py-2">
-                <i class="fas fa-caret-right"></i>
-                <a href="privacy.html"><p class="ms-3">Privacy</p></a>
-              </div>
-              <div class="d-flex align-items-center py-2">
-                <i class="fas fa-caret-right"></i>
-                <a href="terms.html"><p class="ms-3">Terms</p></a>
-              </div>
-              <div class="d-flex align-items-center py-2">
-                <i class="fas fa-caret-right"></i>
-                <a href="#your-link"><p class="ms-3">Disclaimer</p></a>
-              </div>
-              <div class="d-flex align-items-center py-2">
-                <i class="fas fa-caret-right"></i>
-                <a href="#your-link"><p class="ms-3">FAQ</p></a>
-              </div>
-            </div>
-          </div>
-          <!-- end of col -->
+          {% if user.is_authenticated %}
+          <li>
+            <a class="nav-link active" aria-current="page" href="#">{{ username }}</a>
+          </li>
+          <li>
 
-          <div class="col-lg-3 py-4 py-md-5">
-            <div class="d-flex align-items-center">
-              <h4>Newsletter</h4>
-            </div>
-            <p class="py-3 para-light">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Laboriosam, ab.
-            </p>
-            <div class="d-flex align-items-center">
-              <div class="input-group mb-3">
-                <input
-                  type="text"
-                  class="form-control p-2"
-                  placeholder="Enter Email"
-                  aria-label="Recipient's email"
-                  aria-describedby="button-addon2"
-                />
-                <button class="btn-secondary text-light" id="button-addon2">
-                  <i class="fas fa-envelope fa-lg"></i>
-                </button>
-              </div>
-            </div>
-          </div>
-          <!-- end of col -->
-        </div>
-        <!-- end of row -->
+            {% csrf_token %}
+            <a class="nav-link active" type="submit" href="{% url 'logout' %}">Logout</a>
+
+          </li>
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'log' %}">Login/Signup</a>
+          </li>
+          {% endif %}
+
+
+        </ul>
+        </span>
       </div>
-      <!-- end of container -->
+      <!-- end of navbar-collapse -->
     </div>
-    <!-- end of footer -->
+    <!-- end of container -->
+  </nav>
+  <!-- end of navbar -->
+  <!-- end of navigation -->
 
-    <!-- Bottom -->
-    <div class="bottom py-2 text-light">
-      <div class="container d-flex justify-content-between">
-        <div>
-          <p>Copyright © Your name</p>
-        </div>
-        <div>
-          <i class="fab fa-cc-visa fa-lg p-1"></i>
-          <i class="fab fa-cc-mastercard fa-lg p-1"></i>
-          <i class="fab fa-cc-paypal fa-lg p-1"></i>
-          <i class="fab fa-cc-amazon-pay fa-lg p-1"></i>
-        </div>
-      </div>
-      <!-- end of container -->
+  <div class="rcontainer">
+    <div class="row">
+      <label>Air Pollution:</label>
+      <span>{{ inputs.air_pollution }}</span>
     </div>
-    <!-- end of bottom -->
+    <div class="row">
+      <label>Alcohol Use:</label>
+      <span>{{ inputs.alcohol_use }}</span>
+    </div>
+    <div class="row">
+      <label>Dust Allergy 1:</label>
+      <span>{{ inputs.dust_allergy1 }}</span>
+    </div>
+    <div class="row">
+      <label>Dust Allergy 2:</label>
+      <span>{{ inputs.dust_allergy2 }}</span>
+    </div>
+    <div class="row">
+      <label>Occupational Hazard 1:</label>
+      <span>{{ inputs.occupational_hazard1 }}</span>
+    </div>
+    <div class="row">
+      <label>Occupational Hazard 2:</label>
+      <span>{{ inputs.occupational_hazard2 }}</span>
+    </div>
+    <div class="row">
+      <label>Genetic Risk:</label>
+      <span>{{ inputs.genetic_risk }}</span>
+    </div>
+    <div class="row">
+      <label>Chronic Lung Disease:</label>
+      <span>{{ inputs.chronic_lung_disease }}</span>
+    </div>
+    <div class="row">
+      <label>Balanced Diet:</label>
+      <span>{{ inputs.balanced_diet }}</span>
+    </div>
+    <div class="row">
+      <label>Obesity:</label>
+      <span>{{ inputs.obesity }}</span>
+    </div>
+    <div class="row">
+      <label>Passive Smoker:</label>
+      <span>{{ inputs.passive_smoker }}</span>
+    </div>
+    <div class="row">
+      <label>Chest Pain 1:</label>
+      <span>{{ inputs.chest_pain1 }}</span>
+    </div>
+    <div class="row">
+      <label>Chest Pain 2:</label>
+      <span>{{ inputs.chest_pain2 }}</span>
+    </div>
+    <div class="row">
+      <label>Coughing Blood:</label>
+      <span>{{ inputs.coughing_blood }}</span>
+    </div>
+    <div class="row">
+      <label>Fatigue:</label>
+      <span>{{ inputs.fatigue }}</span>
+    </div>
 
-    <!-- Back To Top Button -->
-    <button onclick="topFunction()" id="myBtn">
-      <img src="assets/images/up-arrow.png" alt="alternative" />
-    </button>
-    <!-- end of back to top button -->
+  </div>
 
-    <!-- Scripts -->
-    <script src="./js/bootstrap.min.js"></script>
-    <!-- Bootstrap framework -->
-    <script src="./js/purecounter.min.js"></script>
-    <!-- Purecounter counter for statistics numbers -->
-    <script src="./js/swiper.min.js"></script>
-    <!-- Swiper for image and text sliders -->
-    <script src="./js/aos.js"></script>
-    <!-- AOS on Animation Scroll -->
-    <script src="./js/script.js"></script>
-    <!-- Custom scripts -->
-    <script src="{% static 'js/jQuery.js' %}"></script>
-    <script src="{% static 'js/form.js' %}"></script>
-  </body>
+  <div class="row"
+    style="border: 1px solid white; box-sizing: border-box; margin: 0 auto; margin-bottom: 3%; color: white; padding: 10px; width: 28%;">
+    <label style="display: block; font-weight: bold; margin-bottom: 5px;">Prediction:</label>
+    <span style="display: block;">{{ inputs.prediction }}</span>
+  </div>
+
+  <a href="{% url 'generate_pdf' %}" style="color: blue;">
+    <button style="margin-bottom: 5%;">Generate PDF</button>
+  </a>
+
+  <!-- Footer -->
+  <div class="footer text-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3 py-4 py-md-5">
+          <div class="d-flex align-items-center">
+            <h4 class="">Virtual Cancer Care</h4>
+          </div>
+          <p class="py-3 para-light">
+            Follow Us!
+          </p>
+          <div class="d-flex">
+            <div class="me-3">
+              <a href="#your-link">
+                <i class="fab fa-facebook-f fa-2x py-2"></i>
+              </a>
+            </div>
+            <div class="me-3">
+              <a href="#your-link">
+                <i class="fab fa-twitter fa-2x py-2"></i>
+              </a>
+            </div>
+            <div class="me-3">
+              <a href="#your-link">
+                <i class="fab fa-instagram fa-2x py-2"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- end of col -->
+
+        <div class="col-lg-3 py-4 py-md-5">
+          <div>
+            <h4 class="py-2">Quick Links</h4>
+            <div class="d-flex align-items-center py-2">
+              <i class="fas fa-caret-right"></i>
+              <a href="index.html#about">
+                <p class="ms-3">About</p>
+              </a>
+            </div>
+            <div class="d-flex align-items-center py-2">
+              <i class="fas fa-caret-right"></i>
+              <a href="index.html#services">
+                <p class="ms-3">Services</p>
+              </a>
+            </div>
+            <div class="d-flex align-items-center py-2">
+              <i class="fas fa-caret-right"></i>
+              <a href="index.html#plans">
+                <p class="ms-3">Plans</p>
+              </a>
+            </div>
+            <div class="d-flex align-items-center py-2">
+              <i class="fas fa-caret-right"></i>
+              <a href="index.html#contact">
+                <p class="ms-3">Contact</p>
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- end of col -->
+
+        <div class="col-lg-3 py-4 py-md-5">
+          <div>
+            <h4 class="py-2">Useful Links</h4>
+            <div class="d-flex align-items-center py-2">
+              <i class="fas fa-caret-right"></i>
+              <a href="privacy.html">
+                <p class="ms-3">Privacy</p>
+              </a>
+            </div>
+            <div class="d-flex align-items-center py-2">
+              <i class="fas fa-caret-right"></i>
+              <a href="terms.html">
+                <p class="ms-3">Terms</p>
+              </a>
+            </div>
+            <div class="d-flex align-items-center py-2">
+              <i class="fas fa-caret-right"></i>
+              <a href="#your-link">
+                <p class="ms-3">Disclaimer</p>
+              </a>
+            </div>
+            <div class="d-flex align-items-center py-2">
+              <i class="fas fa-caret-right"></i>
+              <a href="#your-link">
+                <p class="ms-3">FAQ</p>
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- end of col -->
+
+        <div class="col-lg-3 py-4 py-md-5">
+          <div class="d-flex align-items-center">
+            <h4>Newsletter</h4>
+          </div>
+          <p class="py-3 para-light">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            Laboriosam, ab.
+          </p>
+          <div class="d-flex align-items-center">
+            <div class="input-group mb-3">
+              <input type="text" class="form-control p-2" placeholder="Enter Email" aria-label="Recipient's email"
+                aria-describedby="button-addon2" />
+              <button class="btn-secondary text-light" id="button-addon2">
+                <i class="fas fa-envelope fa-lg"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- end of col -->
+      </div>
+      <!-- end of row -->
+    </div>
+    <!-- end of container -->
+  </div>
+  <!-- end of footer -->
+
+  <!-- Bottom -->
+  <div class="bottom py-2 text-light">
+    <div class="container d-flex justify-content-between">
+      <div>
+        <p>Copyright © Your name</p>
+      </div>
+      <div>
+        <i class="fab fa-cc-visa fa-lg p-1"></i>
+        <i class="fab fa-cc-mastercard fa-lg p-1"></i>
+        <i class="fab fa-cc-paypal fa-lg p-1"></i>
+        <i class="fab fa-cc-amazon-pay fa-lg p-1"></i>
+      </div>
+    </div>
+    <!-- end of container -->
+  </div>
+  <!-- end of bottom -->
+
+  <!-- Back To Top Button -->
+  <button onclick="topFunction()" id="myBtn">
+    <img src="assets/images/up-arrow.png" alt="alternative" />
+  </button>
+  <!-- end of back to top button -->
+
+  <!-- Scripts -->
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  <!-- Bootstrap framework -->
+  <script src="{% static 'js/purecounter.min.js' %}"></script>
+  <!-- Purecounter counter for statistics numbers -->
+  <script src="{% static 'js/swiper.min.js' %}"></script>
+  <!-- Swiper for image and text sliders -->
+  <script src="{% static 'js/aos.js' %}"></script>
+  <!-- AOS on Animation Scroll -->
+  <script src="{% static 'js/script.js' %}"></script>
+  <script src="{% static 'js/jQuery.js' %}"></script>
+  <script src="{% static 'js/form.js' %}"></script>
+</body>
+
 </html>
-
-

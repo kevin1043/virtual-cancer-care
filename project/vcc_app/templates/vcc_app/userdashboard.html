@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+{% load static %}
+{% load custom_filters %}
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Webpage Title -->
+  <title>Virtual Cancer Care</title>
+
+  <!-- Styles -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/fontawesome-all.min.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/aos.min.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/swiper.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="./assets/images/favicon.png" />
+  <style>
+    h1 {
+      font-family: Arial, sans-serif;
+      font-weight: 50;
+      font-size: 3em;
+      text-align: center;
+      padding: 20px;
+      border: 1px solid #ffffff;
+      border-radius: 5px;
+      margin-top: 2%;
+      margin: 20px auto;
+    }
+
+    :root {
+      --primary: #1c262f;
+      --primary-light: #212d37;
+      --secondary: #d2d2d2;
+      --tertiary: #00dabf;
+      --gradient: linear-gradient(to right, #0ee951, #00dabf);
+      --light: #fff;
+    }
+
+    form {
+      margin: 0 auto;
+      text-align: center;
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      color: #333;
+    }
+
+    select {
+      margin-top: 2%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      background-color: #fff;
+      cursor: pointer;
+    }
+
+    select:focus {
+      outline: none;
+      border-color: #555;
+    }
+
+    option[value=""] {
+      color: #999;
+    }
+
+    option:not(:first-child):hover {
+      background-color: #f5f5f5;
+    }
+
+    .ex-header {
+      padding-top: 5.0rem;
+      padding-bottom: 1rem;
+      background-color: var(--primary);
+      /* width: 130%; */
+    }
+
+    body {
+      background-color: var(--primary-light);
+      color: var(--light);
+      /* font-family: 'Poppins', sans-serif; */
+      margin: 0;
+      padding: 0;
+    }
+
+    #header {
+      background-color: var(--primary);
+      background-image: var(--gradient);
+      background-size: cover;
+      background-position: center center;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    /* Table */
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 20px auto;
+      max-width: 800px;
+    }
+
+    th,
+    td {
+      text-align: center;
+      padding: 0.2rem;
+      border-collapse: collapse;
+      /* width: 100%; */
+      margin: 20px auto;
+      max-width: 800px;
+      border: 1px solid var(--primary);
+      background-color: white;
+      color: var(--primary-light);
+    }
+
+
+
+    th {
+      border-color: #ccc;
+      background-color: var(--primary);
+      color: var(--light);
+      font-weight: unset;
+      font-size: x-small;
+      text-transform: unset;
+    }
+
+    /* tr:nth-child(even) {
+    background-color: var(--primary-light);
+  } */
+    tr {
+      font-size: smaller;
+    }
+
+    tr:hover {
+      background-color: var(--secondary);
+      color: black;
+    }
+
+    @media only screen and (max-width: 600px) {
+      table {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      th,
+      td {
+        display: block;
+        width: 100%;
+      }
+
+      td {
+        text-align: right;
+        padding-left: 50%;
+      }
+
+      td:before {
+        content: attr(data-label);
+        float: left;
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- chatbot starts -->
+
+  <!-- chatbot ends -->
+  <!-- Navigation -->
+  <nav id="navbar" class="navbar navbar-expand-lg fixed-top navbar-dark" aria-label="Main navigation">
+    <div class="container">
+      <!-- Image Logo -->
+      <!-- <a class="navbar-brand logo-image" href="index.html"><img src="images/logo.svg" alt="alternative"></a> -->
+
+      <!-- Text Logo - Use this if you don't have a graphic logo -->
+      <a class="navbar-brand logo-text" href="index.html">Virtual Cancer Care</a>
+
+      <button class="navbar-toggler p-0 border-0" type="button" id="navbarSideCollapse" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav ms-auto navbar-nav-scroll">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#about">About</a>
+          </li>
+          <!-- <li class="nav-item">
+                        <a class="nav-link" href="#services">Tools</a>
+                    </li> -->
+          <li class="nav-item">
+            <a class="nav-link" href="#Blog/News">Blog/News</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="false"
+              href="#">Tools</a>
+
+            <ul class="dropdown-menu" aria-labelledby="dropdown01">
+              <li>
+                <a class="dropdown-item" href="{% url 'leukemia' %}">Leukemia Cancer Prediction Tool</a>
+              </li>
+              <li>
+                <div class="dropdown-divider"></div>
+              </li>
+              <li>
+                <a class="dropdown-item" href="{% url 'bcancer' %}">Breast Cancer Prediction Tool</a>
+              </li>
+              <li>
+                <div class="dropdown-divider"></div>
+              </li>
+              <li>
+                <a class="dropdown-item" href="{% url 'lung' %}">Lung Cancer Precition Tool</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Contact</a>
+          </li>
+
+          {% if user.is_authenticated %}
+          <li>
+            <a class="nav-link active" aria-current="page" href="#">{{ username }}</a>
+          </li>
+          <li>
+
+            {% csrf_token %}
+            <a class="nav-link active" type="submit" href="{% url 'logout' %}">Logout</a>
+
+          </li>
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'log' %}">Login/Signup</a>
+          </li>
+          {% endif %}
+
+
+        </ul>
+        </span>
+      </div>
+      <!-- end of navbar-collapse -->
+    </div>
+    <!-- end of container -->
+  </nav>
+  <!-- end of navbar -->
+  <!-- end of navigation -->
+  <header class="ex-header"></header>
+
+  <h1>User Dashboard</h1>
+  <!-- <h1>User Dashboard</h1> -->
+  <form method="POST">
+    {% csrf_token %}
+    <select name="cancer_type" onchange="this.form.submit()">
+      <option value="">Select cancer type</option>
+      <option value="lung">Lung cancer</option>
+      <option value="breast">Breast cancer</option>
+      <option value="leukemia">Leukemia cancer</option>
+    </select>
+  </form>
+  <table>
+    <thead>
+      <tr>
+        {% for field_name in field_names %}
+        <th>{{ field_name|title }}</th>
+        {% endfor %}
+      </tr>
+    </thead>
+    <tbody>
+      {% for result in user_results %}
+      <tr>
+        {% for field_name in field_names %}
+        <td>{{ result|getattr:field_name }}</td>
+        {% endfor %}
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+
+
+
+
+
+
+  <!-- Footer -->
+  <section class="footer text-light">
+    <div class="container">
+      <div class="row" data-aos="fade-right">
+        <div class="col-lg-3 py-4 py-md-5">
+          <div class="d-flex align-items-center">
+            <h4 class="">Mirko</h4>
+          </div>
+          <p class="py-3 para-light">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus
+            animi repudiandae explicabo esse maxime, impedit rem voluptatibus
+            amet error quas.
+          </p>
+          <div class="d-flex">
+            <div class="me-3">
+              <a href="#your-link">
+                <i class="fab fa-facebook-f fa-2x py-2"></i>
+              </a>
+            </div>
+            <div class="me-3">
+              <a href="#your-link">
+                <i class="fab fa-twitter fa-2x py-2"></i>
+              </a>
+            </div>
+            <div class="me-3">
+              <a href="#your-link">
+                <i class="fab fa-instagram fa-2x py-2"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- end of col -->
+
+        <div class="col-lg-3 py-4 py-md-5">
+          <div>
+            <h4 class="py-2">Quick Links</h4>
+            <div class="d-flex align-items-center py-2">
+              <i class="fas fa-caret-right"></i>
+              <a href="#about">
+                <p class="ms-3">About</p>
+              </a>
+            </div>
+            <div class="d-flex align-items-center py-2">
+              <i class="fas fa-caret-right"></i>
+              <a href="#">
+                <p class="ms-3">Services</p>
+              </a>
+            </div>
+            <div class="d-flex align-items-center py-2">
+              <i class="fas fa-caret-right"></i>
+              <a href="#">
+                <p class="ms-3">Blog/News</p>
+              </a>
+            </div>
+            <div class="d-flex align-items-center py-2">
+              <i class="fas fa-caret-right"></i>
+              <a href="#">
+                <p class="ms-3">Contact</p>
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- end of col -->
+
+        <div class="col-lg-3 py-4 py-md-5">
+          <div class="d-flex align-items-center">
+            <h4>Newsletter</h4>
+          </div>
+          <p class="py-3 para-light">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            Laboriosam, ab.
+          </p>
+          <div class="d-flex align-items-center">
+            <div class="input-group mb-3">
+              <input type="text" class="form-control p-2" placeholder="Enter Email" aria-label="Recipient's email" />
+              <button class="btn-secondary text-light">
+                <i class="fas fa-envelope fa-lg"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- end of col -->
+      </div>
+      <!-- end of row -->
+    </div>
+    <!-- end of container -->
+  </section>
+  <!-- end of footer -->
+
+  <!-- Bottom -->
+  <div class="bottom py-2 text-light">
+    <div class="container d-flex justify-content-between">
+      <div>
+        <p>Copyright © Your name</p>
+        <br />
+        <p>
+          Distributed by: <a href="https://themewagon.com/">Themewagon</a>
+        </p>
+      </div>
+      <div>
+        <i class="fab fa-cc-visa fa-lg p-1"></i>
+        <i class="fab fa-cc-mastercard fa-lg p-1"></i>
+        <i class="fab fa-cc-paypal fa-lg p-1"></i>
+        <i class="fab fa-cc-amazon-pay fa-lg p-1"></i>
+      </div>
+    </div>
+    <!-- end of container -->
+  </div>
+  <!-- end of bottom -->
+
+  <!-- Back To Top Button -->
+  <button onclick="topFunction()" id="myBtn">
+    <img src="assets/images/up-arrow.png" alt="alternative" />
+  </button>
+  <!-- end of back to top button -->
+
+  <!-- Scripts -->
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  <!-- Bootstrap framework -->
+  <script src="{% static 'js/purecounter.min.js' %}"></script>
+  <!-- Purecounter counter for statistics numbers -->
+  <script src="{% static 'js/swiper.min.js' %}"></script>
+  <!-- Swiper for image and text sliders -->
+  <script src="{% static 'js/aos.js' %}"></script>
+  <!-- AOS on Animation Scroll -->
+  <script src="{% static 'js/script.js' %}"></script>
+  <!-- Custom scripts -->

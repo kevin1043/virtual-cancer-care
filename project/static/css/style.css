@@ -530,6 +530,7 @@ li {
 	padding-top: 5.0rem;
 	padding-bottom: 1rem;
 	background-color: var(--primary);
+	width: 285px;
 }
 
 .ex-header h1 {
@@ -595,7 +596,7 @@ li {
 	}
 }
 
-@media (min-width: 992px) {
+/* @media (min-width: 992px) {
 	.slider-1 .swiper-container {
 		width: 92%;
 	}
@@ -617,7 +618,7 @@ li {
 		box-shadow: none;
 		transition: all 0.2s;
 		padding-top: 1.75rem;
-		background-color: transparent;
+		
 	}
 
 	.navbar.top-nav-collapse {
@@ -635,7 +636,7 @@ li {
 		width: auto;
 		padding-right: 0;
 		padding-left: 0;
-		background-color: transparent;
+		/* background-color: transparent; */
 		overflow-y: visible;
 		visibility: visible;
 	}
@@ -672,7 +673,7 @@ li {
 		margin-right: 0;
 		margin-left: 0.25rem;
 	}
-}
+} */
 
 @media only screen and (max-width: 540px) {
 	h1 {

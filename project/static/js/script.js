@@ -17,23 +17,23 @@
 
 
 window.onscroll = function () {
-	scrollFunction();
-	scrollFunctionBTT(); // back to top button
+    scrollFunction();
+    scrollFunctionBTT(); // back to top button
 };
 
 function scrollFunction() {
-	let intViewportWidth = window.innerWidth;
-	if (
-		document.body.scrollTop > 30 ||
-		(document.documentElement.scrollTop > 30) & (intViewportWidth > 991)
-	) {
-		document.getElementById("navbar").classList.add("top-nav-collapse");
-	} else if (
-		document.body.scrollTop < 30 ||
-		(document.documentElement.scrollTop < 30) & (intViewportWidth > 991)
-	) {
-		document.getElementById("navbar").classList.remove("top-nav-collapse");
-	}
+    let intViewportWidth = window.innerWidth;
+    if (
+        document.body.scrollTop > 30 ||
+        (document.documentElement.scrollTop > 30) & (intViewportWidth > 991)
+    ) {
+        document.getElementById("navbar").classList.add("top-nav-collapse");
+    } else if (
+        document.body.scrollTop < 30 ||
+        (document.documentElement.scrollTop < 30) & (intViewportWidth > 991)
+    ) {
+        document.getElementById("navbar").classList.remove("top-nav-collapse");
+    }
 }
 
 // NAVBAR ON MOBILE
@@ -46,7 +46,7 @@ for (let i = 0; i < elements.length; i++) {
 }
 
 document.querySelector(".navbar-toggler").addEventListener("click", () => {
-  document.querySelector(".offcanvas-collapse").classList.toggle("open");
+    document.querySelector(".offcanvas-collapse").classList.toggle("open");
 });
 
 // HOVER ON DESKTOP
@@ -56,11 +56,11 @@ function toggleDropdown(e) {
 
     setTimeout(
         function () {
-        const shouldOpen = _d.matches(":hover");
-        _m.classList.toggle("show", shouldOpen);
-        _d.classList.toggle("show", shouldOpen);
+            const shouldOpen = _d.matches(":hover");
+            _m.classList.toggle("show", shouldOpen);
+            _d.classList.toggle("show", shouldOpen);
 
-        _d.setAttribute("aria-expanded", shouldOpen);
+            _d.setAttribute("aria-expanded", shouldOpen);
         },
         e.type === "mouseleave" ? 300 : 0
     );
@@ -107,12 +107,12 @@ var cardSlider = new Swiper(".card-slider", {
     breakpoints: {
         // when window is <= 767px
         767: {
-        slidesPerView: 1,
+            slidesPerView: 1,
         },
         // when window is <= 991px
         991: {
-        slidesPerView: 2,
-        spaceBetween: 40,
+            slidesPerView: 2,
+            spaceBetween: 40,
         },
     },
 });

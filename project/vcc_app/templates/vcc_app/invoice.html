@@ -1,0 +1,224 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+  <head>
+  	<title>Table 07</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+	<style>
+        .h2
+        {
+            margin-top: 5%;
+        }
+        body {
+            background-color: black;
+            color: white;
+        }
+        
+        .ftco-section {
+            
+        }
+                
+        .container {
+            width: 100%;
+            max-width: 1140px;
+            
+        }
+        
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 -15px;
+        }
+
+        .col-md-6,
+        .col-md-12,
+        .col-xl-auto {
+            position: relative;
+            width: 100%;
+            padding: 0 15px;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .mb-5,
+        .my-5 {
+            margin-bottom: 3rem;
+        }
+
+        .heading-section {
+            font-size: 28px;
+            padding: 10%;
+            padding-top: 10px;
+        }
+
+        .table-wrap {
+            overflow-x: scroll;
+        }
+
+        .table {
+            border-collapse: collapse;
+        }
+
+        .table th,
+        .table td {
+            background-color: #363636;
+            border: 1px solid #95999c;
+            margin: 10%;
+            padding: 15%;
+            padding-top: 10px;
+            font-size: larger;
+        }
+
+        .table th {
+            color: white;
+        }
+
+        .table-dark {
+            color: inherit;
+            background-color: #363636;
+        }
+
+        .table-hover .table-dark:hover {
+            background-color: #b9bbbe;
+        }
+
+        .table-hover .table-dark:hover > td,
+        .table-hover .table-dark:hover > th {
+            background-color: #b9bbbe;
+        }
+    </style>
+    </head>
+	<body>
+        <section class="ftco-section">
+            <div class="container">
+              <div class="row justify-content-center">
+                <div class="col-md-6 text-center mb-5">
+                  <h2 class="heading-section">Results</h2>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="table-wrap">
+                    <table class="table table-dark table-hover">
+						  <thead>
+						    <tr>
+						      <th>#</th>
+						      <th>Name</th>
+						      <th>Value</th>
+						      
+						    </tr>
+						  </thead>
+						  <tbody>
+						    <tr>
+						      <th scope="row">1</th>
+						      <td>Air Pollution:</td>
+						      <td>{{ inputs.air_pollution }}</td>
+						      
+						    </tr>
+						    <tr>
+						      <th scope="row">2</th>
+						      <td>Alcohol Use:</td>
+						      <td>{{ inputs.alcohol_use }}</td>
+						      
+						    </tr>
+						    <tr>
+						      <th scope="row">3</th>
+						      <td>Dust Allergy 1:</td>
+						      <td>{{ inputs.dust_allergy1 }}</td>
+						      
+						    </tr>
+						    <tr>
+						      <th scope="row">4</th>
+						      <td>Dust Allergy 2:</td>
+						      <td>{{ inputs.dust_allergy2 }}</td>
+						    
+						    </tr>
+						    <tr>
+						      <th scope="row">5</th>
+						      <td>Occupational Hazard 1:</td>
+						      <td>{{ inputs.occupational_hazard1 }}</td>
+						      
+						    </tr>
+							<tr>
+								<th scope="row">6</th>
+								<td>Occupational Hazard 2:</td>
+								<td>{{ inputs.occupational_hazard2 }}</td>
+								
+							  </tr>
+							  <tr>
+								<th scope="row">7</th>
+								<td>Genetic Risk:</td>
+								<td>{{ inputs.genetic_risk }}</td>
+								
+							  </tr>
+							  <tr>
+								<th scope="row">8</th>
+								<td>Chronic Lung Disease:</td>
+								<td>{{ inputs.chronic_lung_disease }}</td>
+								
+							  </tr>
+							  <tr>
+								<th scope="row">9</th>
+								<td>Balanced Diet:</td>
+								<td>{{ inputs.balanced_diet }}</td>
+								
+							  </tr>
+							  <tr>
+								<th scope="row">10</th>
+								<td>Obesity:</td>
+								<td>{{ inputs.obesity }}</td>
+								
+							  </tr>
+							  <tr>
+								<th scope="row">11</th>
+								<td>Passive Smoker:</td>
+								<td>{{ inputs.passive_smoker }}</td>
+								
+							  </tr>
+							  <tr>
+								<th scope="row">12</th>
+								<td>Chest Pain 1:</td>
+								<td>{{ inputs.chest_pain1 }}</td>
+								
+							  </tr>
+							  <tr>
+								<th scope="row">13</th>
+								<td>Chest Pain 2:</td>
+								<td>{{ inputs.chest_pain2 }}</td>
+								
+							  </tr>
+							  <tr>
+								<th scope="row">14</th>
+								<td>Coughing Blood:</td>
+								<td>{{ inputs.coughing_blood }}</td>
+								
+							  </tr>
+							  <tr>
+								<th scope="row">15</th>
+								<td>Fatigue</td>
+								<td>{{ inputs.fatigue }}</td>
+								
+							  </tr>
+						  </tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+    <br>
+    <div class="row" style="font-size: larger;border: 1px solid white; box-sizing: border-box;align-content: center; margin: 0 auto; margin-bottom: 3%; margin-top: auto; width: 30%;">
+        <label style="display: block; font-weight: bold; margin-bottom: 10px; padding: 10px; background-color: #363636; color: rgb(245, 199, 14);">Prediction: {{ inputs.prediction }}</label>
+      </div>
+      
+
+
+	</body>
+</html>
+

@@ -1,311 +1,361 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="cache-control" content="max-age=0" />
-    <meta http-equiv="cache-control" content="no-cache" />
-    <meta http-equiv="pragma" content="no-cache" />
-    <!-- Webpage Title -->
-    <title>Lung Cancer</title>
 
-    <!-- Styles -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap"
-      rel="stylesheet"
-    />
-    <link href="{% static 'css/bootstrap.min.css' %}"rel="stylesheet" />
-    <link href="{% static 'css/fontawesome-all.min.css' %}" rel="stylesheet" />
-    <link href="{% static 'css/aos.min.css' %}" rel="stylesheet" />
-    <link href="{% static 'css/swiper.css' %}" rel="stylesheet" />
-    <link href="{% static 'css/style.css' %}" rel="stylesheet" />
-    <link href="{% static 'css/form.css' %}" rel="stylesheet" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="cache-control" content="max-age=0" />
+  <meta http-equiv="cache-control" content="no-cache" />
+  <meta http-equiv="pragma" content="no-cache" />
+  <!-- Webpage Title -->
+  <title>Lung Cancer</title>
 
-    <!-- Favicon -->
-    <link rel="icon" href="./assets/images/favicon.png" />
-  </head>
-  <body>
-    <!-- Navigation -->
-    <nav
-      id="navbar"
-      class="navbar navbar-expand-lg fixed-top navbar-dark"
-      aria-label="Main navigation"
-    >
-      <div class="container">
-        <!-- Image Logo -->
-        <!-- <a class="navbar-brand logo-image" href="index.html"><img src="images/logo.svg" alt="alternative"></a> -->
+  <!-- Styles -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/fontawesome-all.min.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/aos.min.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/swiper.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/form.css' %}" rel="stylesheet" />
 
-        <!-- Text Logo - Use this if you don't have a graphic logo -->
-        <a class="navbar-brand logo-text" href="index.html">Virtual Cancer Care</a>
+  <!-- Favicon -->
+  <link rel="icon" href="./assets/images/favicon.png" />
+  <style>
+    :root {
+      --primary: #1c262f;
+      --primary-light: #212d37;
+      --secondary: #0ee951;
+      --tertiary: #00dabf;
+      --gradient: linear-gradient(to right, #0ee951, #00dabf);
+      --light: #fff;
+    }
 
-        <button
-          class="navbar-toggler p-0 border-0"
-          type="button"
-          id="navbarSideCollapse"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
+    select#dropdown {
+      display: table;
+      width: 95%;
+      height: 2.375rem;
+      padding: 0.375rem 0.75rem;
+      color: var(--light);
+      background-color: var(--primary-light);
+      background-clip: padding-box;
+      border: 1px solid #ced4da;
+      border-radius: 0.25rem;
+      transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+      margin-top: 1%;
+      font-size: 1.1 rem;
+    }
 
-        <div
-          class="navbar-collapse offcanvas-collapse"
-          id="navbarsExampleDefault"
-        >
-          <ul class="navbar-nav ms-auto navbar-nav-scroll">
-            <li class="nav-item">
-              <a
-                class="nav-link active"
-                aria-current="page"
-                href="index.html#header"
-                >Home</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="index.html#about">About</a>
-            </li>
-            
-            <li class="nav-item">
-              <a class="nav-link" href="index.html#plans">Plans</a>
-            </li>
+    option {
+      font-weight: normal;
+      display: block;
+      white-space: nowrap;
+      min-height: 1.2em;
+      padding: 0px 2px 1px;
+    }
 
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                id="dropdown01"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-                href="#"
-                >Tools</a
-              >
+    #p-lable {
+      margin-left: 0.5%;
+      margin-top: 3%;
+    }
 
-              <ul class="dropdown-menu" aria-labelledby="dropdown01">
-                <li>
-                  <a class="dropdown-item" href="{% url 'leukemia' %}"
-                    >Leukemia Cancer Prediction Tool</a
-                  >
-                </li>
-                <li><div class="dropdown-divider"></div></li>
-                <li>
-                  <a class="dropdown-item" href="{% url 'bcancer' %}"
-                    >Breast Cancer Prediction Tool</a
-                  >
-                </li>
-                <li><div class="dropdown-divider"></div></li>
-                <li>
-                  <a class="dropdown-item" href="{% url 'lung' %}"
-                    >Lung Cancer Precition Tool</a
-                  >
-                </li>
-              </ul>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="index.html#contact">Contact</a>
-            </li>
-          </ul>
+    input {
+      display: block;
+      width: 100%;
+      height: 2.375rem;
+      padding: 0.375rem 0.75rem;
+      color: var(--light);
+      background-color: var(--primary-light);
+      border: solid 1px #000;
+      border-radius: 0.25rem;
+      transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    ::placeholder {
+      color: var(--light);
+      opacity: 40%;
+    }
+
+    input[type="checkbox"] {
+
+      cursor: default;
+      appearance: auto;
+      box-sizing: border-box;
+      margin: 3px 3px 3px 4px;
+      padding: initial;
+      border: initial;
+      width: 17%;
+      background-color: var(--primary-light);
+    }
+
+    input[type="radio"] {
+
+      cursor: default;
+      appearance: auto;
+      box-sizing: border-box;
+      margin: 3px 3px 3px 4px;
+      padding: initial;
+      border: initial;
+      width: 17%;
+      background-color: var(--primary-light);
+    }
+
+    fieldset {
+      display: inline-flex;
+      width: 550px;
+      margin-top: 3%;
+      margin-left: -51%;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav id="navbar" class="navbar navbar-expand-lg fixed-top navbar-dark" aria-label="Main navigation">
+    <div class="container">
+      <!-- Image Logo -->
+      <!-- <a class="navbar-brand logo-image" href="index.html"><img src="images/logo.svg" alt="alternative"></a> -->
+
+      <!-- Text Logo - Use this if you don't have a graphic logo -->
+      <a class="navbar-brand logo-text" href="index.html">Virtual Cancer Care</a>
+
+      <button class="navbar-toggler p-0 border-0" type="button" id="navbarSideCollapse" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav ms-auto navbar-nav-scroll">
           <li class="nav-item">
-            <a
-              class="nav-link active"
-              aria-current="page"
-              href="{% url 'log' %}"
-              >Login/Signup</a
-            >
+            <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Home</a>
           </li>
-        </div>
-        <!-- end of navbar-collapse -->
-      </div>
-      <!-- end of container -->
-    </nav>
-    <!-- end of navbar -->
-    <!-- end of navigation -->
+          <li class="nav-item">
+            <a class="nav-link" href="#about">About</a>
+          </li>
+          <!-- <li class="nav-item">
+                        <a class="nav-link" href="#services">Tools</a>
+                    </li> -->
+          <li class="nav-item">
+            <a class="nav-link" href="#Blog/News">Blog/News</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="false"
+              href="#">Tools</a>
 
-    <!-- Header -->
-    <header class="ex-header">
+            <ul class="dropdown-menu" aria-labelledby="dropdown01">
+              <li>
+                <a class="dropdown-item" href="{% url 'leukemia' %}">Leukemia Cancer Prediction Tool</a>
+              </li>
+              <li>
+                <div class="dropdown-divider"></div>
+              </li>
+              <li>
+                <a class="dropdown-item" href="{% url 'bcancer' %}">Breast Cancer Prediction Tool</a>
+              </li>
+              <li>
+                <div class="dropdown-divider"></div>
+              </li>
+              <li>
+                <a class="dropdown-item" href="{% url 'lung' %}">Lung Cancer Precition Tool</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Contact</a>
+          </li>
 
-        <!-- tool started -->
-        <div class="container">
-          <div>
-            <h1>Lung Cancer Tool</h1>
-          </div>
-          <section>
-            <p>Answer the following questions carefully to get the most accurate prediction!</p>
-            
-          </section>
-          <form action="{% url 'lresult' %}" method="POST" name="form">
+          {% if user.is_authenticated %}
+          <li>
+            <a class="nav-link active" aria-current="page" href="#">{{ username }}</a>
+          </li>
+          <li>
+
             {% csrf_token %}
+            <a class="nav-link active" type="submit" href="{% url 'logout' %}">Logout</a>
 
-            <section>
-             <p>What is the Air Quality Index (AQI) of the city of your residence?</p>
-             <input type="text" name="air_pollution" class="air_pollution" id="air_pollution"/>
-            </section>
+          </li>
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'log' %}">Login/Signup</a>
+          </li>
+          {% endif %}
 
-             <section>
-              <p>How often do you consume alcohol?</p>
-             
-               <input type="checkbox" name="alcohol_use" value="1">never
-               <br><br>
-               <input type="checkbox" name="alcohol_use" value="2">1-2 drinks per month
-               <br><br>
-               <input type="checkbox" name="alcohol_use" value="3">1-2 drinks per week
-               <br><br>
-               <input type="checkbox" name="alcohol_use" value="6">1-2 drinks per day
-               <br><br>
-               <input type="checkbox" name="alcohol_use" value="8">8-12 drinks per week
-               <br><br>
-               <input type="checkbox" name="alcohol_use" value="10">more than above
-               <br><br>
-               
-             </section>
-             
-              <section>
-                <p>How many dust-related sneezing/coughing attacks do you experience in a month?</p>
-              
-                <input type="checkbox" name="chk[]" value="2">1-2
-                <br><br>
-                <input type="checkbox" name="chk[]" value="5">weekly
-                <br><br>
-                <input type="checkbox" name="chk[]" value="9">more than 5 times a month
-                <br><br>
-                <input type="checkbox" name="chk[]" value="1">none
-                <br><br>
-                
-              
-                <p>What would you rate the intensity of your symptoms on a scale of 1 to 10? (0 if not applicable)</p>
-                <input type="text" name="dust_allergy" class="dust_allergy" id="dust_allergy"/>
-              </section>
 
-              <section>
-                <p>1. Are you exposed to the following agents during a typical workday? Asbestos, Arsenic, Aluminum, beryllium and beryllium oxide, cadmium, and Paint.</p>
-              
-                <input type="checkbox" name="hazard1" value="10">yes
-                <br><br>
-                <input type="checkbox" name="hazard1" value="5">sometimes
-                <br><br>
-                <input type="checkbox" name="hazard1" value="1">no
-                <br><br>
-              
-                <p>2. What are the durations of your exposure?</p>
-              
-                <input type="checkbox" name="hazard2" value="10">high
-                <br><br>
-                <input type="checkbox" name="hazard2" value="6">moderate
-                <br><br>
-                <input type="checkbox" name="hazard2" value="4">low
-                <br><br>
-                <input type="checkbox" name="hazard2" value="1">none
-                <br><br>
-              </section>
+        </ul>
+        </span>
+      </div>
+      <!-- end of navbar-collapse -->
+    </div>
+    <!-- end of container -->
+  </nav>
+  <!-- end of navbar -->
+  <!-- end of navigation -->
 
-              <section>
-                <p>Who in your family has/had Lung Cancer?</p>
-              
-                <input type="checkbox" name="genetic_risk" value="4">Parent
-                <br><br>
-                <input type="checkbox" name="genetic_risk" value="3">Grandparent
-                <br><br>
-                <input type="checkbox" name="genetic_risk" value="3">other blood relative
-                <br><br>
-                <input type="checkbox" name="genetic_risk" value="1">no one
-                <br><br>
-                
-              </section>
+  <!-- Header -->
+  <header class="ex-header">
 
-              <section>
-                <p>Do you have a chronic lung disease such as asthma, chronic obstructive pulmonary disease (COPD), pulmonary fibrosis, asbestosis, or pneumonitis?</p>
-              
-                <input type="checkbox" name="chronic_disease" value="10">yes
-                <br><br>
-                <input type="checkbox" name="chronic_disease" value="1">no
-                <br><br>
-                
-              </section>
+    <!-- tool started -->
+    <div class="container">
+      <div>
+        <h1>Lung Cancer Tool</h1>
+      </div>
 
-              <section>
-                <p>What is your balanced diet?</p>
-                <input type="text" name="diet" class="diet" id="diet"/>
-                
-              </section>
+      <form action="{% url 'lresult' %}" method="POST" name="form">
+        {% csrf_token %}
+        <section>
+          <p>Lung cancer is a type of cancer that begins in the lungs. Your lungs are two spongy organs in your chest
+            that take in oxygen when you inhale and release carbon dioxide when you exhale.
+            Lung cancer is the leading cause of cancer deaths worldwide.
 
-              <section>
-                <p>What is your BMI?</p>
-                <input type="text" name="obesity" class="obesity" id="obesity"/>
-                
-              </section>
+            People who smoke have the greatest risk of lung cancer, though lung cancer can also occur in people who have
+            never smoked. The risk of lung cancer increases with the length of time and number of cigarettes you've
+            smoked. If you quit smoking, even after smoking for many years, you can significantly reduce your chances of
+            developing lung cancer.</p>
+        </section>
+        <section>
+          <p>1. What is the Air Quality Index (AQI) of the city of your residence?</p>
+          <input type="text" name="air_pollution" class="air_pollution" id="air_pollution"
+            placeholder="Enter Air Quality Index(AQI)" />
+          <p id="p-lable">2. How often do you consume alcohol?</p>
+          <select name="alcohol_use" id="dropdown" class="drpodown-list">
+            <option value="" selected disabled id="placeholder-opac">Select an option</option>
+            <option value="1">never</option>
+            <option value="2">1-2 drinks per month</option>
+            <option value="3">1-2 drinks per week</option>
+            <option value="6">1-2 drinks per day</option>
+            <option value="8">8-12 drinks per week</option>
+            <option value="10">more than above</option>
+          </select>
+        </section>
 
-              <section>
-                <p>
-                  Does anyone in your family or work environment smoke, causing you to inhale second-hand smoke?</p>
-              
-                <input type="checkbox" name="passive_smoker" value="10">yes and frequently
-                <br><br>
-                <input type="checkbox" name="passive_smoker" value="7">yes but not frequently
-                <br><br>
-                <input type="checkbox" name="passive_smoker" value="5">sometimes
-                <br><br>
-                <input type="checkbox" name="passive_smoker" value="2">rarely
-                <br><br>
-                <input type="checkbox" name="passive_smoker" value="1">no
-                <br><br>
-                
-              </section>
 
-              <section>
-                <p>1. Do you experience chest pain?</p>
-              
-                <input type="checkbox" name="chest_pain1" value="10">yes
-                <br><br>
-                <input type="checkbox" name="chest_pain1" value="1">no
-                <br><br>
-                
-              
-                <p>2. What would you rate the intensity of your pain on a scale of 1 to 10?</p>
-                <input type="text" name="chest_pain2" class="chest_pain2" id="chest_pain2"/>
-                
-              </section>
 
-              <section>
-                <p>Have you suddenly started coughing blood?</p>
-              
-                <input type="checkbox" name="blood" value="9">frequently
-                <br><br>
-                <input type="checkbox" name="blood" value="6">has happened a few times
-                <br><br>
-                <input type="checkbox" name="blood" value="1">no
-                <br><br>
-                
-              </section>
+        <section>
+          <p id="p-lable">3. How many dust-related sneezing/coughing attacks do you experience in a month?</p>
+          <select name="chk[]" id="dropdown" class="drpodown-list">
+            <option value="" selected disabled>Select an option</option>
+            <option value="2">1-2</option>
+            <option value="5">weekly</option>
+            <option value="9">more than 5 times a month</option>
+            <option value="1">none</option>
+          </select>
+          <p id="p-lable">4. What would you rate the intensity of your symptoms on a scale of 1 to 10? (0 if not
+            applicable)</p>
+          <input type="text" name="dust_allergy" class="dust_allergy" id="dust_allergy" placeholder="Enter Intensity" />
+        </section>
 
-              <section>
-                <p>Do you often feel tired for no particular reason? You might feel sleepy throughout the day even after getting a 6-8 hour sleep or might feel groggy or irritated due to tiredness?</p>
-              
-                <input type="checkbox" name="fatigue" value="10">yes, frequently
-                <br><br>
-                <input type="checkbox" name="fatigue" value="8">often
-                <br><br>
-                <input type="checkbox" name="fatigue" value="6">sometimes
-                <br><br>
-                <input type="checkbox" name="fatigue" value="3">rarely
-                <br><br>
-                <input type="checkbox" name="fatigue" value="1">never
-                <br><br>
-                
-              </section>
-            
-            <div class="button" id="prev">&larr; Previous</div>
-            <div class="button" id="next">Next &rarr;</div>
-            <input class="button" type="submit" id="submit" ></input>
-          </form>
-          
-          <div id="svg_wrap"></div>
-        </div>
-        <!-- tool ends -->
-        
+        <section>
+          <p id="p-lable">5. Are you exposed to the following agents during a typical workday? Asbestos, Arsenic,
+            Aluminum, beryllium
+            and beryllium oxide, cadmium, and Paint.</p>
+          <fieldset>
+            <input type="radio" name="hazard1" value="10">yes
+            <input type="radio" name="hazard1" value="5">sometimes
+            <input type="radio" name="hazard1" value="1">no
+          </fieldset>
+
+          <p id="p-lable">6. What are the durations of your exposure?</p>
+          <select name="hazard2" id="dropdown" class="drpodown-list">
+            <option value="" selected disabled>Select an option</option>
+            <option value="10">high</option>
+            <option value="6">moderate</option>
+            <option value="4">low</option>
+            <option value="1">none</option>
+          </select>
+        </section>
+
+        <section>
+          <p id="p-lable">7. Who in your family has/had Lung Cancer?</p>
+          <fieldset>
+            <input type="checkbox" name="genetic_risk" value="4">Parent
+            <input type="checkbox" name="genetic_risk" value="3">Grandparent
+            <input type="checkbox" name="genetic_risk" value="3">other blood relative
+            <input type="checkbox" name="genetic_risk" value="1">no one
+          </fieldset>
+          <p id="p-lable">8. Do you have a chronic lung disease such as asthma, chronic obstructive pulmonary disease
+            (COPD), pulmonary
+            fibrosis, asbestosis, or pneumonitis?</p>
+          <fieldset>
+            <input type="radio" name="chronic_disease" value="10">yes
+            <input type="radio" name="chronic_disease" value="1">no
+          </fieldset>
+        </section>
+
+
+
+        <section>
+          <p id="p-lable">9. What is your balanced diet? (1 means your diet consists more of sugary foods, and carbs
+            whereas 10 means you have a balanced diet consisting of equal portions of protein, carbs, and healthy
+            fats.)</p>
+          <input type="text" name="diet" class="diet" id="diet" placeholder="Enter your Diet on scale of 1-10" />
+          <p id="p-lable">10. What is your BMI(Body Mass Index)?</p>
+          <input type="text" name="obesity" class="obesity" id="obesity"
+            placeholder="Enter your BMI on scale of 1-10" />
+        </section>
+
+
+
+        <section>
+          <p id="p-lable">
+            11. Does anyone in your family or work environment smoke, causing you to inhale second-hand smoke?</p>
+          <select name="passive_smoker" id="dropdown" class="drpodown-list">
+            <option value="" selected disabled>Select an option</option>
+            <option value="10">yes and frequently</option>
+            <option value="7">yes but not frequently</option>
+            <option value="5">sometimes</option>
+            <option value="2">rarely</option>
+            <option value="1">no</option>
+          </select>
+          <p id="p-lable">12. Do you experience chest pain?</p>
+          <fieldset>
+            <input type="radio" name="chest_pain1" value="10">yes
+            <input type="radio" name="chest_pain1" value="1">no
+          </fieldset>
+        </section>
+
+        <section>
+
+          <p id="p-lable">13. What would you rate the intensity of your pain on a scale of 1 to 10?</p>
+          <input type="text" name="chest_pain2" class="chest_pain2" id="chest_pain2"
+            placeholder="Enter your Intensity on scale of 1-10" />
+          <p id="p-lable">14. Have you suddenly started coughing blood?</p>
+          <select name="blood" id="dropdown" class="drpodown-list">
+            <option value="" selected disabled>Select an option</option>
+            <option value="9">frequently
+            <option value="6">has happened a few times
+            <option value="1">no
+          </select>
+        </section>
+
+
+
+        <section>
+          <p id="p-lable">15. Do you often feel tired for no particular reason? You might feel sleepy throughout the day
+            even after
+            getting a 6-8 hour sleep or might feel groggy or irritated due to tiredness?</p>
+          <select name="fatigue" id="dropdown" class="drpodown-list">
+            <option value="" selected disabled>Select an option</option>
+            <option value="10">yes, frequently</option>
+            <option value="8">often</option>
+            <option value="6">sometimes</option>
+            <option value="3">rarely</option>
+            <option value="1">never</option>
+          </select>
+        </section>
+
+        <div class="button" id="prev">&larr; Previous</div>
+        <div class="button" id="next">Next &rarr;</div>
+        <input class="button" type="submit" id="submit" style="height: 1%;"></input>
+      </form>
+
+      <div id="svg_wrap"></div>
+    </div>
+    <!-- tool ends -->
+
 
     <!-- Footer -->
     <div class="footer text-light">
@@ -343,19 +393,27 @@
               <h4 class="py-2">Quick Links</h4>
               <div class="d-flex align-items-center py-2">
                 <i class="fas fa-caret-right"></i>
-                <a href="index.html#about"><p class="ms-3">About</p></a>
+                <a href="index.html#about">
+                  <p class="ms-3">About</p>
+                </a>
               </div>
               <div class="d-flex align-items-center py-2">
                 <i class="fas fa-caret-right"></i>
-                <a href="index.html#services"><p class="ms-3">Services</p></a>
+                <a href="index.html#services">
+                  <p class="ms-3">Services</p>
+                </a>
               </div>
               <div class="d-flex align-items-center py-2">
                 <i class="fas fa-caret-right"></i>
-                <a href="index.html#plans"><p class="ms-3">Plans</p></a>
+                <a href="index.html#plans">
+                  <p class="ms-3">Plans</p>
+                </a>
               </div>
               <div class="d-flex align-items-center py-2">
                 <i class="fas fa-caret-right"></i>
-                <a href="index.html#contact"><p class="ms-3">Contact</p></a>
+                <a href="index.html#contact">
+                  <p class="ms-3">Contact</p>
+                </a>
               </div>
             </div>
           </div>
@@ -366,19 +424,27 @@
               <h4 class="py-2">Useful Links</h4>
               <div class="d-flex align-items-center py-2">
                 <i class="fas fa-caret-right"></i>
-                <a href="privacy.html"><p class="ms-3">Privacy</p></a>
+                <a href="privacy.html">
+                  <p class="ms-3">Privacy</p>
+                </a>
               </div>
               <div class="d-flex align-items-center py-2">
                 <i class="fas fa-caret-right"></i>
-                <a href="terms.html"><p class="ms-3">Terms</p></a>
+                <a href="terms.html">
+                  <p class="ms-3">Terms</p>
+                </a>
               </div>
               <div class="d-flex align-items-center py-2">
                 <i class="fas fa-caret-right"></i>
-                <a href="#your-link"><p class="ms-3">Disclaimer</p></a>
+                <a href="#your-link">
+                  <p class="ms-3">Disclaimer</p>
+                </a>
               </div>
               <div class="d-flex align-items-center py-2">
                 <i class="fas fa-caret-right"></i>
-                <a href="#your-link"><p class="ms-3">FAQ</p></a>
+                <a href="#your-link">
+                  <p class="ms-3">FAQ</p>
+                </a>
               </div>
             </div>
           </div>
@@ -394,13 +460,8 @@
             </p>
             <div class="d-flex align-items-center">
               <div class="input-group mb-3">
-                <input
-                  type="text"
-                  class="form-control p-2"
-                  placeholder="Enter Email"
-                  aria-label="Recipient's email"
-                  aria-describedby="button-addon2"
-                />
+                <input type="text" class="form-control p-2" placeholder="Enter Email" aria-label="Recipient's email"
+                  aria-describedby="button-addon2" />
                 <button class="btn-secondary text-light" id="button-addon2">
                   <i class="fas fa-envelope fa-lg"></i>
                 </button>
@@ -439,17 +500,17 @@
     <!-- end of back to top button -->
 
     <!-- Scripts -->
-    <script src="./js/bootstrap.min.js"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
     <!-- Bootstrap framework -->
-    <script src="./js/purecounter.min.js"></script>
+    <script src="{% static 'js/purecounter.min.js' %}"></script>
     <!-- Purecounter counter for statistics numbers -->
-    <script src="./js/swiper.min.js"></script>
+    <script src="{% static 'js/swiper.min.js' %}"></script>
     <!-- Swiper for image and text sliders -->
-    <script src="./js/aos.js"></script>
+    <script src="{% static 'js/aos.js' %}"></script>
     <!-- AOS on Animation Scroll -->
-    <script src="./js/script.js"></script>
-    <!-- Custom scripts -->
+    <script src="{% static 'js/script.js' %}"></script>
     <script src="{% static 'js/jQuery.js' %}"></script>
     <script src="{% static 'js/form.js' %}"></script>
-  </body>
+</body>
+
 </html>

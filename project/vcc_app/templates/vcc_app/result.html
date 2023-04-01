@@ -1,353 +1,353 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    prediction is: {{result}}
-</body>
-</html> -->
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="cache-control" content="max-age=0" />
-    <meta http-equiv="cache-control" content="no-cache" />
-    <meta http-equiv="pragma" content="no-cache" />
-    <!-- Webpage Title -->
-    <title>Breast Cancer Result</title>
 
-    <!-- Styles -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap"
-      rel="stylesheet"
-    />
-    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" />
-    <link href="{% static 'css/fontawesome-all.min.css' %}" rel="stylesheet" />
-    <link href="{% static 'css/aos.min.css' %}" rel="stylesheet" />
-    <link href="{% static 'css/swiper.css' %}" rel="stylesheet" />
-    <link href="{% static 'css/style.css' %}" rel="stylesheet" />
-    <link href="{% static 'css/form.css' %}" rel="stylesheet" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="cache-control" content="max-age=0" />
+  <meta http-equiv="cache-control" content="no-cache" />
+  <meta http-equiv="pragma" content="no-cache" />
 
-    <!-- Favicon -->
-    <link rel="icon" href="./assets/images/favicon.png" />
-  </head>
-  <body>
-    <!-- Navigation -->
-    <nav
-      id="navbar"
-      class="navbar navbar-expand-lg fixed-top navbar-dark"
-      aria-label="Main navigation"
-    >
-      <div class="container">
-        <!-- Image Logo -->
-        <!-- <a class="navbar-brand logo-image" href="index.html"><img src="images/logo.svg" alt="alternative"></a> -->
+  <!--jsPDF
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js">
+        </script>
+      -->
+  <script src="js/jsPDF/dist/jspdf.umd.js"></script>
+  <!-- Webpage Title -->
+  <title>Breast Cancer Result</title>
 
-        <!-- Text Logo - Use this if you don't have a graphic logo -->
-        <a class="navbar-brand logo-text" href="index.html"
-          >Virtual Cancer Care</a
-        >
 
-        <button
-          class="navbar-toggler p-0 border-0"
-          type="button"
-          id="navbarSideCollapse"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
 
-        <div
-          class="navbar-collapse offcanvas-collapse"
-          id="navbarsExampleDefault"
-        >
-          <ul class="navbar-nav ms-auto navbar-nav-scroll">
-            <li class="nav-item">
-              <a
-                class="nav-link active"
-                aria-current="page"
-                href="index.html#header"
-                >Home</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="index.html#about">About</a>
-            </li>
+  <!-- Styles -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/fontawesome-all.min.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/aos.min.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/swiper.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/form.css' %}" rel="stylesheet" />
 
-            <li class="nav-item">
-              <a class="nav-link" href="index.html#plans">Plans</a>
-            </li>
+  <!-- Favicon -->
+  <link rel="icon" href="./assets/images/favicon.png" />
+</head>
 
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                id="dropdown01"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-                href="#"
-                >Tools</a
-              >
+<body>
+  <!-- Navigation -->
+  <nav id="navbar" class="navbar navbar-expand-lg fixed-top navbar-dark" aria-label="Main navigation">
+    <div class="container">
+      <!-- Image Logo -->
+      <!-- <a class="navbar-brand logo-image" href="index.html"><img src="images/logo.svg" alt="alternative"></a> -->
 
-              <ul class="dropdown-menu" aria-labelledby="dropdown01">
-                <li>
-                  <a class="dropdown-item" href="{% url 'leukemia' %}"
-                    >Leukemia Cancer Prediction Tool</a
-                  >
-                </li>
-                <li><div class="dropdown-divider"></div></li>
-                <li>
-                  <a class="dropdown-item" href="{% url 'bcancer' %}"
-                    >Breast Cancer Prediction Tool</a
-                  >
-                </li>
-                <li><div class="dropdown-divider"></div></li>
-                <li>
-                  <a class="dropdown-item" href="{% url 'lung' %}"
-                    >Lung Cancer Precition Tool</a
-                  >
-                </li>
-              </ul>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="index.html#contact">Contact</a>
-            </li>
-          </ul>
+      <!-- Text Logo - Use this if you don't have a graphic logo -->
+      <a class="navbar-brand logo-text" href="index.html">Virtual Cancer Care</a>
+
+      <button class="navbar-toggler p-0 border-0" type="button" id="navbarSideCollapse" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav ms-auto navbar-nav-scroll">
           <li class="nav-item">
-            <a
-              class="nav-link active"
-              aria-current="page"
-              href="{% url 'log' %}"
-              >Login/Signup</a
-            >
+            <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Home</a>
           </li>
-        </div>
-        <!-- end of navbar-collapse -->
-      </div>
-      <!-- end of container -->
-    </nav>
-    <!-- end of navbar -->
-    <!-- end of navigation -->
+          <li class="nav-item">
+            <a class="nav-link" href="#about">About</a>
+          </li>
+          <!-- <li class="nav-item">
+                        <a class="nav-link" href="#services">Tools</a>
+                    </li> -->
+          <li class="nav-item">
+            <a class="nav-link" href="#Blog/News">Blog/News</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="false"
+              href="#">Tools</a>
 
-    <p
-      style="
+            <ul class="dropdown-menu" aria-labelledby="dropdown01">
+              <li>
+                <a class="dropdown-item" href="{% url 'leukemia' %}">Leukemia Cancer Prediction Tool</a>
+              </li>
+              <li>
+                <div class="dropdown-divider"></div>
+              </li>
+              <li>
+                <a class="dropdown-item" href="{% url 'bcancer' %}">Breast Cancer Prediction Tool</a>
+              </li>
+              <li>
+                <div class="dropdown-divider"></div>
+              </li>
+              <li>
+                <a class="dropdown-item" href="{% url 'lung' %}">Lung Cancer Precition Tool</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Contact</a>
+          </li>
+
+          {% if user.is_authenticated %}
+          <li>
+            <a class="nav-link active" aria-current="page" href="#">{{ username }}</a>
+          </li>
+          <li>
+
+            {% csrf_token %}
+            <a class="nav-link active" type="submit" href="{% url 'logout' %}">Logout</a>
+
+          </li>
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'log' %}">Login/Signup</a>
+          </li>
+          {% endif %}
+
+
+        </ul>
+        </span>
+      </div>
+      <!-- end of navbar-collapse -->
+    </div>
+    <!-- end of container -->
+  </nav>
+  <!-- end of navbar -->
+  <!-- end of navigation -->
+
+
+  <div id="makepdf"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js">
+  </script>
+  <script>
+    var button = document.getElementById("button");
+    button.addEventListener("click", function () {
+      var doc = new jsPDF("p", "mm", [300, 300]);
+      var makePDF = document.querySelector("#makepdf");
+
+      // fromHTML Method
+      doc.fromHTML(makePDF);
+      doc.save("output.pdf");
+    });
+  </script>
+  <p style="
         color: rgb(255, 255, 255);
         text-align: center;
         margin: 20px 0;
         padding: 10px;
         padding-top: 10%;
-      "
-    >
-      Entered values:
-    </p>
+      ">
+    Entered values:
+  </p>
 
-    <ul
-      style="
+  <ul style="
         color: rgb(255, 255, 255);
         text-align: center;
         margin: 0 auto;
         padding: 0;
         list-style-type: none;
-      "
-    >
-      <li style="margin: 10px 0; display: inline-block; width: 30%">
-        Radius mean: {{ inputs.radius_mean }}
-      </li>
-      <li style="margin: 10px 0; display: inline-block; width: 30%">
-        Perimeter mean: {{ inputs.perimeter_mean }}
-      </li>
-      <li style="margin: 10px 0; display: inline-block; width: 30%">
-        Area mean: {{ inputs.area_mean }}
-      </li>
+      ">
+    <li style="margin: 10px 0; display: inline-block; width: 30%">
+      Radius mean: {{ inputs.radius_mean }}
+    </li>
+    <li style="margin: 10px 0; display: inline-block; width: 30%">
+      Perimeter mean: {{ inputs.perimeter_mean }}
+    </li>
+    <li style="margin: 10px 0; display: inline-block; width: 30%">
+      Area mean: {{ inputs.area_mean }}
+    </li>
 
-      <li style="margin: 10px 0; display: inline-block; width: 30%">
-        Concavity mean: {{ inputs.concavity_mean }}
-      </li>
-      <li style="margin: 10px 0; display: inline-block; width: 30%">
-        Concave points mean: {{ inputs.concave_points_mean }}
-      </li>
+    <li style="margin: 10px 0; display: inline-block; width: 30%">
+      Concavity mean: {{ inputs.concavity_mean }}
+    </li>
+    <li style="margin: 10px 0; display: inline-block; width: 30%">
+      Concave points mean: {{ inputs.concave_points_mean }}
+    </li>
 
-      <li style="margin: 10px 0; display: inline-block; width: 30%">
-        Radius worst: {{ inputs.radius_worst }}
-      </li>
-      <li style="margin: 10px 0; display: inline-block; width: 30%">
-        Perimeter worst: {{ inputs.perimeter_worst }}
-      </li>
-      <li style="margin: 10px 0; display: inline-block; width: 30%">
-        Area worst: {{ inputs.area_worst }}
-      </li>
+    <li style="margin: 10px 0; display: inline-block; width: 30%">
+      Radius worst: {{ inputs.radius_worst }}
+    </li>
+    <li style="margin: 10px 0; display: inline-block; width: 30%">
+      Perimeter worst: {{ inputs.perimeter_worst }}
+    </li>
+    <li style="margin: 10px 0; display: inline-block; width: 30%">
+      Area worst: {{ inputs.area_worst }}
+    </li>
 
-      <li style="margin: 10px 0; display: inline-block; width: 30%">
-        Concavity worst: {{ inputs.concavity_worst }}
-      </li>
-      <li style="margin: 10px 0; display: inline-block; width: 30%">
-        Concave points worst: {{ inputs.concave_points_worst }}
-      </li>
-    </ul>
-    <header style="text-align: center">
-      <div
-        style="
-          color: white;
-          font-size: large;
-          padding-top: 5%;
-          padding-bottom: 5%;
-        "
-      >
-        Prediction is: {{result}}
-      </div>
-    </header>
+    <li style="margin: 10px 0; display: inline-block; width: 30%">
+      Concavity worst: {{ inputs.concavity_worst }}
+    </li>
+    <li style="margin: 10px 0; display: inline-block; width: 30%">
+      Concave points worst: {{ inputs.concave_points_worst }}
+    </li>
+  </ul>
 
-    <!-- Footer -->
-    <div class="footer text-light">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-3 py-4 py-md-5">
-            <div class="d-flex align-items-center">
-              <h4 class="">Virtual Cancer Care</h4>
+
+  <div class="row"
+    style="border: 1px solid white; box-sizing: border-box; margin: 0 auto; margin-bottom: 3%; margin-top: 3%;color: white; padding: 10px; width: 28%;">
+    <label style="display: block; font-weight: bold; margin-bottom: 5px;">Prediction:</label>
+    <span style="display: block;">{{ result }}</span>
+  </div>
+  <a href="{% url 'generate_pdf_bcancer' %}" style="color: blue;">
+    <button style="margin-bottom: 5%;">Generate PDF</button>
+  </a>
+
+  <!-- Footer -->
+  <div class="footer text-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3 py-4 py-md-5">
+          <div class="d-flex align-items-center">
+            <h4 class="">Virtual Cancer Care</h4>
+          </div>
+          <p class="py-3 para-light">Follow Us!</p>
+          <div class="d-flex">
+            <div class="me-3">
+              <a href="#your-link">
+                <i class="fab fa-facebook-f fa-2x py-2"></i>
+              </a>
             </div>
-            <p class="py-3 para-light">Follow Us!</p>
-            <div class="d-flex">
-              <div class="me-3">
-                <a href="#your-link">
-                  <i class="fab fa-facebook-f fa-2x py-2"></i>
-                </a>
-              </div>
-              <div class="me-3">
-                <a href="#your-link">
-                  <i class="fab fa-twitter fa-2x py-2"></i>
-                </a>
-              </div>
-              <div class="me-3">
-                <a href="#your-link">
-                  <i class="fab fa-instagram fa-2x py-2"></i>
-                </a>
-              </div>
+            <div class="me-3">
+              <a href="#your-link">
+                <i class="fab fa-twitter fa-2x py-2"></i>
+              </a>
+            </div>
+            <div class="me-3">
+              <a href="#your-link">
+                <i class="fab fa-instagram fa-2x py-2"></i>
+              </a>
             </div>
           </div>
-          <!-- end of col -->
-
-          <div class="col-lg-3 py-4 py-md-5">
-            <div>
-              <h4 class="py-2">Quick Links</h4>
-              <div class="d-flex align-items-center py-2">
-                <i class="fas fa-caret-right"></i>
-                <a href="index.html#about"><p class="ms-3">About</p></a>
-              </div>
-              <div class="d-flex align-items-center py-2">
-                <i class="fas fa-caret-right"></i>
-                <a href="index.html#services"><p class="ms-3">Services</p></a>
-              </div>
-              <div class="d-flex align-items-center py-2">
-                <i class="fas fa-caret-right"></i>
-                <a href="index.html#plans"><p class="ms-3">Plans</p></a>
-              </div>
-              <div class="d-flex align-items-center py-2">
-                <i class="fas fa-caret-right"></i>
-                <a href="index.html#contact"><p class="ms-3">Contact</p></a>
-              </div>
-            </div>
-          </div>
-          <!-- end of col -->
-
-          <div class="col-lg-3 py-4 py-md-5">
-            <div>
-              <h4 class="py-2">Useful Links</h4>
-              <div class="d-flex align-items-center py-2">
-                <i class="fas fa-caret-right"></i>
-                <a href="privacy.html"><p class="ms-3">Privacy</p></a>
-              </div>
-              <div class="d-flex align-items-center py-2">
-                <i class="fas fa-caret-right"></i>
-                <a href="terms.html"><p class="ms-3">Terms</p></a>
-              </div>
-              <div class="d-flex align-items-center py-2">
-                <i class="fas fa-caret-right"></i>
-                <a href="#your-link"><p class="ms-3">Disclaimer</p></a>
-              </div>
-              <div class="d-flex align-items-center py-2">
-                <i class="fas fa-caret-right"></i>
-                <a href="#your-link"><p class="ms-3">FAQ</p></a>
-              </div>
-            </div>
-          </div>
-          <!-- end of col -->
-
-          <div class="col-lg-3 py-4 py-md-5">
-            <div class="d-flex align-items-center">
-              <h4>Newsletter</h4>
-            </div>
-            <p class="py-3 para-light">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Laboriosam, ab.
-            </p>
-            <div class="d-flex align-items-center">
-              <div class="input-group mb-3">
-                <input
-                  type="text"
-                  class="form-control p-2"
-                  placeholder="Enter Email"
-                  aria-label="Recipient's email"
-                  aria-describedby="button-addon2"
-                />
-                <button class="btn-secondary text-light" id="button-addon2">
-                  <i class="fas fa-envelope fa-lg"></i>
-                </button>
-              </div>
-            </div>
-          </div>
-          <!-- end of col -->
         </div>
-        <!-- end of row -->
+        <!-- end of col -->
+
+        <div class="col-lg-3 py-4 py-md-5">
+          <div>
+            <h4 class="py-2">Quick Links</h4>
+            <div class="d-flex align-items-center py-2">
+              <i class="fas fa-caret-right"></i>
+              <a href="index.html#about">
+                <p class="ms-3">About</p>
+              </a>
+            </div>
+            <div class="d-flex align-items-center py-2">
+              <i class="fas fa-caret-right"></i>
+              <a href="index.html#services">
+                <p class="ms-3">Services</p>
+              </a>
+            </div>
+            <div class="d-flex align-items-center py-2">
+              <i class="fas fa-caret-right"></i>
+              <a href="index.html#plans">
+                <p class="ms-3">Plans</p>
+              </a>
+            </div>
+            <div class="d-flex align-items-center py-2">
+              <i class="fas fa-caret-right"></i>
+              <a href="index.html#contact">
+                <p class="ms-3">Contact</p>
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- end of col -->
+
+        <div class="col-lg-3 py-4 py-md-5">
+          <div>
+            <h4 class="py-2">Useful Links</h4>
+            <div class="d-flex align-items-center py-2">
+              <i class="fas fa-caret-right"></i>
+              <a href="privacy.html">
+                <p class="ms-3">Privacy</p>
+              </a>
+            </div>
+            <div class="d-flex align-items-center py-2">
+              <i class="fas fa-caret-right"></i>
+              <a href="terms.html">
+                <p class="ms-3">Terms</p>
+              </a>
+            </div>
+            <div class="d-flex align-items-center py-2">
+              <i class="fas fa-caret-right"></i>
+              <a href="#your-link">
+                <p class="ms-3">Disclaimer</p>
+              </a>
+            </div>
+            <div class="d-flex align-items-center py-2">
+              <i class="fas fa-caret-right"></i>
+              <a href="#your-link">
+                <p class="ms-3">FAQ</p>
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- end of col -->
+
+        <div class="col-lg-3 py-4 py-md-5">
+          <div class="d-flex align-items-center">
+            <h4>Newsletter</h4>
+          </div>
+          <p class="py-3 para-light">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            Laboriosam, ab.
+          </p>
+          <div class="d-flex align-items-center">
+            <div class="input-group mb-3">
+              <input type="text" class="form-control p-2" placeholder="Enter Email" aria-label="Recipient's email"
+                aria-describedby="button-addon2" />
+              <button class="btn-secondary text-light" id="button-addon2">
+                <i class="fas fa-envelope fa-lg"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- end of col -->
       </div>
-      <!-- end of container -->
+      <!-- end of row -->
     </div>
-    <!-- end of footer -->
+    <!-- end of container -->
+  </div>
+  <!-- end of footer -->
 
-    <!-- Bottom -->
-    <div class="bottom py-2 text-light">
-      <div class="container d-flex justify-content-between">
-        <div>
-          <p>Copyright © Your name</p>
-        </div>
-        <div>
-          <i class="fab fa-cc-visa fa-lg p-1"></i>
-          <i class="fab fa-cc-mastercard fa-lg p-1"></i>
-          <i class="fab fa-cc-paypal fa-lg p-1"></i>
-          <i class="fab fa-cc-amazon-pay fa-lg p-1"></i>
-        </div>
+  <!-- Bottom -->
+  <div class="bottom py-2 text-light">
+    <div class="container d-flex justify-content-between">
+      <div>
+        <p>Copyright © Your name</p>
       </div>
-      <!-- end of container -->
+      <div>
+        <i class="fab fa-cc-visa fa-lg p-1"></i>
+        <i class="fab fa-cc-mastercard fa-lg p-1"></i>
+        <i class="fab fa-cc-paypal fa-lg p-1"></i>
+        <i class="fab fa-cc-amazon-pay fa-lg p-1"></i>
+      </div>
     </div>
-    <!-- end of bottom -->
+    <!-- end of container -->
+  </div>
+  <!-- end of bottom -->
 
-    <!-- Back To Top Button -->
-    <button onclick="topFunction()" id="myBtn">
-      <img src="assets/images/up-arrow.png" alt="alternative" />
-    </button>
-    <!-- end of back to top button -->
+  <!-- Back To Top Button -->
+  <button onclick="topFunction()" id="myBtn">
+    <img src="assets/images/up-arrow.png" alt="alternative" />
+  </button>
+  <!-- end of back to top button -->
 
-    <!-- Scripts -->
-    <script src="./js/bootstrap.min.js"></script>
-    <!-- Bootstrap framework -->
-    <script src="./js/purecounter.min.js"></script>
-    <!-- Purecounter counter for statistics numbers -->
-    <script src="./js/swiper.min.js"></script>
-    <!-- Swiper for image and text sliders -->
-    <script src="./js/aos.js"></script>
-    <!-- AOS on Animation Scroll -->
-    <script src="./js/script.js"></script>
-    <!-- Custom scripts -->
-    <script src="{% static 'js/jQuery.js' %}"></script>
-    <script src="{% static 'js/form.js' %}"></script>
-  </body>
+  <!-- Scripts -->
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  <!-- Bootstrap framework -->
+  <script src="{% static 'js/purecounter.min.js' %}"></script>
+  <!-- Purecounter counter for statistics numbers -->
+  <script src="{% static 'js/swiper.min.js' %}"></script>
+  <!-- Swiper for image and text sliders -->
+  <script src="{% static 'js/aos.js' %}"></script>
+  <!-- AOS on Animation Scroll -->
+  <script src="{% static 'js/script.js' %}"></script>
+  <!-- Custom scripts -->
+</body>
+<!-- Custom scripts -->
+<script src="{% static 'js/jQuery.js' %}"></script>
+<script src="{% static 'js/form.js' %}"></script>
+</body>
+
 </html>

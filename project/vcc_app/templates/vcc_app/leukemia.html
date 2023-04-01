@@ -1,406 +1,414 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Webpage Title -->
-    <title>Leukemia</title>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Styles -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap"
-      rel="stylesheet"
-    />
-    <link href="{% static 'css/bootstrap.min.css' %}"rel="stylesheet" />
-    <link href="{% static 'css/fontawesome-all.min.css' %}" rel="stylesheet" />
-    <link href="{% static 'css/aos.min.css' %}" rel="stylesheet" />
-    <link href="{% static 'css/swiper.css' %}" rel="stylesheet" />
-    <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+  <!-- Webpage Title -->
+  <title>Leukemia</title>
 
-    <!-- Favicon -->
-    <link rel="icon" href="./assets/images/favicon.png" /><style>
-      #image-input {
-        display: none;
-      }
-      #image-label {
-        background-color: #ccc;
-        padding: 10px;
-        border-radius: 5px;
-        cursor: pointer;
-        display: inline-block;
-      }
-    </style>
+  <!-- Styles -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/fontawesome-all.min.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/aos.min.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/swiper.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="./assets/images/favicon.png" />
+
+  <style>
+    body {
+      background-color: var(--light);
+    }
+
+    :root {
+      --primary: #1c262f;
+      --primary-light: #212d37;
+      --secondary: #d2d2d2;
+      --tertiary: #00dabf;
+      --gradient: linear-gradient(to right, #0ee951, #00dabf);
+      --light: #fff;
+    }
 
 
-  </head>
-  <body>
-    <!-- Navigation -->
-    <nav
-      id="navbar"
-      class="navbar navbar-expand-lg fixed-top navbar-dark"
-      aria-label="Main navigation"
-    >
-      <div class="container">
-        <!-- Image Logo -->
-        <!-- <a class="navbar-brand logo-image" href="index.html"><img src="images/logo.svg" alt="alternative"></a> -->
+    /* paragraph */
 
-        <!-- Text Logo - Use this if you don't have a graphic logo -->
-        <a class="navbar-brand logo-text" href="index.html">Mirko</a>
+    /* #info{
+      font-family: Arial, sans-serif;
+      font-weight: 50;
+      font-size: 1.1rem;
+      text-align: center;
+      padding: 20px;
+      border: 1px solid #ffffff;
+      border-radius: 5px;
+      margin-top: 2%;
+      margin: 20px auto;
+      color: var(--light);
+    } */
 
-        <button
-          class="navbar-toggler p-0 border-0"
-          type="button"
-          id="navbarSideCollapse"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
+    /* paragraph */
+    #image-input {
+      display: none;
+    }
 
-        <div
-          class="navbar-collapse offcanvas-collapse"
-          id="navbarsExampleDefault"
-        >
-          <ul class="navbar-nav ms-auto navbar-nav-scroll">
-            <li class="nav-item">
-              <a
-                class="nav-link active"
-                aria-current="page"
-                href="index.html#header"
-                >Home</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="index.html#about">About</a>
-            </li>
-            <!--li class="nav-item">
-              <a class="nav-link" href="index.html#services">Services</a>
-            </li-->
-            <li class="nav-item">
-              <a class="nav-link" href="index.html#plans">Plans</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                id="dropdown01"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-                href="#"
-                >Drop</a
-              >
+    #image-label {
+      background-color: var(--primary);
+      padding: 8px;
+      border-radius: unset;
+      color: white;
+      margin-top: 2%;
+      margin: 20px auto;
+      text-align: center;
+      /* padding: 20px; */
+      margin-left: 33%;
 
-              <ul class="dropdown-menu" aria-labelledby="dropdown01">
-                <li>
-                  <a class="dropdown-item" href="article.html"
-                    >Article Details</a
-                  >
-                </li>
-                <li><div class="dropdown-divider"></div></li>
-                <li>
-                  <a class="dropdown-item" href="terms.html"
-                    >Terms Conditions</a
-                  >
-                </li>
-                <li><div class="dropdown-divider"></div></li>
-                <li>
-                  <a class="dropdown-item" href="privacy.html"
-                    >Privacy Policy</a
-                  >
-                </li>
-              </ul>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="index.html#contact">Contact</a>
-            </li>
-          </ul>
-          <span class="nav-item social-icons">
-            <span class="fa-stack">
-              <a href="#your-link">
-                <i class="fas fa-circle fa-stack-2x"></i>
-                <i class="fab fa-facebook-f fa-stack-1x"></i>
-              </a>
-            </span>
-            <span class="fa-stack">
-              <a href="#your-link">
-                <i class="fas fa-circle fa-stack-2x"></i>
-                <i class="fab fa-twitter fa-stack-1x"></i>
-              </a>
-            </span>
-          </span>
-        </div>
-        <!-- end of navbar-collapse -->
+    }
+
+    h1 {
+      font-family: Arial, sans-serif;
+      font-weight: 50;
+      font-size: 3em;
+      text-align: center;
+      padding: 20px;
+      border: 1px solid #ffffff;
+      border-radius: 5px;
+      margin-top: 2%;
+      margin: 20px auto;
+    }
+
+
+    #preview {
+      display: block;
+      margin: 0 auto;
+      padding: 10px;
+      border: 1px solid #fff;
+      max-width: 100%;
+      height: auto;
+      background-color: var(--primary);
+      text-align: center;
+      margin-top: 3%;
+      /* margin-bottom: 5%; */
+    }
+  </style>
+
+
+</head>
+
+<body>
+  <!-- Navigation -->
+  <script>
+    function previewImage(event) {
+      var reader = new FileReader();
+      reader.onload = function () {
+        var output = document.getElementById('preview');
+        output.style.display = 'block';
+        output.src = reader.result;
+      };
+      reader.readAsDataURL(event.target.files[0]);
+    };
+  </script>
+  <nav id="navbar" class="navbar navbar-expand-lg fixed-top navbar-dark" aria-label="Main navigation">
+    <div class="container">
+      <!-- Image Logo -->
+      <!-- <a class="navbar-brand logo-image" href="index.html"><img src="images/logo.svg" alt="alternative"></a> -->
+
+      <!-- Text Logo - Use this if you don't have a graphic logo -->
+      <a class="navbar-brand logo-text" href="index.html">Virtual Cancer Care</a>
+
+      <button class="navbar-toggler p-0 border-0" type="button" id="navbarSideCollapse" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav ms-auto navbar-nav-scroll">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#about">About</a>
+          </li>
+          <!-- <li class="nav-item">
+                        <a class="nav-link" href="#services">Tools</a>
+                    </li> -->
+          <li class="nav-item">
+            <a class="nav-link" href="#Blog/News">Blog/News</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="false"
+              href="#">Tools</a>
+
+            <ul class="dropdown-menu" aria-labelledby="dropdown01">
+              <li>
+                <a class="dropdown-item" href="{% url 'leukemia' %}">Leukemia Cancer Prediction Tool</a>
+              </li>
+              <li>
+                <div class="dropdown-divider"></div>
+              </li>
+              <li>
+                <a class="dropdown-item" href="{% url 'bcancer' %}">Breast Cancer Prediction Tool</a>
+              </li>
+              <li>
+                <div class="dropdown-divider"></div>
+              </li>
+              <li>
+                <a class="dropdown-item" href="{% url 'lung' %}">Lung Cancer Precition Tool</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Contact</a>
+          </li>
+
+          {% if user.is_authenticated %}
+          <li>
+            <a class="nav-link active" aria-current="page" href="#">{{ username }}</a>
+          </li>
+          <li>
+
+            {% csrf_token %}
+            <a class="nav-link active" type="submit" href="{% url 'logout' %}">Logout</a>
+
+          </li>
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'log' %}">Login/Signup</a>
+          </li>
+          {% endif %}
+
+
+        </ul>
+        </span>
       </div>
-      <!-- end of container -->
-    </nav>
-    <!-- end of navbar -->
-    <!-- end of navigation -->
+      <!-- end of navbar-collapse -->
+    </div>
+    <!-- end of container -->
+  </nav>
+  <!-- end of navbar -->
+  <!-- end of navigation -->
 
-    <!-- Header -->
-    <header class="ex-header">
-      <div class="container">
-        <div class="row">
-          <div class="col-xl-10 offset-xl-1">
+  <!-- Header -->
+  <!-- <header class="ex-header">
+      
             <h1>Leukemia Prediction</h1>
-          </div>
-          <!-- end of col -->
-        </div>
-        <!-- end of row -->
-      </div>
-      <!-- end of container -->
-    </header>
+          
+      
     <!-- end of ex-header -->
-    <!-- end of header -->
+  <!-- end of header -->
 
-    <!-- Basic -->
-    <div class="ex-basic-1 pt-5 pb-5">
-      <div class="container text-center">
-        <div class="row">
-          <div class="col-lg-12">
-            <img
-              class="img-fluid mt-5 mb-3"
-              src="assets/images/article-details-large.jpg"
-              alt="alternative"
-            />
-          </div>
-          <!-- end of col -->
+  <!-- Basic -->
+
+  <header class="ex-header"></header>
+  <!-- About -->
+  <section class="about d-flex align-items-center text-light py-5" id="about">
+    <div class="container">
+      <div class="row d-flex align-items-center">
+        <div class="col-lg-7" data-aos="fade-right">
+          <p>ABOUT US</p>
+          <h1>
+
+            Leukemia Prediction <br />
+          </h1>
+          <p class="py-2 para-light">
+            Acute lymphoblastic leukemia (ALL) is the most common type of childhood cancer and accounts for
+            approximately 25% of the pediatric cancers.
+
+            These cells have been segmented from microscopic images and are representative of images in the real-world
+            because they contain some staining noise and illumination errors, although these errors have largely been
+            fixed in the course of acquisition.
+
+            The task of identifying immature leukemic blasts from normal cells under the microscope is challenging due
+            to morphological similarity and thus the ground truth labels were annotated by an expert oncologist.
+
+            In total There are 15,135 images from 118 patients with two labelled classes:
+
+          <ul>
+            <li>Normal cell</li>
+            <li>Leukemia blast.</li>
+          </ul>
+          </p>
         </div>
-        <!-- end of row -->
-      </div>
-      <!-- end of container -->
-    </div>
-    <!-- end of ex-basic-1 -->
-    <!-- end of basic -->
-
-    <!-- Basic -->
-    <div class="ex-basic-1 pt-4">
-      <div class="container">
-        <div class="row">
-          
-          <!-- end of col -->
-        </div>
-        <!-- end of row -->
-      </div>
-      <!-- end of container -->
-    </div>
-    <!-- end of ex-basic-1 -->
-    <!-- end of basic -->
-
-    <!-- Cards 
-    <div class="ex-cards-1 pt-3 pb-3">
-      <div class="container">
-        <div class="row col-xl-10 offset-xl-1">
-          
-          <div class="card col-lg-4">
-            <ul class="list-unstyled">
-              <li class="d-flex">
-                <span class="fa-stack">
-                  <span class="fas fa-circle fa-stack-2x"></span>
-                  <span class="fa-stack-1x">1</span>
-                </span>
-                
-              </li>
-            </ul>
-          </div>
-          
-
-          
-          <div class="card col-lg-4">
-            <ul class="list-unstyled">
-              <li class="d-flex">
-                <span class="fa-stack">
-                  <span class="fas fa-circle fa-stack-2x"></span>
-                  <span class="fa-stack-1x">2</span>
-                </span>
-                
-              </li>
-            </ul>
-          </div>
-          
-
-          
-          <div class="card col-lg-4">
-            <ul class="list-unstyled">
-              <li class="d-flex">
-                <span class="fa-stack">
-                  <span class="fas fa-circle fa-stack-2x"></span>
-                  <span class="fa-stack-1x">2</span>
-                </span>
-                
-              </li>
-            </ul>
-          </div>
-           end of card -->
-        </div>
-        <!-- end of row -->
-      </div>
-      <!-- end of container -->
-    </div>
-    <!-- end of ex-cards-1 -->
-    <!-- end of cards -->
-
-    <!-- Basic -->
-    <div class="ex-basic-1 pt-3 pb-5">
-      
-      
-    </div>
-    <!-- end of ex-basic-1 -->
-    <!-- end of basic -->
-
-    <form action="{% url 'lresult' %}" method="post">
-      {% csrf_token %}
-      <!--
-        <label for="image" id="image-label">Choose an Image</label>
-      -->
-      <input type="file" id="image" class="image" accept="image/*">
-      <button type="submit">Upload</button>
-    </form>
-
-    <!-- Footer -->
-    <section class="footer text-light">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-3 py-4 py-md-5">
-            <div class="d-flex align-items-center">
-              <h4 class="">Mirko</h4>
-            </div>
-            
-            <div class="d-flex">
-              <div class="me-3">
-                <a href="#your-link">
-                  <i class="fab fa-facebook-f fa-2x py-2"></i>
-                </a>
-              </div>
-              <div class="me-3">
-                <a href="#your-link">
-                  <i class="fab fa-twitter fa-2x py-2"></i>
-                </a>
-              </div>
-              <div class="me-3">
-                <a href="#your-link">
-                  <i class="fab fa-instagram fa-2x py-2"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-          <!-- end of col -->
-
-          <div class="col-lg-3 py-4 py-md-5">
-            <div>
-              <h4 class="py-2">Quick Links</h4>
-              <div class="d-flex align-items-center py-2">
-                <i class="fas fa-caret-right"></i>
-                <a href="index.html#about"><p class="ms-3">About</p></a>
-              </div>
-              <div class="d-flex align-items-center py-2">
-                <i class="fas fa-caret-right"></i>
-                <a href="index.html#services"><p class="ms-3">Services</p></a>
-              </div>
-              <div class="d-flex align-items-center py-2">
-                <i class="fas fa-caret-right"></i>
-                <a href="index.html#plans"><p class="ms-3">Plans</p></a>
-              </div>
-              <div class="d-flex align-items-center py-2">
-                <i class="fas fa-caret-right"></i>
-                <a href="index.html#contact"><p class="ms-3">Contact</p></a>
-              </div>
-            </div>
-          </div>
-          <!-- end of col -->
-
-          <div class="col-lg-3 py-4 py-md-5">
-            <div>
-              <h4 class="py-2">Useful Links</h4>
-              <div class="d-flex align-items-center py-2">
-                <i class="fas fa-caret-right"></i>
-                <a href="privacy.html"><p class="ms-3">Privacy</p></a>
-              </div>
-              <div class="d-flex align-items-center py-2">
-                <i class="fas fa-caret-right"></i>
-                <a href="terms.html"><p class="ms-3">Terms</p></a>
-              </div>
-              <div class="d-flex align-items-center py-2">
-                <i class="fas fa-caret-right"></i>
-                <a href="#your-link"><p class="ms-3">Disclaimer</p></a>
-              </div>
-              <div class="d-flex align-items-center py-2">
-                <i class="fas fa-caret-right"></i>
-                <a href="#your-link"><p class="ms-3">FAQ</p></a>
-              </div>
-            </div>
-          </div>
-          <!-- end of col -->
-
-          <div class="col-lg-3 py-4 py-md-5">
-            <div class="d-flex align-items-center">
-              <h4>Newsletter</h4>
-            </div>
-            <p class="py-3 para-light">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Laboriosam, ab.
-            </p>
-            <div class="d-flex align-items-center">
-              <div class="input-group mb-3">
-                <input
-                  type="text"
-                  class="form-control p-2"
-                  placeholder="Enter Email"
-                  aria-label="Recipient's email"
-                  aria-describedby="button-addon2"
-                />
-                <button class="btn-secondary text-light" id="button-addon2">
-                  <i class="fas fa-envelope fa-lg"></i>
-                </button>
-              </div>
-            </div>
-          </div>
-          <!-- end of col -->
-        </div>
-        <!-- end of row -->
-      </div>
-      <!-- end of container -->
-    </section>
-    <!-- end of footer -->
-
-    <!-- Bottom -->
-    <div class="bottom py-2 text-light">
-      <div class="container d-flex justify-content-between">
-        <div>
-          <p>Copyright © Your name</p>
-        </div>
-        <div>
-          <i class="fab fa-cc-visa fa-lg p-1"></i>
-          <i class="fab fa-cc-mastercard fa-lg p-1"></i>
-          <i class="fab fa-cc-paypal fa-lg p-1"></i>
-          <i class="fab fa-cc-amazon-pay fa-lg p-1"></i>
+        <div class="col-lg-5 text-center py-4 py-sm-0" data-aos="fade-down">
+          <img class="img-fluid" src="{% static '/assets/images/tmp.jpg' %}" alt="My Image" alt="about" />
         </div>
       </div>
-      <!-- end of container -->
+      <!-- end of row -->
     </div>
-    <!-- end of bottom -->
+    <!-- end of container -->
+  </section>
+  <!-- end of about -->
 
-    <!-- Back To Top Button -->
-    <button onclick="topFunction()" id="myBtn">
-      <img src="assets/images/up-arrow.png" alt="alternative" />
-    </button>
-    <!-- end of back to top button -->
 
-    <!-- Scripts -->
-    <script src="./js/bootstrap.min.js"></script>
-    <!-- Bootstrap framework -->
-    <script src="./js/purecounter.min.js"></script>
-    <!-- Purecounter counter for statistics numbers -->
-    <script src="./js/swiper.min.js"></script>
-    <!-- Swiper for image and text sliders -->
-    <script src="./js/aos.js"></script>
-    <!-- AOS on Animation Scroll -->
-    <script src="./js/script.js"></script>
-    <!-- Custom scripts -->
-  </body>
+
+
+  <form action="{% url 'all' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <!-- <label for="image" id="image-label">Choose an Image</label> -->
+    <input type="file" name="image" id="image-label" class="image" accept="image/*" onchange="previewImage(event)">
+    <button type="submit" id="image-upload">Upload</button>
+  </form>
+
+  <img id="preview" src="#" alt="Preview Image">
+
+
+  <!-- Footer -->
+  <section class="footer text-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3 py-4 py-md-5">
+          <div class="d-flex align-items-center">
+            <h4 class="">Mirko</h4>
+          </div>
+
+          <div class="d-flex">
+            <div class="me-3">
+              <a href="#your-link">
+                <i class="fab fa-facebook-f fa-2x py-2"></i>
+              </a>
+            </div>
+            <div class="me-3">
+              <a href="#your-link">
+                <i class="fab fa-twitter fa-2x py-2"></i>
+              </a>
+            </div>
+            <div class="me-3">
+              <a href="#your-link">
+                <i class="fab fa-instagram fa-2x py-2"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- end of col -->
+
+        <div class="col-lg-3 py-4 py-md-5">
+          <div>
+            <h4 class="py-2">Quick Links</h4>
+            <div class="d-flex align-items-center py-2">
+              <i class="fas fa-caret-right"></i>
+              <a href="index.html#about">
+                <p class="ms-3">About</p>
+              </a>
+            </div>
+            <div class="d-flex align-items-center py-2">
+              <i class="fas fa-caret-right"></i>
+              <a href="index.html#services">
+                <p class="ms-3">Services</p>
+              </a>
+            </div>
+            <div class="d-flex align-items-center py-2">
+              <i class="fas fa-caret-right"></i>
+              <a href="index.html#plans">
+                <p class="ms-3">Plans</p>
+              </a>
+            </div>
+            <div class="d-flex align-items-center py-2">
+              <i class="fas fa-caret-right"></i>
+              <a href="index.html#contact">
+                <p class="ms-3">Contact</p>
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- end of col -->
+
+        <div class="col-lg-3 py-4 py-md-5">
+          <div>
+            <h4 class="py-2">Useful Links</h4>
+            <div class="d-flex align-items-center py-2">
+              <i class="fas fa-caret-right"></i>
+              <a href="privacy.html">
+                <p class="ms-3">Privacy</p>
+              </a>
+            </div>
+            <div class="d-flex align-items-center py-2">
+              <i class="fas fa-caret-right"></i>
+              <a href="terms.html">
+                <p class="ms-3">Terms</p>
+              </a>
+            </div>
+            <div class="d-flex align-items-center py-2">
+              <i class="fas fa-caret-right"></i>
+              <a href="#your-link">
+                <p class="ms-3">Disclaimer</p>
+              </a>
+            </div>
+            <div class="d-flex align-items-center py-2">
+              <i class="fas fa-caret-right"></i>
+              <a href="#your-link">
+                <p class="ms-3">FAQ</p>
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- end of col -->
+
+        <div class="col-lg-3 py-4 py-md-5">
+          <div class="d-flex align-items-center">
+            <h4>Newsletter</h4>
+          </div>
+          <p class="py-3 para-light">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            Laboriosam, ab.
+          </p>
+          <div class="d-flex align-items-center">
+            <div class="input-group mb-3">
+              <input type="text" class="form-control p-2" placeholder="Enter Email" aria-label="Recipient's email"
+                aria-describedby="button-addon2" />
+              <button class="btn-secondary text-light" id="button-addon2">
+                <i class="fas fa-envelope fa-lg"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- end of col -->
+      </div>
+      <!-- end of row -->
+    </div>
+    <!-- end of container -->
+  </section>
+  <!-- end of footer -->
+
+  <!-- Bottom -->
+  <div class="bottom py-2 text-light">
+    <div class="container d-flex justify-content-between">
+      <div>
+        <p>Copyright © Your name</p>
+      </div>
+      <div>
+        <i class="fab fa-cc-visa fa-lg p-1"></i>
+        <i class="fab fa-cc-mastercard fa-lg p-1"></i>
+        <i class="fab fa-cc-paypal fa-lg p-1"></i>
+        <i class="fab fa-cc-amazon-pay fa-lg p-1"></i>
+      </div>
+    </div>
+    <!-- end of container -->
+  </div>
+  <!-- end of bottom -->
+
+  <!-- Back To Top Button -->
+
+  <!-- Back To Top Button -->
+  <button onclick="topFunction()" id="myBtn">
+    <img src="assets/images/up-arrow.png" alt="alternative" />
+  </button>
+  <!-- end of back to top button -->
+
+  <!-- Scripts -->
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  <!-- Bootstrap framework -->
+  <script src="{% static 'js/purecounter.min.js' %}"></script>
+  <!-- Purecounter counter for statistics numbers -->
+  <script src="{% static 'js/swiper.min.js' %}"></script>
+  <!-- Swiper for image and text sliders -->
+  <script src="{% static 'js/aos.js' %}"></script>
+  <!-- AOS on Animation Scroll -->
+  <script src="{% static 'js/script.js' %}"></script>
+  <!-- Custom scripts -->
+</body>
+
 </html>

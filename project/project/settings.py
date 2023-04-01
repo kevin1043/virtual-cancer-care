@@ -20,6 +20,7 @@ from pathlib import Path
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEMPLATE_DIR = os.path.join(BASE_DIR, "templates")
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
+# INFO_DIR = os.path.join(BASE_DIR, "utils")
 # print(STATIC_DIR)
 
 # Quick-start development settings - unsuitable for production
@@ -162,4 +163,5 @@ EMAIL_HOST_PASSWORD = 'kgreyyhcwocqmjam'  # Your email password
 STATIC_URL = '/static/'
 STATICFILES_DIR = [
     STATIC_ROOT,
+    # INFO_DIR,
 ]
