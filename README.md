@@ -40,8 +40,9 @@ cd Virtual-Cancer-Care
 # Run the Django development server
 python manage.py runserver
 
-Note: Make sure to update the settings.py file with appropriate database credentials if you wish to use a MongoDB backend using Djongo.
 
+```
+Note: Make sure to update the settings.py file with appropriate database credentials if you wish to use a MongoDB backend using Djongo.
 ## Disclaimer
 
 It is important to note that the predictions made by Virtual Cancer Care are based on the available dataset and should not be taken as a definitive diagnosis. The website is currently under development and should not be considered as a substitute for professional medical advice. Users are advised to consult a qualified healthcare provider for accurate cancer diagnosis and treatment options.
