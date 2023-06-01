@@ -1,6 +1,6 @@
 # Virtual Cancer Care
 
-Virtual Cancer Care is a web-based application that utilizes three prediction-based models to predict the chances of lung cancer, breast cancer, and ALL (leukemia) cancer. The leukemia cancer prediction model is based on advanced image classification technology, making it one of the most advanced cancer prediction tools available.
+Virtual Cancer Care is a web-based application that utilizes three prediction-based models to predict the chances of lung cancer, breast cancer, and ALL (leukemia) cancer. The leukemia cancer prediction model is based on advanced image classification technology.
 
 ## Introduction
 
